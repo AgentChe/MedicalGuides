@@ -1,0 +1,20 @@
+//
+//  Appearance.swift
+//  Soccer
+//
+//  Created by Andrey Chernyshev on 23.04.2021.
+//
+
+import UIKit
+
+// TODO: заменить
+struct Appearance {
+    static let background = UIColor(integralRed: 9, green: 9, blue: 9)
+    static let primary = UIColor(integralRed: 58, green: 105, blue: 80)
+    static let second = UIColor(integralRed: 252, green: 216, blue: 132)
+    static let third = UIColor(integralRed: 106, green: 105, blue: 206)
+    static let white = UIColor.white
+    
+    static let custom31 = UIColor(integralRed: 31, green: 31, blue: 31)
+    static let custom33 = UIColor(integralRed: 33, green: 33, blue: 33)
+}
