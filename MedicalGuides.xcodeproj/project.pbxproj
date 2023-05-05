@@ -107,6 +107,7 @@
 		DEA082222A03F87400DF7D4B /* Avenir Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821F2A03F6C800DF7D4B /* Avenir Black.ttf */; };
 		DEA082232A03F87400DF7D4B /* Avenir Next LT Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821E2A03F6A700DF7D4B /* Avenir Next LT Pro Bold.otf */; };
 		DEA082242A03F87400DF7D4B /* Avenir Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821D2A03F68100DF7D4B /* Avenir Regular.ttf */; };
+		DEA082262A03FB7900DF7D4B /* API.json in Resources */ = {isa = PBXBuildFile; fileRef = DEA082252A03FB7900DF7D4B /* API.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +215,7 @@
 		DEA0821E2A03F6A700DF7D4B /* Avenir Next LT Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next LT Pro Bold.otf"; sourceTree = "<group>"; };
 		DEA0821F2A03F6C800DF7D4B /* Avenir Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Black.ttf"; sourceTree = "<group>"; };
 		DEA082202A03F82700DF7D4B /* Avenir Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Medium.ttf"; sourceTree = "<group>"; };
+		DEA082252A03FB7900DF7D4B /* API.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = API.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				DE3F5E962A03EE1A00BCC039 /* Info.plist */,
 				DE3F5EA02A03F00F00BCC039 /* GoogleService-Info.plist */,
 				DE3F5E932A03EE1A00BCC039 /* LaunchScreen.storyboard */,
+				DEA082252A03FB7900DF7D4B /* API.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA082262A03FB7900DF7D4B /* API.json in Resources */,
 				DEA082212A03F87400DF7D4B /* Avenir Medium.ttf in Resources */,
 				DEA082222A03F87400DF7D4B /* Avenir Black.ttf in Resources */,
 				DEA082232A03F87400DF7D4B /* Avenir Next LT Pro Bold.otf in Resources */,

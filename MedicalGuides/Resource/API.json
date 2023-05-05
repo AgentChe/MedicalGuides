@@ -1,0 +1,211 @@
+/api/drugs
+->
+{
+    "search": "Anti" // если пустое или отсутствует, то весь список
+}
+<-
+[
+    {
+        "id": 1,
+        "name": "Antianemics",
+        "saved": false
+    }
+]
+
+/api/drugs/details
+->
+{
+    "id": 1
+}
+<-
+{
+    "id": 1,
+    "name": "Antianemics",
+    "saved": false,
+    "sections": [
+        {
+            "name": "Uses",
+            "blocks": [
+                {
+                    "title": "How to use ibuprofen oral", // может отсутствовать или быть nil
+                    "text": "If you are taking the over-the-counter product, read all directions on the product package before taking this medication. If your doctor has prescribed this medication, read the Medication Guide provided by your pharmacist before you start taking ibuprofen and each time you get a refill. If you have any questions, ask your doctor or pharmacist."
+                }
+            ]
+        }
+    ]
+}
+
+/api/drugs/save
+->
+{
+    "drug_id": 1
+}
+<-
+{
+    "success": true
+}
+
+/api/drugs/unsave
+->
+{
+    "drugs_ids": [1] // массив, потому что можно группой удалить из избранного
+}
+<-
+{
+    "success": true
+}
+
+/api/drugs/bookmarks
+<-
+[
+    {
+        "id": 1,
+        "name": "Antianemics",
+        "saved": true
+    }
+]
+
+/api/interaction_checker
+->
+{
+    "drug_ids": [1, 2, 3]
+}
+<-
+{
+    "id": 1,
+    "drug_ids": [1, 2, 3],
+    "result": {
+        "title": "Minor",
+        "subtitle": "Interaction is unlikely, minor, or nonsignificant.",
+        "text": "Ibuprofen will increase the level or effect of Acyclovir by acidic drugs competing for the same pathway through the kidney.",
+        "side_effect": 0, // TODO: создать перечисление, когда станут известны все возможные побочные эффекты
+        "saved": false
+    }
+}
+
+/api/interaction_checker/save
+->
+{
+    "drugs_interaction_id": 1 // id из респонса /api/interaction_checker
+}
+<-
+{
+    "success": true
+}
+
+/api/interaction_checker/unsave
+->
+{
+    "drugs_interactions_ids": [1] // id из респонса /api/interaction_checker; массив, потому что можно группой удалить из избранного
+}
+<-
+{
+    "success": true
+}
+
+/api/interaction_checker/bookmarks
+<-
+[
+    {
+        "id": 1,
+        "drug_ids": [1, 2, 3],
+        "result": {
+            "title": "Minor",
+            "subtitle": "Interaction is unlikely, minor, or nonsignificant.",
+            "text": "Ibuprofen will increase the level or effect of Acyclovir by acidic drugs competing for the same pathway through the kidney.",
+            "side_effect": 0, // TODO: создать перечисление, когда станут известны все возможные побочные эффекты
+            "saved": true
+        }
+    }
+]
+
+/api/symptoms
+[
+    {
+        "id": 1,
+        "name": "Headache"
+    }
+]
+
+/api/symptom_checker
+->
+{
+    "age": 21,
+    "sex": 0 // 0 - male, 1 - female,
+    "symptoms_ids": [1, 2, 3],
+    "main_symptom_id": 1,
+    "pregnant": false,
+    "current_medications_ids": [1, 2, 3] // ids drugs
+    "conditions_ids": [1, 2, 3] // ids drugs
+}
+<-
+{
+    "conditions": [
+        {
+            "id": 1,
+            "name": "Benign Paroxysmal Positional Vertigo",
+            "saved": false,
+            "fair_match": 1 // 1 - 4
+        }
+    ]
+}
+
+/api/conditions/details
+->
+{
+    "id": 1
+}
+<-
+{
+    "id": 1,
+    "saved": false,
+    "details": {
+        "sections": [
+            {
+                "title": "Symptoms",
+                "text": "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"
+            }
+        ]
+    },
+    "treatment_options": {
+        "sections": [
+            {
+                "title": "Fact",
+                "text": "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"
+            }
+        ]
+    }
+}
+
+/api/conditions/save
+->
+{
+    "condition_id": 1
+}
+<-
+{
+    "success": true
+}
+
+/api/conditions/unsave
+->
+{
+    "conditions_ids": [1] // массив, потому что можно группой удалить из избранного
+}
+<-
+{
+    "success": true
+}
+
+/api/conditions/bookmarks
+<-
+{
+    "conditions": [
+        {
+            "id": 1,
+            "name": "Benign Paroxysmal Positional Vertigo",
+            "saved": false,
+            "fair_match": 1 // 1 - 4
+        }
+    ]
+}
