@@ -7,14 +7,11 @@
 
 import UIKit
 
-// TODO: заменить
 struct Appearance {
-    static let background = UIColor(integralRed: 9, green: 9, blue: 9)
-    static let primary = UIColor(integralRed: 58, green: 105, blue: 80)
-    static let second = UIColor(integralRed: 252, green: 216, blue: 132)
-    static let third = UIColor(integralRed: 106, green: 105, blue: 206)
-    static let white = UIColor.white
-    
-    static let custom31 = UIColor(integralRed: 31, green: 31, blue: 31)
-    static let custom33 = UIColor(integralRed: 33, green: 33, blue: 33)
+    static let black = UIColor.black
+    static let primary = UIColor(integralRed: 95, green: 70, blue: 245)
+    static let secondary1 = UIColor(integralRed: 46, green: 190, blue: 161)
+    static let secondary2 = UIColor(integralRed: 245, green: 162, blue: 0)
+    static let secondary3 = UIColor(integralRed: 192, green: 30, blue: 249)
+    static let secondary4 = UIColor(integralRed: 242, green: 245, blue: 252)
 }

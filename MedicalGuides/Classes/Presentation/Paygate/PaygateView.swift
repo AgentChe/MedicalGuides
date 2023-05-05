@@ -48,7 +48,7 @@ extension PaygateView {
 // MARK: Private
 private extension PaygateView {
     func initialize() {
-        backgroundColor = Appearance.background
+        backgroundColor = Appearance.black
     }
     
     @objc
@@ -186,7 +186,7 @@ private extension PaygateView {
     
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.bold(size: 24.scale))
             .lineHeight(31.2.scale)
             .letterSpacing(-0.37.scale)
@@ -221,7 +221,7 @@ private extension PaygateView {
     
     func makeContinueButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 16.scale))
             .letterSpacing(-0.17.scale)
         
@@ -236,7 +236,7 @@ private extension PaygateView {
     
     func makeInfoLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.white.withAlphaComponent(0.6))
+            .textColor(Appearance.black.withAlphaComponent(0.6))
             .font(Fonts.Avenir.regular(size: 12.scale))
             .lineHeight(14.4.scale)
         
@@ -250,7 +250,7 @@ private extension PaygateView {
     func makeSeparator() -> UIView {
         let view = UIView()
         view.isHidden = !ScreenSize.isIphoneXFamily
-        view.backgroundColor = Appearance.background
+        view.backgroundColor = Appearance.black
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -258,7 +258,7 @@ private extension PaygateView {
     
     func makeTermsOfServiceButton() -> TapAreaButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 12.scale))
         
         let view = TapAreaButton()
@@ -271,7 +271,7 @@ private extension PaygateView {
     
     func makePrivacyPolicyButton() -> TapAreaButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 12.scale))
         
         let view = TapAreaButton()
@@ -284,7 +284,7 @@ private extension PaygateView {
     
     func makeRestoreButton() -> TapAreaButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 12.scale))
         
         let view = TapAreaButton()

@@ -96,7 +96,7 @@ private extension SplashViewController {
         state == .none ? mainView.preloader.stopAnimating() : mainView.preloader.startAnimating()
         
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.regular(size: 14.scale))
             .lineHeight(19.6.scale)
             .letterSpacing(-0.17.scale)

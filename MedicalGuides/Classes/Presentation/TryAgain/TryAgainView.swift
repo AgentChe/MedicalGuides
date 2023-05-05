@@ -33,7 +33,7 @@ final class TryAgainView: UIView {
 // MARK: Private
 private extension TryAgainView {
     func initialize() {
-        backgroundColor = Appearance.background
+        backgroundColor = Appearance.black
     }
     
     func errorMessage() -> String {
@@ -101,7 +101,7 @@ private extension TryAgainView {
     
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.bold(size: 22.scale))
             .lineHeight(26.4.scale)
             .letterSpacing(-0.3.scale)
@@ -117,7 +117,7 @@ private extension TryAgainView {
     
     func makeSubTitleLabel() -> UILabel {
         let attrs = TextAttributes()
-            .textColor(Appearance.white.withAlphaComponent(0.8))
+            .textColor(Appearance.black.withAlphaComponent(0.8))
             .font(Fonts.Avenir.regular(size: 17.scale))
             .lineHeight(25.5.scale)
             .letterSpacing(-0.41.scale)
@@ -133,7 +133,7 @@ private extension TryAgainView {
     
     func makeButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 16.scale))
         
         let view = UIButton()
@@ -147,7 +147,7 @@ private extension TryAgainView {
     
     func makeContactButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(Appearance.white)
+            .textColor(Appearance.black)
             .font(Fonts.Avenir.medium(size: 17.scale))
         
         let view = UIButton()
