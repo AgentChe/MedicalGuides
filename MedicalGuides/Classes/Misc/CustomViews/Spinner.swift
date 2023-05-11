@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: актуализировать 
 final class Spinner: UIView {
     enum Color {
         case main

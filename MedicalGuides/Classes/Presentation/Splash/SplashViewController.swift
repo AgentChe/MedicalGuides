@@ -52,7 +52,7 @@ final class SplashViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+        .darkContent
     }
 }
 
@@ -96,9 +96,9 @@ private extension SplashViewController {
         state == .none ? mainView.preloader.stopAnimating() : mainView.preloader.startAnimating()
         
         let attrs = TextAttributes()
-            .textColor(Appearance.black)
-            .font(Fonts.Avenir.regular(size: 14.scale))
-            .lineHeight(19.6.scale)
+            .textColor(Appearance.primary)
+            .font(Fonts.Avenir.regular(size: 15.scale))
+            .lineHeight(21.scale)
             .letterSpacing(-0.17.scale)
             .textAlignment(.center)
         mainView.preloaderLabel.attributedText = state.text.attributed(with: attrs)

@@ -36,10 +36,15 @@ final class OnboardingViewController: UIViewController {
             let step = self.viewModel.whatNext()
             self.goToNext(at: step)
         }
+        
+        mainView.didTapDisclaimer = { [weak self] in
+            let vc = DisclaimerViewController.make()
+            self?.present(vc, animated: true)
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
+        .darkContent
     }
 }
 

@@ -27,7 +27,7 @@ final class SplashView: UIView {
 // MARK: Private
 private extension SplashView {
     func initialize() {
-        backgroundColor = Appearance.black
+        backgroundColor = Appearance.secondary4
     }
 }
 
@@ -35,21 +35,21 @@ private extension SplashView {
 private extension SplashView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 120.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 120.scale),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 344.scale),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
             preloader.centerXAnchor.constraint(equalTo: centerXAnchor),
-            preloader.bottomAnchor.constraint(equalTo: preloaderLabel.topAnchor, constant: -10.scale)
+            preloader.bottomAnchor.constraint(equalTo: preloaderLabel.topAnchor, constant: -16.scale)
         ])
         
         NSLayoutConstraint.activate([
             preloaderLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             preloaderLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            preloaderLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -54.scale : -34.scale)
+            preloaderLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -34.scale : -24.scale)
         ])
     }
 }
@@ -66,7 +66,7 @@ private extension SplashView {
     }
     
     func makePreloader() -> Spinner {
-        let view = Spinner(size: CGSize(width: 36.scale, height: 36.scale))
+        let view = Spinner(size: CGSize(width: 40.scale, height: 40.scale))
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

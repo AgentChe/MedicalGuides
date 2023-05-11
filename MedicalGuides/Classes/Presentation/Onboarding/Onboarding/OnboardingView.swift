@@ -9,18 +9,22 @@ import UIKit
 
 final class OnboardingView: UIView {
     enum Step: Int {
-        case welcome
+        case disclaimer, drugGuide, interactionChecker, symptomChecker
     }
     
     var didFinish: (() -> Void)?
+    var didTapDisclaimer: (() -> Void)?
     
     private lazy var contentViews: [OSlideView] = {
         [
-            OSlideView(step: .welcome)
+            ODisclaimerView(step: .disclaimer),
+            ODrugGuideView(step: .drugGuide),
+            OInteractionCheckerView(step: .interactionChecker),
+            OSymptomCheckerView(step: .symptomChecker)
         ]
     }()
     
-    private var step = Step.welcome
+    private var step = Step.disclaimer
     
     private lazy var combineData = OnboardingCombineData()
     
@@ -61,6 +65,10 @@ extension OnboardingView: OSlideViewDelegate {
         }
         
         scroll(to: previousStep)
+    }
+    
+    func slideViewDidTapDisclaimer() {
+        didTapDisclaimer?()
     }
 }
 

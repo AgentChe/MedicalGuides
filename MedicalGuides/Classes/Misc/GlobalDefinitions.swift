@@ -7,24 +7,24 @@
 
 // TODO: заменить
 final class GlobalDefinitions {
-    static let domain = "https://wiccaspells.org"
-    static let apiKey = "7zEi2GUGqzdV74yCU2bl"
+    static let domain = "https://manga.awesum-apps.com"
+    static let apiKey = "b8Z3e66Yi0k99k6JBZUT"
     
     static let otterScaleHost = "https://api.korrekted.com"
-    static let otterScaleApiKey = "vO76dtB8hszMliN5"
+    static let otterScaleApiKey = "qwBJ9c9mWlVT1gpN"
     
-    static let appleAppID = "1516097125"
+    static let appleAppID = "1661289131"
     
-    static let applicationTag = "WICCA 2"
+    static let applicationTag = "MANGA"
     static let amplitudeApiKey = "1336d08d429ceb343970fd360e3253f6"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
-    static let termsOfServiceUrl = "https://wiccaspells.org/terms"
-    static let privacyPolicyUrl = "https://wiccaspells.org/policy"
-    static let contactUsUrl = "https://wiccaspells.org/contact"
+    static let termsOfServiceUrl = "https://awesum-apps.com/terms"
+    static let privacyPolicyUrl = "https://awesum-apps.com/policy"
+    static let contactUsUrl = "https://awesum-apps.com/contact"
     
     enum Paygate {
-        static let defaultLifetime = "wicca.life"
-        static let defaultMonthly = "wicca.month"
+        static let defaultLifetime = "mobile.manga.4ever"
+        static let defaultMonthly = "mobile.manga.month"
     }
 }

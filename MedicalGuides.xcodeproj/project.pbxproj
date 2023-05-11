@@ -108,6 +108,12 @@
 		DEA082232A03F87400DF7D4B /* Avenir Next LT Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821E2A03F6A700DF7D4B /* Avenir Next LT Pro Bold.otf */; };
 		DEA082242A03F87400DF7D4B /* Avenir Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821D2A03F68100DF7D4B /* Avenir Regular.ttf */; };
 		DEA082262A03FB7900DF7D4B /* API.json in Resources */ = {isa = PBXBuildFile; fileRef = DEA082252A03FB7900DF7D4B /* API.json */; };
+		DEA0822A2A05107C00DF7D4B /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA082292A05107C00DF7D4B /* DisclaimerView.swift */; };
+		DEA0822C2A05108100DF7D4B /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0822B2A05108100DF7D4B /* DisclaimerViewController.swift */; };
+		DEA0822E2A05159000DF7D4B /* ODisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0822D2A05159000DF7D4B /* ODisclaimerView.swift */; };
+		DEA0823D2A0D428100DF7D4B /* ODrugGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0823C2A0D428100DF7D4B /* ODrugGuideView.swift */; };
+		DEA0823F2A0D497300DF7D4B /* OInteractionCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0823E2A0D497300DF7D4B /* OInteractionCheckerView.swift */; };
+		DEA082412A0D49AB00DF7D4B /* OSymptomCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA082402A0D49AB00DF7D4B /* OSymptomCheckerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +222,12 @@
 		DEA0821F2A03F6C800DF7D4B /* Avenir Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Black.ttf"; sourceTree = "<group>"; };
 		DEA082202A03F82700DF7D4B /* Avenir Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Medium.ttf"; sourceTree = "<group>"; };
 		DEA082252A03FB7900DF7D4B /* API.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = API.json; sourceTree = "<group>"; };
+		DEA082292A05107C00DF7D4B /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+		DEA0822B2A05108100DF7D4B /* DisclaimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
+		DEA0822D2A05159000DF7D4B /* ODisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODisclaimerView.swift; sourceTree = "<group>"; };
+		DEA0823C2A0D428100DF7D4B /* ODrugGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODrugGuideView.swift; sourceTree = "<group>"; };
+		DEA0823E2A0D497300DF7D4B /* OInteractionCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OInteractionCheckerView.swift; sourceTree = "<group>"; };
+		DEA082402A0D49AB00DF7D4B /* OSymptomCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSymptomCheckerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -596,11 +608,8 @@
 		DE3F60682A03F04D00BCC039 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DE3F60692A03F04D00BCC039 /* Utils */,
-				DE3F606C2A03F04D00BCC039 /* Views */,
-				DE3F606B2A03F04D00BCC039 /* OnboardingViewController.swift */,
-				DE3F60862A03F04D00BCC039 /* OnboardingViewModel.swift */,
-				DE3F60852A03F04D00BCC039 /* OnboardingView.swift */,
+				DEA082282A05105200DF7D4B /* Onboarding */,
+				DEA082272A05104D00DF7D4B /* Disclaimer */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -618,6 +627,10 @@
 			children = (
 				DE3F606F2A03F04D00BCC039 /* Atoms */,
 				DE3F60802A03F04D00BCC039 /* OSlideView.swift */,
+				DEA0822D2A05159000DF7D4B /* ODisclaimerView.swift */,
+				DEA0823C2A0D428100DF7D4B /* ODrugGuideView.swift */,
+				DEA0823E2A0D497300DF7D4B /* OInteractionCheckerView.swift */,
+				DEA082402A0D49AB00DF7D4B /* OSymptomCheckerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -707,6 +720,27 @@
 				DEA0821D2A03F68100DF7D4B /* Avenir Regular.ttf */,
 			);
 			path = Avenir;
+			sourceTree = "<group>";
+		};
+		DEA082272A05104D00DF7D4B /* Disclaimer */ = {
+			isa = PBXGroup;
+			children = (
+				DEA0822B2A05108100DF7D4B /* DisclaimerViewController.swift */,
+				DEA082292A05107C00DF7D4B /* DisclaimerView.swift */,
+			);
+			path = Disclaimer;
+			sourceTree = "<group>";
+		};
+		DEA082282A05105200DF7D4B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DE3F60692A03F04D00BCC039 /* Utils */,
+				DE3F606C2A03F04D00BCC039 /* Views */,
+				DE3F606B2A03F04D00BCC039 /* OnboardingViewController.swift */,
+				DE3F60862A03F04D00BCC039 /* OnboardingViewModel.swift */,
+				DE3F60852A03F04D00BCC039 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,6 +919,7 @@
 				DE3F61C72A03F14A00BCC039 /* GetPaygateResponse.swift in Sources */,
 				DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */,
 				DE3F610C2A03F04D00BCC039 /* ProductPrice.swift in Sources */,
+				DEA082412A0D49AB00DF7D4B /* OSymptomCheckerView.swift in Sources */,
 				DE3F60982A03F04D00BCC039 /* XOREncryption.swift in Sources */,
 				DE3F609C2A03F04D00BCC039 /* ContentError.swift in Sources */,
 				DE3F60932A03F04D00BCC039 /* Scalable.swift in Sources */,
@@ -898,21 +933,26 @@
 				DE3F61C82A03F14A00BCC039 /* GetPaygateRequest.swift in Sources */,
 				DE3F60A82A03F04D00BCC039 /* CircleView.swift in Sources */,
 				DE3F610B2A03F04D00BCC039 /* PurchaseValidationObserver.swift in Sources */,
+				DEA0822C2A05108100DF7D4B /* DisclaimerViewController.swift in Sources */,
 				DE3F61A22A03F04D00BCC039 /* OnboardingViewController.swift in Sources */,
 				DE3F60AA2A03F04D00BCC039 /* CircleProgressView.swift in Sources */,
+				DEA0822E2A05159000DF7D4B /* ODisclaimerView.swift in Sources */,
 				DE3F60E62A03F04D00BCC039 /* SyncTokensRequest.swift in Sources */,
 				DE3F60942A03F04D00BCC039 /* NumberLaunches.swift in Sources */,
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE3F61C42A03F14A00BCC039 /* PaygateOptionLineComponent.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
+				DEA0822A2A05107C00DF7D4B /* DisclaimerView.swift in Sources */,
 				DE3F61B92A03F04D00BCC039 /* OnboardingViewModel.swift in Sources */,
 				DE3F60A52A03F04D00BCC039 /* Spinner.swift in Sources */,
 				DE3F608F2A03F04D00BCC039 /* GlobalDefinitions.swift in Sources */,
 				DE3F61122A03F04D00BCC039 /* SessionManager.swift in Sources */,
 				DE3F61B82A03F04D00BCC039 /* OnboardingView.swift in Sources */,
 				DE3F619F2A03F04D00BCC039 /* TryAgainView.swift in Sources */,
+				DEA0823D2A0D428100DF7D4B /* ODrugGuideView.swift in Sources */,
 				DE3F60AF2A03F04D00BCC039 /* SceneDelegate.swift in Sources */,
 				DE3F61C92A03F14A00BCC039 /* PaygateManager.swift in Sources */,
+				DEA0823F2A0D497300DF7D4B /* OInteractionCheckerView.swift in Sources */,
 				DE3F60AD2A03F04D00BCC039 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DE3F60B52A03F04D00BCC039 /* FacebookManager.swift in Sources */,
 				DE3F60A92A03F04D00BCC039 /* GradientView.swift in Sources */,
