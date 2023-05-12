@@ -29,12 +29,13 @@
 "Splash.Preloader3" = "Setting up your account...";
 
 // MARK: Paygate
-"Paygate.Title" = "Unlock Premium Status";
-"Paygate.Cell1" = "Smooth reading experience";
-"Paygate.Cell2" = "Carefully curated collection with\nthe most exclusive titles";
-"Paygate.Cell3" = "The latest manga chapters";
-"Paygate.Info" = "Secured by the App Store. Cancel anytime.";
+"Paygate.Title" = "Get unlimited access";
+"Paygate.Cell1" = "Information on more than 10000 drugs";
+"Paygate.Cell2" = "Powerful Interaction Checker";
+"Paygate.Cell3" = "Extensive Symptom Checker";
+"Paygate.Secured" = "Secured by the App Store. Cancel anytime.";
 "Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = "and";
 "Paygate.PrivacyPolicy" = "Privacy Policy";
 "Paygate.RestorePurchases" = "Restore Purchase";
 "Paygate.Failed" = "Failed to make purchase";

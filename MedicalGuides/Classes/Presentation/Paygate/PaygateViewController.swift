@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 
-// TODO: актуализировать 
 final class PaygateViewController: UIViewController {
     weak var delegate: PaygateViewControllerDelegate?
     
@@ -116,7 +115,7 @@ final class PaygateViewController: UIViewController {
     }
     
     override var prefersStatusBarHidden: Bool {
-        true
+        false
     }
 }
 

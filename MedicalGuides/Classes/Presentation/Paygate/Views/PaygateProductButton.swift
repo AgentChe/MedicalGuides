@@ -142,7 +142,7 @@ private extension PaygateProductButton {
     
     func makeDiscountPlaceholderView() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor(integralRed: 229, green: 137, blue: 64)
+        view.backgroundColor = Appearance.primary
         view.layer.cornerRadius = 4.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

@@ -9,6 +9,7 @@ import UIKit
 
 final class PaygateView: UIView {
     lazy var closeButton = makeCloseButton()
+    lazy var restoreButton = makeRestoreButton()
     lazy var imageView = makeImageView()
     lazy var titleLabel = makeTitleLabel()
     lazy var cell1 = makeCell()
@@ -16,12 +17,12 @@ final class PaygateView: UIView {
     lazy var cell3 = makeCell()
     lazy var leftOptionButton = makeProductButton()
     lazy var rightOptionButton = makeProductButton()
+    lazy var securedImageView = makeSecuredImageView()
+    lazy var securedLabel = makeSecuredLabel()
     lazy var continueButton = makeContinueButton()
-    lazy var infoLabel = makeInfoLabel()
-    lazy var separator = makeSeparator()
     lazy var termsOfServiceButton = makeTermsOfServiceButton()
+    lazy var andLabel = makeAndLabel()
     lazy var privacyPolicyButton = makePrivacyPolicyButton()
-    lazy var restoreButton = makeRestoreButton()
     lazy var preloader = makePreloader()
     
     override init(frame: CGRect) {
@@ -48,7 +49,7 @@ extension PaygateView {
 // MARK: Private
 private extension PaygateView {
     func initialize() {
-        backgroundColor = Appearance.black
+        backgroundColor = Appearance.secondary4
     }
     
     @objc
@@ -69,92 +70,97 @@ private extension PaygateView {
         NSLayoutConstraint.activate([
             closeButton.widthAnchor.constraint(equalToConstant: 24.scale),
             closeButton.heightAnchor.constraint(equalToConstant: 24.scale),
-            closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13.scale),
-            closeButton.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 29.scale)
+            closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27.scale),
+            closeButton.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 31.scale)
         ])
         
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 252.scale : 178.scale),
-            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 222.scale : 157.scale),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 36.scale : 30.scale)
+            restoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -31.scale),
+            restoreButton.heightAnchor.constraint(equalToConstant: 18.scale),
+            restoreButton.centerYAnchor.constraint(equalTo: closeButton.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 106.scale),
+            imageView.topAnchor.constraint(equalTo: closeButton.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 42.scale : 21.scale)
         ])
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 16.scale : 10.scale)
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 30.scale : 16.scale)
         ])
         
         NSLayoutConstraint.activate([
             cell1.leadingAnchor.constraint(equalTo: leadingAnchor),
             cell1.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cell1.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 10.scale : 8.scale),
-            cell1.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 24.scale : 20.scale)
+            cell1.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 12.scale : 8.scale),
+            cell1.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 21.scale : 20.scale)
         ])
         
         NSLayoutConstraint.activate([
             cell2.leadingAnchor.constraint(equalTo: leadingAnchor),
             cell2.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cell2.topAnchor.constraint(equalTo: cell1.bottomAnchor, constant: 7.scale),
-            cell2.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 48.scale : 40.scale)
+            cell2.topAnchor.constraint(equalTo: cell1.bottomAnchor, constant: 9.scale),
+            cell2.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 21.scale : 20.scale)
         ])
         
         NSLayoutConstraint.activate([
             cell3.leadingAnchor.constraint(equalTo: leadingAnchor),
             cell3.trailingAnchor.constraint(equalTo: trailingAnchor),
-            cell3.topAnchor.constraint(equalTo: cell2.bottomAnchor, constant: 7.scale),
-            cell3.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 24.scale : 20.scale)
+            cell3.topAnchor.constraint(equalTo: cell2.bottomAnchor, constant: 9.scale),
+            cell3.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 21.scale : 20.scale)
         ])
         
         NSLayoutConstraint.activate([
             leftOptionButton.widthAnchor.constraint(equalToConstant: 161.scale),
             leftOptionButton.heightAnchor.constraint(equalToConstant: 185.scale),
             leftOptionButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.scale),
-            leftOptionButton.topAnchor.constraint(equalTo: cell3.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 19.scale : 8.scale)
+            leftOptionButton.topAnchor.constraint(equalTo: cell3.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 8.scale)
         ])
         
         NSLayoutConstraint.activate([
             rightOptionButton.widthAnchor.constraint(equalToConstant: 161.scale),
             rightOptionButton.heightAnchor.constraint(equalToConstant: 185.scale),
             rightOptionButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.scale),
-            rightOptionButton.topAnchor.constraint(equalTo: cell3.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 19.scale : 8.scale)
+            rightOptionButton.topAnchor.constraint(equalTo: cell3.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 8.scale)
         ])
         
         NSLayoutConstraint.activate([
-            continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35.scale),
-            continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35.scale),
-            continueButton.heightAnchor.constraint(equalToConstant: 53.scale),
-            continueButton.topAnchor.constraint(equalTo: rightOptionButton.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 16.scale : 16.scale)
+            securedImageView.widthAnchor.constraint(equalToConstant: 12.scale),
+            securedImageView.heightAnchor.constraint(equalToConstant: 16.scale),
+            securedImageView.centerYAnchor.constraint(equalTo: securedLabel.centerYAnchor),
+            securedImageView.trailingAnchor.constraint(equalTo: securedLabel.leadingAnchor, constant: -6.scale)
         ])
         
         NSLayoutConstraint.activate([
-            infoLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            infoLabel.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 10.scale)
+            securedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 79.scale),
+            securedLabel.topAnchor.constraint(equalTo: leftOptionButton.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 22.scale : 12.scale)
         ])
         
         NSLayoutConstraint.activate([
-            separator.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            separator.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            separator.heightAnchor.constraint(equalToConstant: 1.scale),
-            separator.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: 24.scale)
+            continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17.scale),
+            continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -17.scale),
+            continueButton.heightAnchor.constraint(equalToConstant: 57.scale),
+            continueButton.topAnchor.constraint(equalTo: securedLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 18.scale : 12.scale)
         ])
         
         NSLayoutConstraint.activate([
-            termsOfServiceButton.trailingAnchor.constraint(equalTo: privacyPolicyButton.leadingAnchor, constant: -16.scale),
+            termsOfServiceButton.trailingAnchor.constraint(equalTo: andLabel.leadingAnchor, constant: -6.scale),
             termsOfServiceButton.heightAnchor.constraint(equalToConstant: 14.scale),
-            termsOfServiceButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 40.scale : 26.scale)
+            termsOfServiceButton.centerYAnchor.constraint(equalTo: andLabel.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            privacyPolicyButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            andLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            andLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -32.scale : -16.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            privacyPolicyButton.leadingAnchor.constraint(equalTo: andLabel.trailingAnchor, constant: 6.scale),
             privacyPolicyButton.heightAnchor.constraint(equalToConstant: 14.scale),
-            privacyPolicyButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 40.scale : 26.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            restoreButton.leadingAnchor.constraint(equalTo: privacyPolicyButton.trailingAnchor, constant: 16.scale),
-            restoreButton.heightAnchor.constraint(equalToConstant: 14.scale),
-            restoreButton.topAnchor.constraint(equalTo: infoLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 40.scale : 26.scale)
+            privacyPolicyButton.centerYAnchor.constraint(equalTo: andLabel.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -168,7 +174,21 @@ private extension PaygateView {
 private extension PaygateView {
     func makeCloseButton() -> TapAreaButton {
         let view = TapAreaButton()
+        view.alpha = 0.3
         view.setImage(UIImage(named: "Paygate.Close"), for: .normal)
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeRestoreButton() -> TapAreaButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.black)
+            .font(Fonts.Avenir.medium(size: 13.scale))
+        
+        let view = TapAreaButton()
+        view.setAttributedTitle("Paygate.RestorePurchases".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
@@ -187,9 +207,7 @@ private extension PaygateView {
     func makeTitleLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.black)
-            .font(Fonts.Avenir.bold(size: 24.scale))
-            .lineHeight(31.2.scale)
-            .letterSpacing(-0.37.scale)
+            .font(Fonts.Avenir.black(size: 25.scale))
             .textAlignment(.center)
         
         let view = UILabel()
@@ -219,38 +237,37 @@ private extension PaygateView {
         return view
     }
     
-    func makeContinueButton() -> UIButton {
+    func makeSecuredImageView() -> UIImageView {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = UIImage(named: "Paygate.Secured")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeSecuredLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.black)
-            .font(Fonts.Avenir.medium(size: 16.scale))
+            .font(Fonts.Avenir.regular(size: 13.scale))
+        
+        let view = UILabel()
+        view.attributedText = "Paygate.Secured".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeContinueButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.white)
+            .font(Fonts.Avenir.medium(size: 15.scale))
             .letterSpacing(-0.17.scale)
         
         let view = UIButton()
         view.setAttributedTitle("Continue".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = Appearance.primary
-        view.layer.cornerRadius = 16.scale
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeInfoLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.black.withAlphaComponent(0.6))
-            .font(Fonts.Avenir.regular(size: 12.scale))
-            .lineHeight(14.4.scale)
-        
-        let view = UILabel()
-        view.attributedText = "Paygate.Info".localized.attributed(with: attrs)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeSeparator() -> UIView {
-        let view = UIView()
-        view.isHidden = !ScreenSize.isIphoneXFamily
-        view.backgroundColor = Appearance.black
+        view.layer.cornerRadius = 10.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -259,7 +276,9 @@ private extension PaygateView {
     func makeTermsOfServiceButton() -> TapAreaButton {
         let attrs = TextAttributes()
             .textColor(Appearance.black)
-            .font(Fonts.Avenir.medium(size: 12.scale))
+            .font(Fonts.Avenir.medium(size: 13.scale))
+            .underlineStyle(.single)
+            .underlineColor(Appearance.black)
         
         let view = TapAreaButton()
         view.setAttributedTitle("Paygate.TermsOfUse".localized.attributed(with: attrs), for: .normal)
@@ -269,26 +288,28 @@ private extension PaygateView {
         return view
     }
     
-    func makePrivacyPolicyButton() -> TapAreaButton {
+    func makeAndLabel() -> UILabel {
         let attrs = TextAttributes()
             .textColor(Appearance.black)
-            .font(Fonts.Avenir.medium(size: 12.scale))
+            .font(Fonts.Avenir.medium(size: 13.scale))
+            .textAlignment(.center)
         
-        let view = TapAreaButton()
-        view.setAttributedTitle("Paygate.PrivacyPolicy".localized.attributed(with: attrs), for: .normal)
-        view.backgroundColor = UIColor.clear
+        let view = UILabel()
+        view.attributedText = "Paygate.And".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeRestoreButton() -> TapAreaButton {
+    func makePrivacyPolicyButton() -> TapAreaButton {
         let attrs = TextAttributes()
             .textColor(Appearance.black)
-            .font(Fonts.Avenir.medium(size: 12.scale))
+            .font(Fonts.Avenir.medium(size: 13.scale))
+            .underlineStyle(.single)
+            .underlineColor(Appearance.black)
         
         let view = TapAreaButton()
-        view.setAttributedTitle("Paygate.RestorePurchases".localized.attributed(with: attrs), for: .normal)
+        view.setAttributedTitle("Paygate.PrivacyPolicy".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

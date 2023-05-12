@@ -37,6 +37,10 @@ private extension PaygateOptionInfo {
                 let attrs = TextAttributes()
                     .textColor(Appearance.black)
                     .font(font(at: component.weight))
+                let promoAttrs = TextAttributes()
+                    .textColor(Appearance.white)
+                    .font(font(at: component.weight))
+                    .textAlignment(.center)
                 
                 let formatter = formatter(locale: price.priceLocale)
                 
@@ -66,7 +70,7 @@ private extension PaygateOptionInfo {
                         .removingWhitespaces()
                         .attributed(with: attrs)
                 case .promo(let promo):
-                    return promo.attributed(with: attrs)
+                    return promo.attributed(with: promoAttrs)
                 }
             }
             .reduce(NSMutableAttributedString()) { result, string -> NSMutableAttributedString in
