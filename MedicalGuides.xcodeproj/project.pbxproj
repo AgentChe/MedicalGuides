@@ -482,10 +482,10 @@
 		DE3F5F3E2A03F04D00BCC039 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				DE3F5F3F2A03F04D00BCC039 /* ProfileManager.swift */,
 				DE3F5F402A03F04D00BCC039 /* Model */,
 				DE3F5F422A03F04D00BCC039 /* Request */,
 				DE3F5F492A03F04D00BCC039 /* ProfileMediator.swift */,
+				DE3F5F3F2A03F04D00BCC039 /* ProfileManager.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -599,8 +599,8 @@
 		DE3F60652A03F04D00BCC039 /* TryAgain */ = {
 			isa = PBXGroup;
 			children = (
-				DE3F60662A03F04D00BCC039 /* TryAgainView.swift */,
 				DE3F60672A03F04D00BCC039 /* TryAgainViewController.swift */,
+				DE3F60662A03F04D00BCC039 /* TryAgainView.swift */,
 			);
 			path = TryAgain;
 			sourceTree = "<group>";

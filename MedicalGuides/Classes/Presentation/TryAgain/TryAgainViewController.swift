@@ -12,7 +12,6 @@ protocol TryAgainViewControllerDelegate: AnyObject {
     func tryAgainDidTapped()
 }
 
-// TODO: актуализировать 
 final class TryAgainViewController: UIViewController {
     weak var delegate: TryAgainViewControllerDelegate?
     
