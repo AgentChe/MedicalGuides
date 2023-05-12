@@ -61,3 +61,15 @@
 "Onboarding.SymptomChecker.Title" = "Symptom Checker";
 "Onboarding.SymptomChecker.Text" = "Determine a possible diagnosis and appropriate treatment by selecting symptoms and answering a few simple questions.";
 "Onboarding.Disclaimer.Placeholder" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+
+// MARK: Home
+"Home.Title" = "Medical Guides";
+"Home.DrugGuide.Title" = "Drug Guide";
+"Home.DrugGuide.Text" = "Find comprehensive, up-to-date, and well-structured drug information – precautions, side effects, interactions, and more.";
+"Home.InteractionChecker.Title" = "Interaction Checker";
+"Home.InteractionChecker.Text" = "Analyze drug interactions to determine which potentially unsafe drug combinations are best avoided.";
+"Home.SymptomChecker.Title" = "Symptom Checker";
+"Home.SymptomChecker.Text" = "Determine a possible diagnosis and appropriate treatment by selecting symptoms and answering a few simple questions.";
+"Home.Bookmark.Title" = "Bookmark";
+"Home.Bookmark.Text" = "Save and get easy and fast access to selected medications, as well as interactions and symptoms.";
+"Home.Disclaimer" = "Disclaimer";
