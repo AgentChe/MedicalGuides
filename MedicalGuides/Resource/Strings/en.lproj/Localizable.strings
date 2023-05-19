@@ -73,3 +73,11 @@
 "Home.Bookmark.Title" = "Bookmark";
 "Home.Bookmark.Text" = "Save and get easy and fast access to selected medications, as well as interactions and symptoms.";
 "Home.Disclaimer" = "Disclaimer";
+
+// MARK: Settings
+"Settings.Title" = "Settings";
+"Settings.References" = "References";
+"Settings.Disclaimer" = "Disclaimer";
+"Settings.ContactUs" = "Contact us";
+"Settings.TermsOfUse" = "Terms of use";
+"Settings.PrivacyPolicy" = "Privacy policy";

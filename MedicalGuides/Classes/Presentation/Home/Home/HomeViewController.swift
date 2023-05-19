@@ -71,8 +71,8 @@ private extension HomeViewController {
     func route(_ route: HomeViewModel.Route) {
         switch route {
         case .settings:
-            // TODO
-            print("settings")
+            let vc = SettingsViewController.make()
+            present(vc, animated: true)
         case .drugGuide:
             // TODO
             print("drugGuide")

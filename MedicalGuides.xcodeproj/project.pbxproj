@@ -162,6 +162,12 @@
 		DEA0824C2A0E807400DF7D4B /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824B2A0E807400DF7D4B /* HomeTableView.swift */; };
 		DEA0824E2A0E807A00DF7D4B /* HomeTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824D2A0E807A00DF7D4B /* HomeTableElement.swift */; };
 		DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824F2A0E809000DF7D4B /* HomeTableCell.swift */; };
+		DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */; };
+		DEE101302A177C09000ED6AE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */; };
+		DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101312A177C0E000ED6AE /* SettingsView.swift */; };
+		DEE101362A177C44000ED6AE /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101352A177C44000ED6AE /* SettingsTableView.swift */; };
+		DEE101382A177C72000ED6AE /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101372A177C72000ED6AE /* SettingsTableElement.swift */; };
+		DEE1013A2A177C8F000ED6AE /* SettingsRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101392A177C8E000ED6AE /* SettingsRouteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -324,6 +330,12 @@
 		DEA0824B2A0E807400DF7D4B /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 		DEA0824D2A0E807A00DF7D4B /* HomeTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableElement.swift; sourceTree = "<group>"; };
 		DEA0824F2A0E809000DF7D4B /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DEE101312A177C0E000ED6AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DEE101352A177C44000ED6AE /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		DEE101372A177C72000ED6AE /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
+		DEE101392A177C8E000ED6AE /* SettingsRouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1045,10 +1057,8 @@
 		DEA082422A0E7F4D00DF7D4B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				DEA082492A0E806600DF7D4B /* Views */,
-				DEA082432A0E7F5600DF7D4B /* HomeViewController.swift */,
-				DEA082452A0E7F5B00DF7D4B /* HomeViewModel.swift */,
-				DEA082472A0E7F6000DF7D4B /* HomeView.swift */,
+				DEE1012C2A177BF5000ED6AE /* Settings */,
+				DEE1012B2A177BE5000ED6AE /* Home */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1067,6 +1077,46 @@
 				DEA0824B2A0E807400DF7D4B /* HomeTableView.swift */,
 				DEA0824D2A0E807A00DF7D4B /* HomeTableElement.swift */,
 				DEA0824F2A0E809000DF7D4B /* HomeTableCell.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEE1012B2A177BE5000ED6AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DEA082492A0E806600DF7D4B /* Views */,
+				DEA082432A0E7F5600DF7D4B /* HomeViewController.swift */,
+				DEA082452A0E7F5B00DF7D4B /* HomeViewModel.swift */,
+				DEA082472A0E7F6000DF7D4B /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DEE1012C2A177BF5000ED6AE /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101332A177C11000ED6AE /* Views */,
+				DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */,
+				DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */,
+				DEE101312A177C0E000ED6AE /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DEE101332A177C11000ED6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101342A177C19000ED6AE /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE101342A177C19000ED6AE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101352A177C44000ED6AE /* SettingsTableView.swift */,
+				DEE101372A177C72000ED6AE /* SettingsTableElement.swift */,
+				DEE101392A177C8E000ED6AE /* SettingsRouteCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1224,6 +1274,7 @@
 				DE7BD6062A14C2CA00A21DE7 /* GetConditionDetailsRequest.swift in Sources */,
 				DE3F61DD2A03F15800BCC039 /* PaygateProductButton.swift in Sources */,
 				DE512BDD2A12696000BBC661 /* SymptomsInteractionCondition.swift in Sources */,
+				DEE101382A177C72000ED6AE /* SettingsTableElement.swift in Sources */,
 				DEA0824C2A0E807400DF7D4B /* HomeTableView.swift in Sources */,
 				DE3F613A2A03F04D00BCC039 /* SplashViewController.swift in Sources */,
 				DE3F61C52A03F14A00BCC039 /* PaygateOptionConfig.swift in Sources */,
@@ -1273,8 +1324,10 @@
 				DE512C002A1271D600BBC661 /* UnsaveInteractionDrugsRequest.swift in Sources */,
 				DE3F613B2A03F04D00BCC039 /* SplashActivity.swift in Sources */,
 				DE7BD60F2A14C5EA00A21DE7 /* UnsaveConditionRequest.swift in Sources */,
+				DEE1013A2A177C8F000ED6AE /* SettingsRouteCell.swift in Sources */,
 				DEA082482A0E7F6000DF7D4B /* HomeView.swift in Sources */,
 				DE3F61C72A03F14A00BCC039 /* GetPaygateResponse.swift in Sources */,
+				DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */,
 				DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */,
 				DE3F610C2A03F04D00BCC039 /* ProductPrice.swift in Sources */,
 				DEA082412A0D49AB00DF7D4B /* OSymptomCheckerView.swift in Sources */,
@@ -1287,6 +1340,7 @@
 				DE5C62532A137F3A00ECAB17 /* SymptomsCheckerResponse.swift in Sources */,
 				DE5C624E2A137DB300ECAB17 /* GetSymptomsResponse.swift in Sources */,
 				DE3F60A32A03F04D00BCC039 /* NavigationController.swift in Sources */,
+				DEE101362A177C44000ED6AE /* SettingsTableView.swift in Sources */,
 				DE3F61A02A03F04D00BCC039 /* TryAgainViewController.swift in Sources */,
 				DE3F60E42A03F04D00BCC039 /* GetProfileResponse.swift in Sources */,
 				DE3F609B2A03F04D00BCC039 /* NetworkError.swift in Sources */,
@@ -1308,6 +1362,7 @@
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE3F61C42A03F14A00BCC039 /* PaygateOptionLineComponent.swift in Sources */,
 				DEA0824E2A0E807A00DF7D4B /* HomeTableElement.swift in Sources */,
+				DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */,
 				DE512BE32A126B2E00BBC661 /* GetDrugsRequest.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
 				DE512BEA2A126CDF00BBC661 /* GetDrugDetailsResponse.swift in Sources */,
@@ -1316,6 +1371,7 @@
 				DE7BD6142A14C68400A21DE7 /* GetBookmarksConditionsRequest.swift in Sources */,
 				DE3F60A52A03F04D00BCC039 /* Spinner.swift in Sources */,
 				DE3F608F2A03F04D00BCC039 /* GlobalDefinitions.swift in Sources */,
+				DEE101302A177C09000ED6AE /* SettingsViewModel.swift in Sources */,
 				DE512BF12A126EA900BBC661 /* SaveUnsaveDrugResponse.swift in Sources */,
 				DE3F61122A03F04D00BCC039 /* SessionManager.swift in Sources */,
 				DE512BD72A1266AC00BBC661 /* DrugsSideEffect.swift in Sources */,
