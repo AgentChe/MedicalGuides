@@ -77,8 +77,8 @@ private extension HomeViewController {
             // TODO
             print("drugGuide")
         case .interactionChecker:
-            // TODO
-            print("interactionChecker")
+            let vc = InteractionCheckerViewController.make()
+            present(vc, animated: true)
         case .symptomChecker:
             // TODO
             print("symptomChecker")

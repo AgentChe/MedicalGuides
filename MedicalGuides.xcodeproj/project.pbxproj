@@ -176,6 +176,14 @@
 		DEE101492A1B5121000ED6AE /* SelectUnitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101482A1B5121000ED6AE /* SelectUnitTableCell.swift */; };
 		DEE1014B2A1B5128000ED6AE /* SelectUnitTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1014A2A1B5128000ED6AE /* SelectUnitTableElement.swift */; };
 		DEE1014D2A1B8811000ED6AE /* SelectUnitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1014C2A1B8811000ED6AE /* SelectUnitEmptyView.swift */; };
+		DEE101502A1B938A000ED6AE /* InteractionCheckerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1014F2A1B938A000ED6AE /* InteractionCheckerView.swift */; };
+		DEE101522A1B9391000ED6AE /* InteractionCheckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101512A1B9391000ED6AE /* InteractionCheckerViewController.swift */; };
+		DEE101542A1B9397000ED6AE /* InteractionCheckerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101532A1B9397000ED6AE /* InteractionCheckerViewModel.swift */; };
+		DEE101582A1B9571000ED6AE /* InteractionCheckerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101572A1B9571000ED6AE /* InteractionCheckerTableView.swift */; };
+		DEE1015A2A1B9582000ED6AE /* InteractionCheckerTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101592A1B9582000ED6AE /* InteractionCheckerTableElement.swift */; };
+		DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */; };
+		DEE1015F2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */; };
+		DEE101612A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -352,6 +360,14 @@
 		DEE101482A1B5121000ED6AE /* SelectUnitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitTableCell.swift; sourceTree = "<group>"; };
 		DEE1014A2A1B5128000ED6AE /* SelectUnitTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitTableElement.swift; sourceTree = "<group>"; };
 		DEE1014C2A1B8811000ED6AE /* SelectUnitEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitEmptyView.swift; sourceTree = "<group>"; };
+		DEE1014F2A1B938A000ED6AE /* InteractionCheckerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerView.swift; sourceTree = "<group>"; };
+		DEE101512A1B9391000ED6AE /* InteractionCheckerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerViewController.swift; sourceTree = "<group>"; };
+		DEE101532A1B9397000ED6AE /* InteractionCheckerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerViewModel.swift; sourceTree = "<group>"; };
+		DEE101572A1B9571000ED6AE /* InteractionCheckerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerTableView.swift; sourceTree = "<group>"; };
+		DEE101592A1B9582000ED6AE /* InteractionCheckerTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerTableElement.swift; sourceTree = "<group>"; };
+		DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerDrugCell.swift; sourceTree = "<group>"; };
+		DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerAddCell.swift; sourceTree = "<group>"; };
+		DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerCheckCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,6 +710,7 @@
 		DE3F5F8D2A03F04D00BCC039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEE1014E2A1B937D000ED6AE /* InteractionChecker */,
 				DEE1013B2A1B41DA000ED6AE /* SelectUnit */,
 				DEA082422A0E7F4D00DF7D4B /* Home */,
 				DE3F61CA2A03F15800BCC039 /* Paygate */,
@@ -1169,6 +1186,45 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		DEE1014E2A1B937D000ED6AE /* InteractionChecker */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101552A1B939C000ED6AE /* Views */,
+				DEE101512A1B9391000ED6AE /* InteractionCheckerViewController.swift */,
+				DEE101532A1B9397000ED6AE /* InteractionCheckerViewModel.swift */,
+				DEE1014F2A1B938A000ED6AE /* InteractionCheckerView.swift */,
+			);
+			path = InteractionChecker;
+			sourceTree = "<group>";
+		};
+		DEE101552A1B939C000ED6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101562A1B9564000ED6AE /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE101562A1B9564000ED6AE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE1015B2A1B958E000ED6AE /* Cells */,
+				DEE101572A1B9571000ED6AE /* InteractionCheckerTableView.swift */,
+				DEE101592A1B9582000ED6AE /* InteractionCheckerTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEE1015B2A1B958E000ED6AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */,
+				DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */,
+				DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1297,6 +1353,7 @@
 				DE512BF92A126FE400BBC661 /* DrugsInteractionCheckerRequest.swift in Sources */,
 				DE3F60A42A03F04D00BCC039 /* TapAreaButton.swift in Sources */,
 				DE3F61D72A03F15800BCC039 /* DefaultPaygate.swift in Sources */,
+				DEE101502A1B938A000ED6AE /* InteractionCheckerView.swift in Sources */,
 				DE3F60892A03F04D00BCC039 /* UIColor+Extension.swift in Sources */,
 				DE7BD60D2A14C5E000A21DE7 /* SaveConditionRequest.swift in Sources */,
 				DE3F609E2A03F04D00BCC039 /* RequestReview.swift in Sources */,
@@ -1306,6 +1363,7 @@
 				DE3F613E2A03F04D00BCC039 /* SplashView.swift in Sources */,
 				DE3F60E12A03F04D00BCC039 /* ProfileManager.swift in Sources */,
 				DEE101442A1B42AA000ED6AE /* SearchView.swift in Sources */,
+				DEE101582A1B9571000ED6AE /* InteractionCheckerTableView.swift in Sources */,
 				DE3F610D2A03F04D00BCC039 /* IAPActionResult.swift in Sources */,
 				DE3F61DB2A03F15800BCC039 /* PaygateView.swift in Sources */,
 				DE512BF62A126F5F00BBC661 /* GetBookmarksDrugsResponse.swift in Sources */,
@@ -1330,6 +1388,7 @@
 				DEA0824C2A0E807400DF7D4B /* HomeTableView.swift in Sources */,
 				DE3F613A2A03F04D00BCC039 /* SplashViewController.swift in Sources */,
 				DE3F61C52A03F14A00BCC039 /* PaygateOptionConfig.swift in Sources */,
+				DEE1015F2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift in Sources */,
 				DE3F61DC2A03F15800BCC039 /* PaygateViewController.swift in Sources */,
 				DE3F60972A03F04D00BCC039 /* ObservableRetrySingle.swift in Sources */,
 				DE3F61DE2A03F15800BCC039 /* PaygateInfoCell.swift in Sources */,
@@ -1352,6 +1411,7 @@
 				DE7BD6182A14CA7000A21DE7 /* DrugsManager.swift in Sources */,
 				DE7BD61A2A14CA7C00A21DE7 /* DrugsMediator.swift in Sources */,
 				DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */,
+				DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */,
 				DE3F60922A03F04D00BCC039 /* RestAPITransport.swift in Sources */,
 				DE512C022A1271E000BBC661 /* SaveUnsaveInteractionDrugsResponse.swift in Sources */,
 				DE3F60A22A03F04D00BCC039 /* NavigationControllerSettings.swift in Sources */,
@@ -1378,6 +1438,7 @@
 				DE7BD60F2A14C5EA00A21DE7 /* UnsaveConditionRequest.swift in Sources */,
 				DEE1013A2A177C8F000ED6AE /* SettingsRouteCell.swift in Sources */,
 				DEA082482A0E7F6000DF7D4B /* HomeView.swift in Sources */,
+				DEE101542A1B9397000ED6AE /* InteractionCheckerViewModel.swift in Sources */,
 				DE3F61C72A03F14A00BCC039 /* GetPaygateResponse.swift in Sources */,
 				DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */,
 				DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */,
@@ -1417,6 +1478,8 @@
 				DEA0824E2A0E807A00DF7D4B /* HomeTableElement.swift in Sources */,
 				DEE1014D2A1B8811000ED6AE /* SelectUnitEmptyView.swift in Sources */,
 				DEE1014B2A1B5128000ED6AE /* SelectUnitTableElement.swift in Sources */,
+				DEE101612A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift in Sources */,
+				DEE101522A1B9391000ED6AE /* InteractionCheckerViewController.swift in Sources */,
 				DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */,
 				DE512BE32A126B2E00BBC661 /* GetDrugsRequest.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
@@ -1436,6 +1499,7 @@
 				DE3F60AF2A03F04D00BCC039 /* SceneDelegate.swift in Sources */,
 				DE3F61C92A03F14A00BCC039 /* PaygateManager.swift in Sources */,
 				DEE101412A1B41F4000ED6AE /* SelectUnitView.swift in Sources */,
+				DEE1015A2A1B9582000ED6AE /* InteractionCheckerTableElement.swift in Sources */,
 				DEA0823F2A0D497300DF7D4B /* OInteractionCheckerView.swift in Sources */,
 				DEA082442A0E7F5600DF7D4B /* HomeViewController.swift in Sources */,
 				DE3F60AD2A03F04D00BCC039 /* PushNotificationsAuthorizationStatus.swift in Sources */,
