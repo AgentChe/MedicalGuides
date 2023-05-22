@@ -81,3 +81,9 @@
 "Settings.ContactUs" = "Contact us";
 "Settings.TermsOfUse" = "Terms of use";
 "Settings.PrivacyPolicy" = "Privacy policy";
+
+// MARK: SelectUnit
+"SelectUnit.Title.Drugs" = "Drugs";
+"SelectUnit.Title.Symptoms" = "Symptoms";
+"SelectUnit.Search.Placeholder" = "Enter to start";
+"SelectUnit.Empty" = "We can’t find\nanything";

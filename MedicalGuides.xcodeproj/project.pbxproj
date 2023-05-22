@@ -168,6 +168,14 @@
 		DEE101362A177C44000ED6AE /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101352A177C44000ED6AE /* SettingsTableView.swift */; };
 		DEE101382A177C72000ED6AE /* SettingsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101372A177C72000ED6AE /* SettingsTableElement.swift */; };
 		DEE1013A2A177C8F000ED6AE /* SettingsRouteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101392A177C8E000ED6AE /* SettingsRouteCell.swift */; };
+		DEE1013D2A1B41E9000ED6AE /* SelectUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1013C2A1B41E9000ED6AE /* SelectUnitViewController.swift */; };
+		DEE1013F2A1B41F0000ED6AE /* SelectUnitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1013E2A1B41F0000ED6AE /* SelectUnitViewModel.swift */; };
+		DEE101412A1B41F4000ED6AE /* SelectUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101402A1B41F4000ED6AE /* SelectUnitView.swift */; };
+		DEE101442A1B42AA000ED6AE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101432A1B42AA000ED6AE /* SearchView.swift */; };
+		DEE101472A1B511A000ED6AE /* SelectUnitTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101462A1B511A000ED6AE /* SelectUnitTableView.swift */; };
+		DEE101492A1B5121000ED6AE /* SelectUnitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101482A1B5121000ED6AE /* SelectUnitTableCell.swift */; };
+		DEE1014B2A1B5128000ED6AE /* SelectUnitTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1014A2A1B5128000ED6AE /* SelectUnitTableElement.swift */; };
+		DEE1014D2A1B8811000ED6AE /* SelectUnitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1014C2A1B8811000ED6AE /* SelectUnitEmptyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -336,6 +344,14 @@
 		DEE101352A177C44000ED6AE /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
 		DEE101372A177C72000ED6AE /* SettingsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableElement.swift; sourceTree = "<group>"; };
 		DEE101392A177C8E000ED6AE /* SettingsRouteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouteCell.swift; sourceTree = "<group>"; };
+		DEE1013C2A1B41E9000ED6AE /* SelectUnitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitViewController.swift; sourceTree = "<group>"; };
+		DEE1013E2A1B41F0000ED6AE /* SelectUnitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitViewModel.swift; sourceTree = "<group>"; };
+		DEE101402A1B41F4000ED6AE /* SelectUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitView.swift; sourceTree = "<group>"; };
+		DEE101432A1B42AA000ED6AE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		DEE101462A1B511A000ED6AE /* SelectUnitTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitTableView.swift; sourceTree = "<group>"; };
+		DEE101482A1B5121000ED6AE /* SelectUnitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitTableCell.swift; sourceTree = "<group>"; };
+		DEE1014A2A1B5128000ED6AE /* SelectUnitTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitTableElement.swift; sourceTree = "<group>"; };
+		DEE1014C2A1B8811000ED6AE /* SelectUnitEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUnitEmptyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -678,6 +694,7 @@
 		DE3F5F8D2A03F04D00BCC039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEE1013B2A1B41DA000ED6AE /* SelectUnit */,
 				DEA082422A0E7F4D00DF7D4B /* Home */,
 				DE3F61CA2A03F15800BCC039 /* Paygate */,
 				DE3F5FCB2A03F04D00BCC039 /* Splash */,
@@ -1121,6 +1138,37 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		DEE1013B2A1B41DA000ED6AE /* SelectUnit */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101422A1B42A1000ED6AE /* Views */,
+				DEE1013C2A1B41E9000ED6AE /* SelectUnitViewController.swift */,
+				DEE1013E2A1B41F0000ED6AE /* SelectUnitViewModel.swift */,
+				DEE101402A1B41F4000ED6AE /* SelectUnitView.swift */,
+			);
+			path = SelectUnit;
+			sourceTree = "<group>";
+		};
+		DEE101422A1B42A1000ED6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101452A1B510A000ED6AE /* TableView */,
+				DEE101432A1B42AA000ED6AE /* SearchView.swift */,
+				DEE1014C2A1B8811000ED6AE /* SelectUnitEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE101452A1B510A000ED6AE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE101462A1B511A000ED6AE /* SelectUnitTableView.swift */,
+				DEE101482A1B5121000ED6AE /* SelectUnitTableCell.swift */,
+				DEE1014A2A1B5128000ED6AE /* SelectUnitTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1257,20 +1305,24 @@
 				DE3F61102A03F04D00BCC039 /* IAPErrorHelper.swift in Sources */,
 				DE3F613E2A03F04D00BCC039 /* SplashView.swift in Sources */,
 				DE3F60E12A03F04D00BCC039 /* ProfileManager.swift in Sources */,
+				DEE101442A1B42AA000ED6AE /* SearchView.swift in Sources */,
 				DE3F610D2A03F04D00BCC039 /* IAPActionResult.swift in Sources */,
 				DE3F61DB2A03F15800BCC039 /* PaygateView.swift in Sources */,
 				DE512BF62A126F5F00BBC661 /* GetBookmarksDrugsResponse.swift in Sources */,
 				DE512BDF2A126A4E00BBC661 /* SymptomsInteractionConditionDetails.swift in Sources */,
 				DE3F609F2A03F04D00BCC039 /* ImagePicker.swift in Sources */,
+				DEE101472A1B511A000ED6AE /* SelectUnitTableView.swift in Sources */,
 				DE7BD62F2A1526A600A21DE7 /* SymptomsMockManager.swift in Sources */,
 				DE3F60AC2A03F04D00BCC039 /* PushNotificationsManager.swift in Sources */,
 				DE3F608D2A03F04D00BCC039 /* String+Extension.swift in Sources */,
 				DE7BD6082A14C2CF00A21DE7 /* GetConditionDetailsResponse.swift in Sources */,
+				DEE1013D2A1B41E9000ED6AE /* SelectUnitViewController.swift in Sources */,
 				DE5C624C2A137DAC00ECAB17 /* GetSymptomsRequest.swift in Sources */,
 				DE7BD6162A14C68A00A21DE7 /* GetBookmarksConditionsResponse.swift in Sources */,
 				DE3F610A2A03F04D00BCC039 /* IAPManager.swift in Sources */,
 				DE3F60A02A03F04D00BCC039 /* RxActivityIndicator.swift in Sources */,
 				DE3F608E2A03F04D00BCC039 /* UIViewRxExtension.swift in Sources */,
+				DEE1013F2A1B41F0000ED6AE /* SelectUnitViewModel.swift in Sources */,
 				DE7BD6062A14C2CA00A21DE7 /* GetConditionDetailsRequest.swift in Sources */,
 				DE3F61DD2A03F15800BCC039 /* PaygateProductButton.swift in Sources */,
 				DE512BDD2A12696000BBC661 /* SymptomsInteractionCondition.swift in Sources */,
@@ -1331,6 +1383,7 @@
 				DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */,
 				DE3F610C2A03F04D00BCC039 /* ProductPrice.swift in Sources */,
 				DEA082412A0D49AB00DF7D4B /* OSymptomCheckerView.swift in Sources */,
+				DEE101492A1B5121000ED6AE /* SelectUnitTableCell.swift in Sources */,
 				DE3F60982A03F04D00BCC039 /* XOREncryption.swift in Sources */,
 				DE3F609C2A03F04D00BCC039 /* ContentError.swift in Sources */,
 				DE3F60932A03F04D00BCC039 /* Scalable.swift in Sources */,
@@ -1362,6 +1415,8 @@
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE3F61C42A03F14A00BCC039 /* PaygateOptionLineComponent.swift in Sources */,
 				DEA0824E2A0E807A00DF7D4B /* HomeTableElement.swift in Sources */,
+				DEE1014D2A1B8811000ED6AE /* SelectUnitEmptyView.swift in Sources */,
+				DEE1014B2A1B5128000ED6AE /* SelectUnitTableElement.swift in Sources */,
 				DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */,
 				DE512BE32A126B2E00BBC661 /* GetDrugsRequest.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
@@ -1380,6 +1435,7 @@
 				DEA0823D2A0D428100DF7D4B /* ODrugGuideView.swift in Sources */,
 				DE3F60AF2A03F04D00BCC039 /* SceneDelegate.swift in Sources */,
 				DE3F61C92A03F14A00BCC039 /* PaygateManager.swift in Sources */,
+				DEE101412A1B41F4000ED6AE /* SelectUnitView.swift in Sources */,
 				DEA0823F2A0D497300DF7D4B /* OInteractionCheckerView.swift in Sources */,
 				DEA082442A0E7F5600DF7D4B /* HomeViewController.swift in Sources */,
 				DE3F60AD2A03F04D00BCC039 /* PushNotificationsAuthorizationStatus.swift in Sources */,

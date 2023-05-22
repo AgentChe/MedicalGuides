@@ -1,0 +1,169 @@
+//
+//  SelectUnitViewModel.swift
+//  MedicalGuides
+//
+//  Created by Андрей Чернышев on 22.05.2023.
+//
+
+import RxSwift
+import RxCocoa
+
+final class SelectUnitViewModel {
+    enum Unit {
+        case drugs, symptoms
+    }
+    
+    enum Route {
+        case result(Result)
+    }
+    
+    enum Result {
+        case drug(Drug)
+        case symptom(Symptom)
+    }
+    
+    private lazy var currentElements = makeCurrentElements()
+    private lazy var drugsElements = makeDrugsElements()
+    private lazy var symptomsElements = makeSymptomsElements()
+    private let unit: Driver<Unit>
+    private let selectedIds: Driver<[Int]>
+    
+    private lazy var drugsManager = DrugsManager()
+    private lazy var symptomsManager = SymptomsManager()
+    
+    init(unit: Unit, selectedIds: [Int]) {
+        self.unit = BehaviorRelay(value: unit).asDriver()
+        self.selectedIds = BehaviorRelay(value: selectedIds).asDriver()
+    }
+}
+
+// MARK: Public
+extension SelectUnitViewModel {
+    struct Input {
+        let didSearch: Signal<String>
+        let didSelect: Signal<SelectUnitTableElement>
+    }
+    
+    struct Output {
+        let elements: Driver<[SelectUnitTableElement]>
+        let isEmpty: Driver<Bool>
+        let route: Driver<Route>
+    }
+    
+    func configure(input: Input) -> Output {
+        let elements = makeElements(didSearch: input.didSearch)
+        
+        return Output(
+            elements: elements,
+            isEmpty: makeIsEmpty(
+                didSearch: input.didSearch,
+                elements: elements
+            ),
+            route: makeRoute(didSelect: input.didSelect)
+        )
+    }
+}
+
+// MARK: Private
+private extension SelectUnitViewModel {
+    func makeRoute(didSelect: Signal<SelectUnitTableElement>) -> Driver<Route> {
+        didSelect
+            .asDriver(onErrorDriveWith: .never())
+            .flatMapLatest { element -> Driver<Route> in
+                guard !element.isSelected else {
+                    return .never()
+                }
+                
+                let result: Result
+                switch element.unit {
+                case .drug(let drug):
+                    result = .drug(drug)
+                case .symptom(let symptom):
+                    result = .symptom(symptom)
+                }
+                
+                return .just(.result(result))
+            }
+    }
+    
+    func makeElements(didSearch: Signal<String>) -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                didSearch.asDriver(onErrorDriveWith: .never()),
+                currentElements
+            )
+            .map { search, elements -> [SelectUnitTableElement] in
+                elements.filter { element -> Bool in
+                    element.name.contains(search)
+                }
+            }
+    }
+    
+    func makeIsEmpty(didSearch: Signal<String>, elements: Driver<[SelectUnitTableElement]>) -> Driver<Bool> {
+        Driver
+            .combineLatest(
+                didSearch.asDriver(onErrorJustReturn: ""),
+                elements
+            )
+            .map { search, elements -> Bool in
+                guard !search.isEmpty else {
+                    return false
+                }
+                
+                return elements.isEmpty
+            }
+            .startWith(false)
+    }
+    
+    func makeCurrentElements() -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                unit,
+                drugsElements,
+                symptomsElements
+            ) { unit, drugs, symptoms -> [SelectUnitTableElement] in
+                switch unit {
+                case .drugs:
+                    return drugs
+                case .symptoms:
+                    return symptoms
+                }
+            }
+    }
+    
+    func makeDrugsElements() -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                drugsManager
+                    .obtainDrugs(forceUpdate: false)
+                    .asDriver(onErrorJustReturn: []),
+                selectedIds
+            )
+            .map { drugs, selectedIds -> [SelectUnitTableElement] in
+                drugs.map { drug -> SelectUnitTableElement in
+                    SelectUnitTableElement(
+                        drug: drug,
+                        isSelected: selectedIds.contains(where: { $0 == drug.id })
+                    )
+                }
+            }
+    }
+    
+    func makeSymptomsElements() -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                symptomsManager
+                    .obtainSymptoms(forceUpdate: false)
+                    .asDriver(onErrorJustReturn: []),
+                selectedIds
+            )
+            .map { symptoms, selectedIds -> [SelectUnitTableElement] in
+                symptoms.map { symptom -> SelectUnitTableElement in
+                    SelectUnitTableElement(
+                        symptom: symptom,
+                        isSelected: selectedIds.contains(where: { $0 == symptom.id })
+                    )
+                }
+            }
+    }
+}
