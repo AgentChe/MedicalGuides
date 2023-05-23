@@ -74,8 +74,8 @@ private extension HomeViewController {
             let vc = SettingsViewController.make()
             present(vc, animated: true)
         case .drugGuide:
-            // TODO
-            print("drugGuide")
+            let vc = DrugsViewController.make()
+            navigationController?.pushViewController(vc, animated: true)
         case .interactionChecker:
             let vc = InteractionCheckerViewController.make()
             present(vc, animated: true)

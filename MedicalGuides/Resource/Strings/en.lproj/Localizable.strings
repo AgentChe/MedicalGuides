@@ -96,3 +96,7 @@
 "InteractionChecker.AddMore" = "Add more drugs";
 "InteractionChecker.Check" = "Check";
 "InteractionChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+
+// MARK: Drugs
+"Drugs.Title" = "Drug Guide";
+"Drugs.Search" = "Search";
