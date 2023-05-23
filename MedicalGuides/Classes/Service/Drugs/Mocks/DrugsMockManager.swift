@@ -84,8 +84,12 @@ final class DrugsManager: DrugsManagerProtocol {
                 return Disposables.create()
             }
             
-            let interaction = self.checkDrugsIds(ids: drugsIds)
-            event(.success(interaction))
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.async {
+                    let interaction = self.checkDrugsIds(ids: drugsIds)
+                    event(.success(interaction))
+                }
+            }
             
             return Disposables.create()
         }
@@ -237,7 +241,7 @@ private extension DrugsManager {
         let id = ids.reduce(0) { $0 + $1 }
         let title = drugs
             .filter { drug in ids.contains(where: { $0 == drug.id }) }
-            .reduce("") { $0 + " + \($1)" }
+            .reduce("") { $0 + " + \($1.name)" }
         
         let interaction = DrugsInteraction(
             id: id,

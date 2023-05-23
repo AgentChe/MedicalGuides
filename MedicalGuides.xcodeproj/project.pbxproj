@@ -184,6 +184,8 @@
 		DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */; };
 		DEE1015F2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */; };
 		DEE101612A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */; };
+		DEE101632A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */; };
+		DEE101652A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -368,6 +370,8 @@
 		DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerDrugCell.swift; sourceTree = "<group>"; };
 		DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerAddCell.swift; sourceTree = "<group>"; };
 		DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerCheckCell.swift; sourceTree = "<group>"; };
+		DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerPreloaderCell.swift; sourceTree = "<group>"; };
+		DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1221,6 +1225,8 @@
 				DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */,
 				DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */,
 				DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */,
+				DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */,
+				DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1413,6 +1419,7 @@
 				DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */,
 				DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */,
 				DE3F60922A03F04D00BCC039 /* RestAPITransport.swift in Sources */,
+				DEE101632A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift in Sources */,
 				DE512C022A1271E000BBC661 /* SaveUnsaveInteractionDrugsResponse.swift in Sources */,
 				DE3F60A22A03F04D00BCC039 /* NavigationControllerSettings.swift in Sources */,
 				DE3F60E32A03F04D00BCC039 /* GetProfileRequest.swift in Sources */,
@@ -1429,6 +1436,7 @@
 				DE5C62512A137F3000ECAB17 /* SymptomsCheckerRequest.swift in Sources */,
 				DE3F60872A03F04D00BCC039 /* UIApplication+Extension.swift in Sources */,
 				DE3F60A12A03F04D00BCC039 /* Toast.swift in Sources */,
+				DEE101652A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift in Sources */,
 				DE512BED2A126E9800BBC661 /* SaveDrugRequest.swift in Sources */,
 				DE3F60882A03F04D00BCC039 /* UIDevice+Extension.swift in Sources */,
 				DE3F60A72A03F04D00BCC039 /* PaddingLabel.swift in Sources */,

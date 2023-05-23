@@ -16,6 +16,7 @@ final class InteractionCheckerTableView: UITableView {
     private lazy var didTapDeleteTrigger = PublishRelay<InteractionCheckerDrugElement>()
     private lazy var didTapAddMoreTrigger = PublishRelay<Void>()
     private lazy var didTapCheckTrigger = PublishRelay<Void>()
+    private lazy var didTapBookmarkTrigger = PublishRelay<Bool>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -51,6 +52,10 @@ extension InteractionCheckerTableView {
     var didTapCheck: Signal<Void> {
         didTapCheckTrigger.asSignal()
     }
+    
+    var didTapBookmark: Signal<Bool> {
+        didTapBookmarkTrigger.asSignal()
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -72,6 +77,17 @@ extension InteractionCheckerTableView: UITableViewDataSource {
             return dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerAddCell.self), for: indexPath)
         case .check:
             return dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerCheckCell.self), for: indexPath)
+        case .preloader:
+            let cell = dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerPreloaderCell.self), for: indexPath) as! InteractionCheckerPreloaderCell
+            cell.spinner.startAnimating()
+            return cell
+        case .result(let element):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerResultCell.self), for: indexPath) as! InteractionCheckerResultCell
+            cell.setup(element: element)
+            cell.didTapBookmark = { [weak self] in
+                self?.didTapBookmarkTrigger.accept(element.marked)
+            }
+            return cell
         }
     }
 }
@@ -90,6 +106,8 @@ extension InteractionCheckerTableView: UITableViewDelegate {
             didTapAddMoreTrigger.accept(Void())
         case .check:
             didTapCheckTrigger.accept(Void())
+        default:
+            return
         }
     }
 }
@@ -100,6 +118,8 @@ private extension InteractionCheckerTableView {
         register(InteractionCheckerDrugCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerDrugCell.self))
         register(InteractionCheckerAddCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerAddCell.self))
         register(InteractionCheckerCheckCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerCheckCell.self))
+        register(InteractionCheckerPreloaderCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerPreloaderCell.self))
+        register(InteractionCheckerResultCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerResultCell.self))
         
         dataSource = self
         delegate = self

@@ -12,6 +12,14 @@ final class InteractionCheckerViewModel {
     enum Route {
         case selectDrug(forElementId: String, selectedIds: [Int])
     }
+    
+    var tryAgain: ((Error) -> (Observable<Void>))?
+    
+    private lazy var activity = RxActivityIndicator()
+    
+    private lazy var drugsManager = DrugsManager()
+    
+    private lazy var observableRetrySingle = ObservableRetrySingle()
 }
 
 // MARK: Public
@@ -22,6 +30,7 @@ extension InteractionCheckerViewModel {
         let didTapAddMore: Signal<Void>
         let didTapCheck: Signal<Void>
         let didSelectDrug: Signal<(Drug, String)>
+        let didTapBookmark: Signal<Bool>
     }
     
     struct Output {
@@ -37,11 +46,21 @@ extension InteractionCheckerViewModel {
         )
         let drugsElements = makeDrugsElements(action: action)
         let selectedDrugs = makeSelectedDrugs(drugsElements: drugsElements)
+        let result = makeResult(
+            didTapCheck: input.didTapCheck,
+            selectedDrugs: selectedDrugs
+        )
+        let bookmark = makeBookmark(
+            didTapBookmark: input.didTapBookmark,
+            interaction: result
+        ).startWith(false)
         
         return Output(
             elements: makeElements(
                 drugsElements: drugsElements,
-                selectedDrugs: selectedDrugs
+                selectedDrugs: selectedDrugs,
+                result: result,
+                bookmark: bookmark
             ),
             route: makeRoute(
                 didTapElement: input.didTapElement,
@@ -62,14 +81,19 @@ private extension InteractionCheckerViewModel {
     
     func makeElements(
         drugsElements: Driver<[InteractionCheckerDrugElement]>,
-        selectedDrugs: Driver<[Drug]>
+        selectedDrugs: Driver<[Drug]>,
+        result: Driver<DrugsInteraction?>,
+        bookmark: Driver<Bool>
     ) -> Driver<[InteractionCheckerTableElement]> {
         Driver
             .combineLatest(
                 drugsElements,
-                selectedDrugs
+                selectedDrugs,
+                result.startWith(nil),
+                activity.asDriver(),
+                bookmark
             )
-            .map { drugsElements, selectedDrugs -> [InteractionCheckerTableElement] in
+            .map { drugsElements, selectedDrugs, interaction, activity, bookmark -> [InteractionCheckerTableElement] in
                 var result: [InteractionCheckerTableElement] = drugsElements.map {
                     .drug($0)
                 }
@@ -78,8 +102,18 @@ private extension InteractionCheckerViewModel {
                     result.append(.addMore)
                 }
                 
-                if selectedDrugs.count >= 2 {
+                if activity {
+                    result.append(.preloader)
+                } else if selectedDrugs.count >= 2 {
                     result.append(.check)
+                }
+                
+                if let interaction = interaction {
+                    let element = InteractionCheckerResultElement(
+                        result: interaction,
+                        marked: bookmark
+                    )
+                    result.append(.result(element))
                 }
                 
                 return result
@@ -193,5 +227,81 @@ private extension InteractionCheckerViewModel {
                 }
             }
         }
+    }
+    
+    func makeResult(
+        didTapCheck: Signal<Void>,
+        selectedDrugs: Driver<[Drug]>
+    ) -> Driver<DrugsInteraction?> {
+        didTapCheck
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(selectedDrugs)
+            .flatMapLatest { [weak self] drugs -> Driver<DrugsInteraction?> in
+                guard let self = self else {
+                    return .never()
+                }
+                
+                func source() -> Single<DrugsInteraction?> {
+                    self.drugsManager
+                        .interactionCheck(drugsIds: drugs.map { $0.id })
+                        .flatMap { result -> Single<DrugsInteraction?> in
+                            guard let result = result else {
+                                return .error(ContentError(.notContent))
+                            }
+                            
+                            return .just(result)
+                        }
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    guard let tryAgain = self.tryAgain?(error) else {
+                        return .empty()
+                    }
+                    
+                    return tryAgain
+                }
+                
+                return self.observableRetrySingle
+                    .retry(source: { source() },
+                           trigger: { trigger(error: $0) })
+                    .trackActivity(self.activity)
+                    .asDriver(onErrorDriveWith: .never())
+            }
+    }
+    
+    func makeBookmark(didTapBookmark: Signal<Bool>, interaction: Driver<DrugsInteraction?>) -> Driver<Bool> {
+        let initial = interaction
+            .compactMap { $0?.saved }
+            .asDriver(onErrorDriveWith: .never())
+        
+        let action = didTapBookmark
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(interaction) {  ($0, $1) }
+            .flatMapLatest { [weak self] saved, interaction -> Driver<Bool> in
+                guard let self = self, let id = interaction?.id else {
+                    return .never()
+                }
+                
+                func source() -> Single<Bool> {
+                    saved ? self.drugsManager.unsave(interactionsIds: [id]) : self.drugsManager.save(interactionId: id)
+                }
+                
+                func trigger(error: Error) -> Observable<Void> {
+                    guard let tryAgain = self.tryAgain?(error) else {
+                        return .empty()
+                    }
+                    
+                    return tryAgain
+                }
+                
+                return self.observableRetrySingle
+                    .retry(source: { source() },
+                           trigger: { trigger(error: $0) })
+                    .asDriver(onErrorDriveWith: .never())
+                    .map { _ in !saved }
+            }
+        
+        return Driver
+            .merge(initial, action)
     }
 }

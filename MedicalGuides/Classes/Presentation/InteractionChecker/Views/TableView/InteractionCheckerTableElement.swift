@@ -9,6 +9,8 @@ enum InteractionCheckerTableElement {
     case drug(InteractionCheckerDrugElement)
     case addMore
     case check
+    case preloader
+    case result(InteractionCheckerResultElement)
 }
 
 struct InteractionCheckerDrugElement {
@@ -21,4 +23,9 @@ struct InteractionCheckerDrugElement {
     let number: Int
     let deleteEnabled: Bool
     let mode: Mode
+}
+
+struct InteractionCheckerResultElement {
+    let result: DrugsInteraction
+    let marked: Bool
 }

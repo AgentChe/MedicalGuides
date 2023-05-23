@@ -25,12 +25,21 @@ final class InteractionCheckerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+            guard let self = self else {
+                return .never()
+            }
+            
+            return self.open(error: error)
+        }
+        
         let output = viewModel.configure(input: InteractionCheckerViewModel.Input(
             didTapElement: mainView.tableView.didTapElement,
             didTapDelete: mainView.tableView.didTapDelete,
             didTapAddMore: mainView.tableView.didTapAddMore,
             didTapCheck: mainView.tableView.didTapCheck,
-            didSelectDrug: didSelectDrugTrigger.asSignal()
+            didSelectDrug: didSelectDrugTrigger.asSignal(),
+            didTapBookmark: mainView.tableView.didTapBookmark
         ))
         
         output.elements
@@ -83,5 +92,21 @@ private extension InteractionCheckerViewController {
             }
             present(vc, animated: true)
         }
+    }
+    
+    func open(error: Error) -> Observable<Void> {
+        Observable<Void>
+            .create { [weak self] observe in
+                guard let self = self else {
+                    return Disposables.create()
+                }
+                
+                let vc = TryAgainViewController.make(error: error) {
+                    observe.onNext(())
+                }
+                self.present(vc, animated: true)
+                
+                return Disposables.create()
+            }
     }
 }
