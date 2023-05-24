@@ -202,6 +202,21 @@
 		DEE1022B2A1D1C66000ED6AE /* DrugTableTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1022A2A1D1C66000ED6AE /* DrugTableTextCell.swift */; };
 		DEE1022D2A1D1CD2000ED6AE /* DrugTableNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1022C2A1D1CD2000ED6AE /* DrugTableNameCell.swift */; };
 		DEE1022F2A1D1F67000ED6AE /* DrugTableSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1022E2A1D1F67000ED6AE /* DrugTableSeparatorCell.swift */; };
+		DEE102332A1E08F7000ED6AE /* SCPersonalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102322A1E08F7000ED6AE /* SCPersonalView.swift */; };
+		DEE102352A1E08FD000ED6AE /* SCPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102342A1E08FD000ED6AE /* SCPersonalViewController.swift */; };
+		DEE102372A1E0903000ED6AE /* SCPersonalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102362A1E0903000ED6AE /* SCPersonalViewModel.swift */; };
+		DEE1023A2A1E0A43000ED6AE /* SCSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102392A1E0A43000ED6AE /* SCSymptomsViewController.swift */; };
+		DEE1023C2A1E0A47000ED6AE /* SCSymptomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1023B2A1E0A47000ED6AE /* SCSymptomsViewModel.swift */; };
+		DEE1023E2A1E0A4C000ED6AE /* SCSymptomsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1023D2A1E0A4C000ED6AE /* SCSymptomsView.swift */; };
+		DEE102412A1E0BE1000ED6AE /* SCConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102402A1E0BE1000ED6AE /* SCConfirmViewController.swift */; };
+		DEE102432A1E0BE6000ED6AE /* SCConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102422A1E0BE6000ED6AE /* SCConfirmViewModel.swift */; };
+		DEE102452A1E0BEB000ED6AE /* SCConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102442A1E0BEB000ED6AE /* SCConfirmView.swift */; };
+		DEE102482A1E0C46000ED6AE /* SCResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102472A1E0C46000ED6AE /* SCResultViewController.swift */; };
+		DEE1024A2A1E0C4C000ED6AE /* SCResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102492A1E0C4C000ED6AE /* SCResultViewModel.swift */; };
+		DEE1024C2A1E0C54000ED6AE /* SCResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1024B2A1E0C54000ED6AE /* SCResultView.swift */; };
+		DEE1024F2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1024E2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift */; };
+		DEE102522A1E13BB000ED6AE /* SelectGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102512A1E13BB000ED6AE /* SelectGenderView.swift */; };
+		DEE102542A1E1C31000ED6AE /* SelectAgeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +419,21 @@
 		DEE1022A2A1D1C66000ED6AE /* DrugTableTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugTableTextCell.swift; sourceTree = "<group>"; };
 		DEE1022C2A1D1CD2000ED6AE /* DrugTableNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugTableNameCell.swift; sourceTree = "<group>"; };
 		DEE1022E2A1D1F67000ED6AE /* DrugTableSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugTableSeparatorCell.swift; sourceTree = "<group>"; };
+		DEE102322A1E08F7000ED6AE /* SCPersonalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPersonalView.swift; sourceTree = "<group>"; };
+		DEE102342A1E08FD000ED6AE /* SCPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPersonalViewController.swift; sourceTree = "<group>"; };
+		DEE102362A1E0903000ED6AE /* SCPersonalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCPersonalViewModel.swift; sourceTree = "<group>"; };
+		DEE102392A1E0A43000ED6AE /* SCSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsViewController.swift; sourceTree = "<group>"; };
+		DEE1023B2A1E0A47000ED6AE /* SCSymptomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsViewModel.swift; sourceTree = "<group>"; };
+		DEE1023D2A1E0A4C000ED6AE /* SCSymptomsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsView.swift; sourceTree = "<group>"; };
+		DEE102402A1E0BE1000ED6AE /* SCConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmViewController.swift; sourceTree = "<group>"; };
+		DEE102422A1E0BE6000ED6AE /* SCConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmViewModel.swift; sourceTree = "<group>"; };
+		DEE102442A1E0BEB000ED6AE /* SCConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCConfirmView.swift; sourceTree = "<group>"; };
+		DEE102472A1E0C46000ED6AE /* SCResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultViewController.swift; sourceTree = "<group>"; };
+		DEE102492A1E0C4C000ED6AE /* SCResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultViewModel.swift; sourceTree = "<group>"; };
+		DEE1024B2A1E0C54000ED6AE /* SCResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultView.swift; sourceTree = "<group>"; };
+		DEE1024E2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckerCollector.swift; sourceTree = "<group>"; };
+		DEE102512A1E13BB000ED6AE /* SelectGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderView.swift; sourceTree = "<group>"; };
+		DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAgeAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -746,6 +776,7 @@
 		DE3F5F8D2A03F04D00BCC039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DEE102302A1E088A000ED6AE /* SymptomChecker */,
 				DEE102062A1D0D36000ED6AE /* Guides */,
 				DEE1014E2A1B937D000ED6AE /* InteractionChecker */,
 				DEE1013B2A1B41DA000ED6AE /* SelectUnit */,
@@ -1343,6 +1374,76 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DEE102302A1E088A000ED6AE /* SymptomChecker */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102462A1E0C37000ED6AE /* SCResult */,
+				DEE1023F2A1E0BD3000ED6AE /* SCConfirm */,
+				DEE102382A1E0A33000ED6AE /* SCSymptoms */,
+				DEE102312A1E08E5000ED6AE /* SCPersonal */,
+			);
+			path = SymptomChecker;
+			sourceTree = "<group>";
+		};
+		DEE102312A1E08E5000ED6AE /* SCPersonal */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102502A1E13A6000ED6AE /* Views */,
+				DEE102342A1E08FD000ED6AE /* SCPersonalViewController.swift */,
+				DEE102362A1E0903000ED6AE /* SCPersonalViewModel.swift */,
+				DEE102322A1E08F7000ED6AE /* SCPersonalView.swift */,
+			);
+			path = SCPersonal;
+			sourceTree = "<group>";
+		};
+		DEE102382A1E0A33000ED6AE /* SCSymptoms */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102392A1E0A43000ED6AE /* SCSymptomsViewController.swift */,
+				DEE1023B2A1E0A47000ED6AE /* SCSymptomsViewModel.swift */,
+				DEE1023D2A1E0A4C000ED6AE /* SCSymptomsView.swift */,
+			);
+			path = SCSymptoms;
+			sourceTree = "<group>";
+		};
+		DEE1023F2A1E0BD3000ED6AE /* SCConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102402A1E0BE1000ED6AE /* SCConfirmViewController.swift */,
+				DEE102422A1E0BE6000ED6AE /* SCConfirmViewModel.swift */,
+				DEE102442A1E0BEB000ED6AE /* SCConfirmView.swift */,
+			);
+			path = SCConfirm;
+			sourceTree = "<group>";
+		};
+		DEE102462A1E0C37000ED6AE /* SCResult */ = {
+			isa = PBXGroup;
+			children = (
+				DEE1024D2A1E0CFC000ED6AE /* Model */,
+				DEE102472A1E0C46000ED6AE /* SCResultViewController.swift */,
+				DEE102492A1E0C4C000ED6AE /* SCResultViewModel.swift */,
+				DEE1024B2A1E0C54000ED6AE /* SCResultView.swift */,
+			);
+			path = SCResult;
+			sourceTree = "<group>";
+		};
+		DEE1024D2A1E0CFC000ED6AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DEE1024E2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DEE102502A1E13A6000ED6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102512A1E13BB000ED6AE /* SelectGenderView.swift */,
+				DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1464,9 +1565,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE1023A2A1E0A43000ED6AE /* SCSymptomsViewController.swift in Sources */,
 				DE512BD12A1265DB00BBC661 /* DrugBlock.swift in Sources */,
 				DE3F613C2A03F04D00BCC039 /* SplashReceiptValidationObserver.swift in Sources */,
 				DEA082462A0E7F5B00DF7D4B /* HomeViewModel.swift in Sources */,
+				DEE1023E2A1E0A4C000ED6AE /* SCSymptomsView.swift in Sources */,
 				DE3F60B32A03F04D00BCC039 /* AmplitudeManager.swift in Sources */,
 				DE512BF92A126FE400BBC661 /* DrugsInteractionCheckerRequest.swift in Sources */,
 				DE3F60A42A03F04D00BCC039 /* TapAreaButton.swift in Sources */,
@@ -1479,6 +1582,7 @@
 				DE512BF42A126F5900BBC661 /* GetBookmarksDrugsRequest.swift in Sources */,
 				DE7BD61C2A14CC7A00A21DE7 /* SymptomsManager.swift in Sources */,
 				DE3F61102A03F04D00BCC039 /* IAPErrorHelper.swift in Sources */,
+				DEE1024F2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift in Sources */,
 				DE3F613E2A03F04D00BCC039 /* SplashView.swift in Sources */,
 				DE3F60E12A03F04D00BCC039 /* ProfileManager.swift in Sources */,
 				DEE101442A1B42AA000ED6AE /* SearchView.swift in Sources */,
@@ -1497,6 +1601,7 @@
 				DE5C624C2A137DAC00ECAB17 /* GetSymptomsRequest.swift in Sources */,
 				DE7BD6162A14C68A00A21DE7 /* GetBookmarksConditionsResponse.swift in Sources */,
 				DE3F610A2A03F04D00BCC039 /* IAPManager.swift in Sources */,
+				DEE1023C2A1E0A47000ED6AE /* SCSymptomsViewModel.swift in Sources */,
 				DE3F60A02A03F04D00BCC039 /* RxActivityIndicator.swift in Sources */,
 				DE3F608E2A03F04D00BCC039 /* UIViewRxExtension.swift in Sources */,
 				DEE1021E2A1D182B000ED6AE /* DrugView.swift in Sources */,
@@ -1516,10 +1621,13 @@
 				DE7BD6212A14D4E900A21DE7 /* GetBookmarksInteractionsRequest.swift in Sources */,
 				DE3F60902A03F04D00BCC039 /* DefaultRequestWrapper.swift in Sources */,
 				DE3F609A2A03F04D00BCC039 /* SignError.swift in Sources */,
+				DEE102522A1E13BB000ED6AE /* SelectGenderView.swift in Sources */,
 				DE3F61C62A03F14A00BCC039 /* Paygate.swift in Sources */,
 				DE3F60B22A03F04D00BCC039 /* BranchManager.swift in Sources */,
 				DE3F60912A03F04D00BCC039 /* APIRequestBody.swift in Sources */,
 				DE512BE52A126B3700BBC661 /* GetDrugsResponse.swift in Sources */,
+				DEE102332A1E08F7000ED6AE /* SCPersonalView.swift in Sources */,
+				DEE102482A1E0C46000ED6AE /* SCResultViewController.swift in Sources */,
 				DE3F610F2A03F04D00BCC039 /* IAPError.swift in Sources */,
 				DE3F608A2A03F04D00BCC039 /* Date+Extension.swift in Sources */,
 				DE3F610E2A03F04D00BCC039 /* IAPProduct.swift in Sources */,
@@ -1534,12 +1642,14 @@
 				DE7BD61A2A14CA7C00A21DE7 /* DrugsMediator.swift in Sources */,
 				DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */,
 				DEE102272A1D1C56000ED6AE /* DrugTableSectionCell.swift in Sources */,
+				DEE1024C2A1E0C54000ED6AE /* SCResultView.swift in Sources */,
 				DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */,
 				DE3F60922A03F04D00BCC039 /* RestAPITransport.swift in Sources */,
 				DEE101632A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift in Sources */,
 				DE512C022A1271E000BBC661 /* SaveUnsaveInteractionDrugsResponse.swift in Sources */,
 				DE3F60A22A03F04D00BCC039 /* NavigationControllerSettings.swift in Sources */,
 				DE3F60E32A03F04D00BCC039 /* GetProfileRequest.swift in Sources */,
+				DEE102432A1E0BE6000ED6AE /* SCConfirmViewModel.swift in Sources */,
 				DE7BD61E2A14CC8400A21DE7 /* SymptomsMediator.swift in Sources */,
 				DE3F60B42A03F04D00BCC039 /* FirebaseManager.swift in Sources */,
 				DE3F60AE2A03F04D00BCC039 /* PushNotificationsModel.swift in Sources */,
@@ -1551,6 +1661,7 @@
 				DE3F60E22A03F04D00BCC039 /* Profile.swift in Sources */,
 				DE3F61D82A03F15800BCC039 /* PaygateOptionInfo.swift in Sources */,
 				DE5C62512A137F3000ECAB17 /* SymptomsCheckerRequest.swift in Sources */,
+				DEE102412A1E0BE1000ED6AE /* SCConfirmViewController.swift in Sources */,
 				DE3F60872A03F04D00BCC039 /* UIApplication+Extension.swift in Sources */,
 				DE3F60A12A03F04D00BCC039 /* Toast.swift in Sources */,
 				DEE101652A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift in Sources */,
@@ -1578,6 +1689,7 @@
 				DEE1022F2A1D1F67000ED6AE /* DrugTableSeparatorCell.swift in Sources */,
 				DE3F60932A03F04D00BCC039 /* Scalable.swift in Sources */,
 				DE3F60B12A03F04D00BCC039 /* AppsFlyerManager.swift in Sources */,
+				DEE102352A1E08FD000ED6AE /* SCPersonalViewController.swift in Sources */,
 				DE3F61DA2A03F15800BCC039 /* PaygateInteractor.swift in Sources */,
 				DE7BD6112A14C5F300A21DE7 /* SaveUnsaveConditionResponse.swift in Sources */,
 				DE5C62532A137F3A00ECAB17 /* SymptomsCheckerResponse.swift in Sources */,
@@ -1592,17 +1704,20 @@
 				DEE1020B2A1D0D53000ED6AE /* DrugsViewModel.swift in Sources */,
 				DEE102102A1D0F09000ED6AE /* DrugsSearchView.swift in Sources */,
 				DE3F61C82A03F14A00BCC039 /* GetPaygateRequest.swift in Sources */,
+				DEE102372A1E0903000ED6AE /* SCPersonalViewModel.swift in Sources */,
 				DE512BCB2A12649900BBC661 /* Drug.swift in Sources */,
 				DE3F60A82A03F04D00BCC039 /* CircleView.swift in Sources */,
 				DE3F610B2A03F04D00BCC039 /* PurchaseValidationObserver.swift in Sources */,
 				DEE1021C2A1D1827000ED6AE /* DrugViewModel.swift in Sources */,
 				DEA0822C2A05108100DF7D4B /* DisclaimerViewController.swift in Sources */,
 				DE3F61A22A03F04D00BCC039 /* OnboardingViewController.swift in Sources */,
+				DEE1024A2A1E0C4C000ED6AE /* SCResultViewModel.swift in Sources */,
 				DE512BD52A12665400BBC661 /* DrugsInteraction.swift in Sources */,
 				DE512BCF2A1265BA00BBC661 /* DrugSection.swift in Sources */,
 				DE3F60AA2A03F04D00BCC039 /* CircleProgressView.swift in Sources */,
 				DEA0822E2A05159000DF7D4B /* ODisclaimerView.swift in Sources */,
 				DE3F60E62A03F04D00BCC039 /* SyncTokensRequest.swift in Sources */,
+				DEE102452A1E0BEB000ED6AE /* SCConfirmView.swift in Sources */,
 				DE512BDB2A12693A00BBC661 /* Symptom.swift in Sources */,
 				DEE1021A2A1D1821000ED6AE /* DrugViewController.swift in Sources */,
 				DE3F60942A03F04D00BCC039 /* NumberLaunches.swift in Sources */,
@@ -1622,6 +1737,7 @@
 				DE512BEA2A126CDF00BBC661 /* GetDrugDetailsResponse.swift in Sources */,
 				DEA0822A2A05107C00DF7D4B /* DisclaimerView.swift in Sources */,
 				DE3F61B92A03F04D00BCC039 /* OnboardingViewModel.swift in Sources */,
+				DEE102542A1E1C31000ED6AE /* SelectAgeAlert.swift in Sources */,
 				DE7BD6142A14C68400A21DE7 /* GetBookmarksConditionsRequest.swift in Sources */,
 				DE3F60A52A03F04D00BCC039 /* Spinner.swift in Sources */,
 				DE3F608F2A03F04D00BCC039 /* GlobalDefinitions.swift in Sources */,

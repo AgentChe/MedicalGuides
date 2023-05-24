@@ -100,3 +100,11 @@
 // MARK: Drugs
 "Drugs.Title" = "Drug Guide";
 "Drugs.Search" = "Search";
+
+// MARK: SymptomChecker
+"SymptomChecker.Title" = "Symptom Checker";
+"SymptomChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+"SymptomChecker.Personal.Age" = "Age";
+"SymptomChecker.Personal.Sex" = "Sex";
+"SymptomChecker.Personal.Male" = "Male";
+"SymptomChecker.Personal.Female" = "Female";

@@ -80,8 +80,9 @@ private extension HomeViewController {
             let vc = InteractionCheckerViewController.make()
             present(vc, animated: true)
         case .symptomChecker:
-            // TODO
-            print("symptomChecker")
+            let vc = NavigationController(rootViewController: SCPersonalViewController.make())
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
         case .bookmark:
             // TODO
             print("bookmark")
