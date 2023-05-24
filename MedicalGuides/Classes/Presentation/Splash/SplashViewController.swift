@@ -24,31 +24,34 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activity(state: .sdkInitialize)
+        // TODO
+        goNext(at: .main)
         
-        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
-            guard let self = self else {
-                return .never()
-            }
-            
-            return self.open(error: error)
-        }
-        
-        sdkInitialize.observe { [weak self] in
-            self?.activity(state: .library)
-            self?.viewModel.validationComplete.accept(Void())
-        }
-        
-        viewModel.step()
-            .drive(onNext: { [weak self] step in
-                guard let self = self else {
-                    return
-                }
-                
-                self.activity(state: .none)
-                self.goNext(at: step)
-            })
-            .disposed(by: disposeBag)
+//        activity(state: .sdkInitialize)
+//
+//        viewModel.tryAgain = { [weak self] error -> Observable<Void> in
+//            guard let self = self else {
+//                return .never()
+//            }
+//
+//            return self.open(error: error)
+//        }
+//
+//        sdkInitialize.observe { [weak self] in
+//            self?.activity(state: .library)
+//            self?.viewModel.validationComplete.accept(Void())
+//        }
+//
+//        viewModel.step()
+//            .drive(onNext: { [weak self] step in
+//                guard let self = self else {
+//                    return
+//                }
+//
+//                self.activity(state: .none)
+//                self.goNext(at: step)
+//            })
+//            .disposed(by: disposeBag)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -73,7 +76,7 @@ extension SplashViewController: PaygateViewControllerDelegate {
 // MARK: Private
 private extension SplashViewController {
     func goNext(at step: SplashViewModel.Step) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) { [weak self] in
             self?.openScreen(at: step)
         }
     }

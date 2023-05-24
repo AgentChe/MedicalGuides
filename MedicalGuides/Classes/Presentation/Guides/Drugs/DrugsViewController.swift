@@ -44,6 +44,7 @@ final class DrugsViewController: UIViewController {
                 let bottom = keyboardHeight > 0 ? keyboardHeight + 20.scale : 20.scale
                 base.contentInset.bottom = bottom
             })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -58,8 +59,9 @@ extension DrugsViewController {
     
     func route(_ route: DrugsViewModel.Route) {
         switch route {
-        case .details(let int):
-            break
+        case .details(let drug):
+            let vc = DrugViewController.make(drug: drug)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

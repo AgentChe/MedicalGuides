@@ -108,8 +108,8 @@ private extension InteractionCheckerResultCell {
         ])
         
         NSLayoutConstraint.activate([
-            bookmarkButton.widthAnchor.constraint(equalToConstant: 18.scale),
-            bookmarkButton.heightAnchor.constraint(equalToConstant: 22.scale),
+            bookmarkButton.widthAnchor.constraint(equalToConstant: 12.scale),
+            bookmarkButton.heightAnchor.constraint(equalToConstant: 18.scale),
             bookmarkButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -15.scale),
             bookmarkButton.topAnchor.constraint(equalTo: container.topAnchor, constant: 20.scale)
         ])

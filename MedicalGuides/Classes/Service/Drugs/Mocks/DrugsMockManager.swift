@@ -28,8 +28,12 @@ final class DrugsManager: DrugsManagerProtocol {
                 return Disposables.create()
             }
             
-            let drugDetails = self.drugDetails(id: id)
-            event(.success(drugDetails))
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.async {
+                    let drugDetails = self.drugDetails(id: id)
+                    event(.success(drugDetails))
+                }
+            }
             
             return Disposables.create()
         }

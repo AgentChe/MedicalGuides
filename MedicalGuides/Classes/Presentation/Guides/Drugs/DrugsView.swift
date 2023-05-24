@@ -36,7 +36,7 @@ private extension DrugsView {
         NSLayoutConstraint.activate([
             searchView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             searchView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            searchView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16.scale)
+            searchView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
         
         NSLayoutConstraint.activate([

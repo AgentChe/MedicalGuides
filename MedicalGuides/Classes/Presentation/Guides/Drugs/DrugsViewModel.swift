@@ -10,7 +10,7 @@ import RxCocoa
 
 final class DrugsViewModel {
     enum Route {
-        case details(Int)
+        case details(Drug)
     }
     
     private lazy var drugsManager = DrugsManager()
@@ -72,6 +72,6 @@ private extension DrugsViewModel {
     func makeRoute(didSelect: Signal<Drug>) -> Driver<Route> {
         didSelect
             .asDriver(onErrorDriveWith: .never())
-            .map { Route.details($0.id) }
+            .map { Route.details($0) }
     }
 }
