@@ -162,6 +162,8 @@
 		DEA0824C2A0E807400DF7D4B /* HomeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824B2A0E807400DF7D4B /* HomeTableView.swift */; };
 		DEA0824E2A0E807A00DF7D4B /* HomeTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824D2A0E807A00DF7D4B /* HomeTableElement.swift */; };
 		DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA0824F2A0E809000DF7D4B /* HomeTableCell.swift */; };
+		DEB2B26E2A20A6F900C26FC5 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B26D2A20A6F900C26FC5 /* TagView.swift */; };
+		DEB2B2702A20A6FF00C26FC5 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B26F2A20A6FF00C26FC5 /* TagsView.swift */; };
 		DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */; };
 		DEE101302A177C09000ED6AE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */; };
 		DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101312A177C0E000ED6AE /* SettingsView.swift */; };
@@ -217,6 +219,11 @@
 		DEE1024F2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1024E2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift */; };
 		DEE102522A1E13BB000ED6AE /* SelectGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102512A1E13BB000ED6AE /* SelectGenderView.swift */; };
 		DEE102542A1E1C31000ED6AE /* SelectAgeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */; };
+		DEE102582A1F7F20000ED6AE /* SCSymptomsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102572A1F7F20000ED6AE /* SCSymptomsTableView.swift */; };
+		DEE1025A2A1F7F28000ED6AE /* SCSymptomsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102592A1F7F28000ED6AE /* SCSymptomsTableElement.swift */; };
+		DEE1025D2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1025C2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift */; };
+		DEE1025F2A1F7F7C000ED6AE /* SCSymptomsTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1025E2A1F7F7C000ED6AE /* SCSymptomsTagsCell.swift */; };
+		DEE102612A1F8565000ED6AE /* SCSymptomsContinueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE102602A1F8565000ED6AE /* SCSymptomsContinueCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -379,6 +386,8 @@
 		DEA0824B2A0E807400DF7D4B /* HomeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableView.swift; sourceTree = "<group>"; };
 		DEA0824D2A0E807A00DF7D4B /* HomeTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableElement.swift; sourceTree = "<group>"; };
 		DEA0824F2A0E809000DF7D4B /* HomeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCell.swift; sourceTree = "<group>"; };
+		DEB2B26D2A20A6F900C26FC5 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		DEB2B26F2A20A6FF00C26FC5 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DEE101312A177C0E000ED6AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -434,6 +443,11 @@
 		DEE1024E2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomCheckerCollector.swift; sourceTree = "<group>"; };
 		DEE102512A1E13BB000ED6AE /* SelectGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGenderView.swift; sourceTree = "<group>"; };
 		DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAgeAlert.swift; sourceTree = "<group>"; };
+		DEE102572A1F7F20000ED6AE /* SCSymptomsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsTableView.swift; sourceTree = "<group>"; };
+		DEE102592A1F7F28000ED6AE /* SCSymptomsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsTableElement.swift; sourceTree = "<group>"; };
+		DEE1025C2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsSelectCell.swift; sourceTree = "<group>"; };
+		DEE1025E2A1F7F7C000ED6AE /* SCSymptomsTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsTagsCell.swift; sourceTree = "<group>"; };
+		DEE102602A1F8565000ED6AE /* SCSymptomsContinueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCSymptomsContinueCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1183,6 +1197,24 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		DEB2B26B2A20A6E400C26FC5 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B26C2A20A6F000C26FC5 /* Tags */,
+				DEE1025E2A1F7F7C000ED6AE /* SCSymptomsTagsCell.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
+		DEB2B26C2A20A6F000C26FC5 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B26D2A20A6F900C26FC5 /* TagView.swift */,
+				DEB2B26F2A20A6FF00C26FC5 /* TagsView.swift */,
+			);
+			path = Tags;
+			sourceTree = "<group>";
+		};
 		DEE1012B2A177BE5000ED6AE /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1399,6 +1431,7 @@
 		DEE102382A1E0A33000ED6AE /* SCSymptoms */ = {
 			isa = PBXGroup;
 			children = (
+				DEE102552A1F7F09000ED6AE /* Views */,
 				DEE102392A1E0A43000ED6AE /* SCSymptomsViewController.swift */,
 				DEE1023B2A1E0A47000ED6AE /* SCSymptomsViewModel.swift */,
 				DEE1023D2A1E0A4C000ED6AE /* SCSymptomsView.swift */,
@@ -1442,6 +1475,34 @@
 				DEE102532A1E1C31000ED6AE /* SelectAgeAlert.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE102552A1F7F09000ED6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEE102562A1F7F11000ED6AE /* TableView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEE102562A1F7F11000ED6AE /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEE1025B2A1F7F2C000ED6AE /* Cells */,
+				DEE102572A1F7F20000ED6AE /* SCSymptomsTableView.swift */,
+				DEE102592A1F7F28000ED6AE /* SCSymptomsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEE1025B2A1F7F2C000ED6AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B26B2A20A6E400C26FC5 /* Tags */,
+				DEE1025C2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift */,
+				DEE102602A1F8565000ED6AE /* SCSymptomsContinueCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1618,6 +1679,7 @@
 				DE3F61DC2A03F15800BCC039 /* PaygateViewController.swift in Sources */,
 				DE3F60972A03F04D00BCC039 /* ObservableRetrySingle.swift in Sources */,
 				DE3F61DE2A03F15800BCC039 /* PaygateInfoCell.swift in Sources */,
+				DEB2B2702A20A6FF00C26FC5 /* TagsView.swift in Sources */,
 				DE7BD6212A14D4E900A21DE7 /* GetBookmarksInteractionsRequest.swift in Sources */,
 				DE3F60902A03F04D00BCC039 /* DefaultRequestWrapper.swift in Sources */,
 				DE3F609A2A03F04D00BCC039 /* SignError.swift in Sources */,
@@ -1641,6 +1703,7 @@
 				DE7BD6182A14CA7000A21DE7 /* DrugsManager.swift in Sources */,
 				DE7BD61A2A14CA7C00A21DE7 /* DrugsMediator.swift in Sources */,
 				DEA082502A0E809000DF7D4B /* HomeTableCell.swift in Sources */,
+				DEE1025F2A1F7F7C000ED6AE /* SCSymptomsTagsCell.swift in Sources */,
 				DEE102272A1D1C56000ED6AE /* DrugTableSectionCell.swift in Sources */,
 				DEE1024C2A1E0C54000ED6AE /* SCResultView.swift in Sources */,
 				DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */,
@@ -1706,8 +1769,10 @@
 				DE3F61C82A03F14A00BCC039 /* GetPaygateRequest.swift in Sources */,
 				DEE102372A1E0903000ED6AE /* SCPersonalViewModel.swift in Sources */,
 				DE512BCB2A12649900BBC661 /* Drug.swift in Sources */,
+				DEE102612A1F8565000ED6AE /* SCSymptomsContinueCell.swift in Sources */,
 				DE3F60A82A03F04D00BCC039 /* CircleView.swift in Sources */,
 				DE3F610B2A03F04D00BCC039 /* PurchaseValidationObserver.swift in Sources */,
+				DEE1025A2A1F7F28000ED6AE /* SCSymptomsTableElement.swift in Sources */,
 				DEE1021C2A1D1827000ED6AE /* DrugViewModel.swift in Sources */,
 				DEA0822C2A05108100DF7D4B /* DisclaimerViewController.swift in Sources */,
 				DE3F61A22A03F04D00BCC039 /* OnboardingViewController.swift in Sources */,
@@ -1720,6 +1785,7 @@
 				DEE102452A1E0BEB000ED6AE /* SCConfirmView.swift in Sources */,
 				DE512BDB2A12693A00BBC661 /* Symptom.swift in Sources */,
 				DEE1021A2A1D1821000ED6AE /* DrugViewController.swift in Sources */,
+				DEE102582A1F7F20000ED6AE /* SCSymptomsTableView.swift in Sources */,
 				DE3F60942A03F04D00BCC039 /* NumberLaunches.swift in Sources */,
 				DE512BFE2A1271BE00BBC661 /* SaveInteractionDrugsRequest.swift in Sources */,
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
@@ -1732,6 +1798,7 @@
 				DEE1022D2A1D1CD2000ED6AE /* DrugTableNameCell.swift in Sources */,
 				DEE101522A1B9391000ED6AE /* InteractionCheckerViewController.swift in Sources */,
 				DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */,
+				DEB2B26E2A20A6F900C26FC5 /* TagView.swift in Sources */,
 				DE512BE32A126B2E00BBC661 /* GetDrugsRequest.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
 				DE512BEA2A126CDF00BBC661 /* GetDrugDetailsResponse.swift in Sources */,
@@ -1763,6 +1830,7 @@
 				DE7BD6282A151AE000A21DE7 /* DrugsMockManager.swift in Sources */,
 				DE3F60992A03F04D00BCC039 /* Fonts.swift in Sources */,
 				DE512BFB2A126FEA00BBC661 /* DrugsInteractionCheckerResponse.swift in Sources */,
+				DEE1025D2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift in Sources */,
 				DE3F608B2A03F04D00BCC039 /* Collection+Extension.swift in Sources */,
 				DE3F61A12A03F04D00BCC039 /* OCombineData.swift in Sources */,
 			);

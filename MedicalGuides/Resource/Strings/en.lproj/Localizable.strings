@@ -108,3 +108,5 @@
 "SymptomChecker.Personal.Sex" = "Sex";
 "SymptomChecker.Personal.Male" = "Male";
 "SymptomChecker.Personal.Female" = "Female";
+"SymptomChecker.Symptoms.SelectTitle" = "What are your symptoms?";
+"SymptomChecker.Symptoms.SelectPlaceholder" = "Enter your main symptom";

@@ -105,9 +105,15 @@ private extension SymptomsManager {
         var symptoms = [Symptom]()
         
         for i in 0...100 {
+            let c = Int.random(in: 1...20)
+            let a = ["a", "b", "c", "d", "e", "f", "q", "w", "r", "t", "y", "u", "i", "o", "p", "z", "x"]
+            let s = (0...c).reduce("T") { r, i -> String in
+                r + a.randomElement()!
+            }
+            
             let symptom = Symptom(
                 id: i,
-                name: "Toothache \(i)"
+                name: s
             )
             symptoms.append(symptom)
         }
