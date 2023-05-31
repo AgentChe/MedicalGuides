@@ -35,8 +35,12 @@ final class SymptomsManager: SymptomsManagerProtocol {
                 return Disposables.create()
             }
             
-            let conditions = self.check(age: age, symptomsIds: symptomsIds)
-            event(.success(conditions))
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.async {
+                    let conditions = self.check(age: age, symptomsIds: symptomsIds)
+                    event(.success(conditions))
+                }
+            }
             
             return Disposables.create()
         }

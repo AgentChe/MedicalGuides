@@ -12,13 +12,23 @@ import RxCocoa
 final class SCSymptomsViewController: UIViewController {
     lazy var mainView = SCSymptomsView()
     
-    private lazy var viewModel = SCSymptomsViewModel()
+    private let viewModel: SCSymptomsViewModel
     
     private lazy var disposeBag = DisposeBag()
     
     private lazy var closeButton = UIButton()
     
     private lazy var didSelectSymptomTrigger = PublishRelay<Symptom>()
+    
+    private init(collector: SymptomCheckerCollector) {
+        viewModel = SCSymptomsViewModel(collector: collector)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -30,7 +40,8 @@ final class SCSymptomsViewController: UIViewController {
         let output = viewModel.configure(input: SCSymptomsViewModel.Input(
             didTapSelect: mainView.tableView.didTapSelect,
             didAddSymptom: didSelectSymptomTrigger.asSignal(),
-            didRemoveSymptom: mainView.tableView.didRemoveSymptom
+            didRemoveSymptom: mainView.tableView.didRemoveSymptom,
+            didTapContinue: mainView.tableView.didTapContinue
         ))
         
         output.elements
@@ -51,6 +62,13 @@ final class SCSymptomsViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        mainView.disclaimerButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                let vc = DisclaimerViewController.make()
+                base.present(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         addCloseButton()
     }
 }
@@ -58,7 +76,7 @@ final class SCSymptomsViewController: UIViewController {
 // MARK: Make
 extension SCSymptomsViewController {
     static func make(collector: SymptomCheckerCollector) -> SCSymptomsViewController {
-        let vc = SCSymptomsViewController()
+        let vc = SCSymptomsViewController(collector: collector)
         vc.navigationItem.backButtonTitle = " "
         vc.navigationItem.title = "SymptomChecker.Title".localized
         return vc
@@ -90,6 +108,9 @@ private extension SCSymptomsViewController {
                 self?.didSelectSymptomTrigger.accept(symptom)
             }
             present(vc, animated: true)
+        case .continue(let collector):
+            let vc = SCConfirmViewController.make(collector: collector)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

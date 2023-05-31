@@ -110,3 +110,17 @@
 "SymptomChecker.Personal.Female" = "Female";
 "SymptomChecker.Symptoms.SelectTitle" = "What are your symptoms?";
 "SymptomChecker.Symptoms.SelectPlaceholder" = "Enter your main symptom";
+"SymptomChecker.Confirm.MostSymptom" = "Which symptom is bothering you the most?";
+"SymptomChecker.Confirm.Pregnant" = "Could you be pregnant?";
+"SymptomChecker.Confirm.Yes" = "Yes";
+"SymptomChecker.Confirm.No" = "No";
+"SymptomChecker.Confirm.CurrentMedications" = "Current medications";
+"SymptomChecker.Confirm.ChooseDrug" = "Choose drug";
+"SymptomChecker.Confirm.MedicationsPlaceholder" = "Only some medications are factored into results.";
+"SymptomChecker.Confirm.Conditions" = "Past or current conditions";
+"SymptomChecker.Confirm.ConditionsPlaceholder" = "Only some conditions are factored into results.";
+"SymptomChecker.Confirm.MedicationsDescription" = "Only some medications are factored into results.";
+"SymptomChecker.Confirm.Conditions.Description" = "Only some conditions are factored into results.";
+"SymptomChecker.Result.Title" = "Conditions that match your symptoms";
+"SymptomChecker.Result.FairMatch" = "Fair match";
+"SymptomChecker.Result.ReadMore" = "Read more";

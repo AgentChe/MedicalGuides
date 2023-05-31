@@ -1,5 +1,5 @@
 //
-//  TagsView.swift
+//  SymptomTagsView.swift
 //  MedicalGuides
 //
 //  Created by Андрей Чернышев on 26.05.2023.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class TagsView: UIView {
+final class SymptomTagsView: UIView {
     let width = 343.scale
     
     var didTap: ((Symptom) -> Void)?
     
-    private var tagViews: [TagView] = []
+    private var tagViews: [SymptomTagView] = []
     private var rowViews: [UIView] = []
     private var tagViewHeight: CGFloat = 0
     private var rows = 0 {
@@ -36,7 +36,7 @@ final class TagsView: UIView {
 }
 
 // MARK: Public
-extension TagsView {
+extension SymptomTagsView {
     func addTags(_ symptoms: [Symptom]) {
         let views = symptoms.map { createNewTagView($0) }
         
@@ -65,18 +65,18 @@ extension TagsView {
 }
 
 // MARK: Private
-private extension TagsView {
+private extension SymptomTagsView {
     @objc
     func didTapView(sender: UIButton) {
-        guard let button = sender as? TagView else {
+        guard let button = sender as? SymptomTagView else {
             return
         }
         
         didTap?(button.symptom)
     }
     
-    func createNewTagView(_ symptom: Symptom) -> TagView {
-        let view = TagView(symptom: symptom)
+    func createNewTagView(_ symptom: Symptom) -> SymptomTagView {
+        let view = SymptomTagView(symptom: symptom)
         view.layer.cornerRadius = 8.scale
         view.layer.masksToBounds = true
         view.titleEdgeInsets = UIEdgeInsets(top: 12.scale, left: 16.scale, bottom: 12.scale, right: 50.scale)
@@ -129,7 +129,7 @@ private extension TagsView {
         invalidateIntrinsicContentSize()
     }
     
-    func removeTagView(_ tagView: TagView) {
+    func removeTagView(_ tagView: SymptomTagView) {
         defer {
             rearrangeViews()
         }

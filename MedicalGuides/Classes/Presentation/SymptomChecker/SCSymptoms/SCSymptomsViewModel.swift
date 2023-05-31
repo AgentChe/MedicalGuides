@@ -11,6 +11,13 @@ import RxCocoa
 final class SCSymptomsViewModel {
     enum Route {
         case selectSymptom([Int])
+        case `continue`(SymptomCheckerCollector)
+    }
+    
+    private let collector: Driver<SymptomCheckerCollector>
+    
+    init(collector: SymptomCheckerCollector) {
+        self.collector = BehaviorRelay(value: collector).asDriver()
     }
 }
 
@@ -20,6 +27,7 @@ extension SCSymptomsViewModel {
         let didTapSelect: Signal<Void>
         let didAddSymptom: Signal<Symptom>
         let didRemoveSymptom: Signal<Symptom>
+        let didTapContinue: Signal<Void>
     }
     
     struct Output {
@@ -38,7 +46,8 @@ extension SCSymptomsViewModel {
             elements: makeElements(selectedSymptoms: selectedSymptoms),
             route: makeRoute(
                 didTapSelect: input.didTapSelect,
-                selectedSymptoms: selectedSymptoms
+                selectedSymptoms: selectedSymptoms,
+                didTapContinue: input.didTapContinue
             )
         )
     }
@@ -97,12 +106,17 @@ private extension SCSymptomsViewModel {
     
     func makeRoute(
         didTapSelect: Signal<Void>,
-        selectedSymptoms: Driver<[Symptom]>
+        selectedSymptoms: Driver<[Symptom]>,
+        didTapContinue: Signal<Void>
     ) -> Driver<Route> {
         Driver
             .merge(
                 makeSelectRoute(
                     didTapSelect: didTapSelect,
+                    selectedSymptoms: selectedSymptoms
+                ),
+                makeContinueRoute(
+                    didTapContinue: didTapContinue,
                     selectedSymptoms: selectedSymptoms
                 )
             )
@@ -118,5 +132,19 @@ private extension SCSymptomsViewModel {
                 Route.selectSymptom($0.map { $0.id })
             }
             .asDriver(onErrorDriveWith: .never())
+    }
+    
+    func makeContinueRoute(
+        didTapContinue: Signal<Void>,
+        selectedSymptoms: Driver<[Symptom]>
+    ) -> Driver<Route> {
+        didTapContinue
+            .asDriver(onErrorDriveWith: .never())
+            .withLatestFrom(selectedSymptoms)
+            .withLatestFrom(collector) { ($0, $1) }
+            .map { symptoms, collector -> Route in
+                collector.symptoms = symptoms
+                return Route.continue(collector)
+            }
     }
 }

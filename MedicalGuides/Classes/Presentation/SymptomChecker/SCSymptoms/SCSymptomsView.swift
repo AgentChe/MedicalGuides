@@ -9,6 +9,7 @@ import UIKit
 
 final class SCSymptomsView: UIView {
     lazy var tableView = makeTableView()
+    lazy var disclaimerButton = makeDisclaimerButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +37,14 @@ private extension SCSymptomsView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            tableView.bottomAnchor.constraint(equalTo: disclaimerButton.topAnchor, constant: -2.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            disclaimerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            disclaimerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            disclaimerButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -23.scale),
+            disclaimerButton.heightAnchor.constraint(equalToConstant: 36.scale)
         ])
     }
 }
@@ -50,6 +58,22 @@ private extension SCSymptomsView {
         view.separatorStyle = .none
         view.showsVerticalScrollIndicator = false
         view.contentInsetAdjustmentBehavior = .never
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeDisclaimerButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(Appearance.black.withAlphaComponent(0.4))
+            .font(Fonts.Avenir.regular(size: 14.scale))
+            .lineHeight(19.12.scale)
+            .textAlignment(.center)
+        
+        let view = UIButton()
+        view.titleLabel?.lineBreakMode = .byWordWrapping
+        view.setAttributedTitle("SymptomChecker.Disclaimer".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

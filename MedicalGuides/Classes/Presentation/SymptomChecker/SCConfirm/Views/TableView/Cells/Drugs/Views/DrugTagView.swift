@@ -1,14 +1,14 @@
 //
-//  TagView.swift
+//  DrugTagView.swift
 //  MedicalGuides
 //
-//  Created by Андрей Чернышев on 26.05.2023.
+//  Created by Андрей Чернышев on 29.05.2023.
 //
 
 import UIKit
 
-final class TagView: UIButton {
-    let symptom: Symptom
+final class DrugTagView: UIButton {
+    let drug: Drug
     
     lazy var clearView = makeClearView()
     
@@ -18,8 +18,8 @@ final class TagView: UIButton {
         .font(font)
         .lineBreakMode(.byTruncatingMiddle)
     
-    init(symptom: Symptom) {
-        self.symptom = symptom
+    init(drug: Drug) {
+        self.drug = drug
         
         super.init(frame: .zero)
         
@@ -32,7 +32,7 @@ final class TagView: UIButton {
     }
 
     override var intrinsicContentSize: CGSize {
-        var size = NSString(string: symptom.name).size(withAttributes: attrs.dictionary)
+        var size = NSString(string: drug.name).size(withAttributes: attrs.dictionary)
         size.height = font.pointSize + titleEdgeInsets.top + titleEdgeInsets.bottom
         size.width += titleEdgeInsets.left + titleEdgeInsets.right
         if size.width < size.height {
@@ -43,14 +43,14 @@ final class TagView: UIButton {
 }
 
 // MARK: Private
-private extension TagView {
+private extension DrugTagView {
     func initialize() {
-        setAttributedTitle(symptom.name.attributed(with: attrs), for: .normal)
+        setAttributedTitle(drug.name.attributed(with: attrs), for: .normal)
     }
 }
 
 // MARK: Make constraints
-private extension TagView {
+private extension DrugTagView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             clearView.widthAnchor.constraint(equalToConstant: 11.scale),
@@ -62,7 +62,7 @@ private extension TagView {
 }
 
 // MARK: Lazy initialization
-private extension TagView {
+private extension DrugTagView {
     func makeClearView() -> UIImageView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
@@ -72,4 +72,3 @@ private extension TagView {
         return view
     }
 }
-

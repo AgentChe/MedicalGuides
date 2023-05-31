@@ -8,7 +8,7 @@
 final class SymptomCheckerCollector {
     var age: Int?
     var gender: Int?
-    var symptomsIds: [Int]?
+    var symptoms: [Symptom]?
     var mainSymptomId: Int?
     var pregnant: Bool?
     var currentMedicationsIds: [Int]?

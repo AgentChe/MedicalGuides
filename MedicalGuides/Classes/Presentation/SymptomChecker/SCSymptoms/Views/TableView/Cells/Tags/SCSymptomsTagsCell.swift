@@ -54,8 +54,8 @@ private extension SCSymptomsTagsCell {
 
 // MARK: Lazy initialization
 private extension SCSymptomsTagsCell {
-    func makeTagsView() -> TagsView {
-        let view = TagsView()
+    func makeTagsView() -> SymptomTagsView {
+        let view = SymptomTagsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
