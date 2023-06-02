@@ -23,7 +23,7 @@ struct UnsaveDrugRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "drugs_ids": ids
+            "drug_ids": ids
         ]
     }
 }

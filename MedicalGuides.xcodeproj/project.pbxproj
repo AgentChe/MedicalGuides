@@ -143,8 +143,6 @@
 		DE7BD61E2A14CC8400A21DE7 /* SymptomsMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BD61D2A14CC8400A21DE7 /* SymptomsMediator.swift */; };
 		DE7BD6212A14D4E900A21DE7 /* GetBookmarksInteractionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BD6202A14D4E900A21DE7 /* GetBookmarksInteractionsRequest.swift */; };
 		DE7BD6232A14D4F000A21DE7 /* GetBookmarksInteractionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BD6222A14D4F000A21DE7 /* GetBookmarksInteractionsResponse.swift */; };
-		DE7BD6282A151AE000A21DE7 /* DrugsMockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BD6272A151AE000A21DE7 /* DrugsMockManager.swift */; };
-		DE7BD62F2A1526A600A21DE7 /* SymptomsMockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7BD62E2A1526A600A21DE7 /* SymptomsMockManager.swift */; };
 		DEA082212A03F87400DF7D4B /* Avenir Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEA082202A03F82700DF7D4B /* Avenir Medium.ttf */; };
 		DEA082222A03F87400DF7D4B /* Avenir Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821F2A03F6C800DF7D4B /* Avenir Black.ttf */; };
 		DEA082232A03F87400DF7D4B /* Avenir Next LT Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA0821E2A03F6A700DF7D4B /* Avenir Next LT Pro Bold.otf */; };
@@ -392,8 +390,6 @@
 		DE7BD61D2A14CC8400A21DE7 /* SymptomsMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsMediator.swift; sourceTree = "<group>"; };
 		DE7BD6202A14D4E900A21DE7 /* GetBookmarksInteractionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookmarksInteractionsRequest.swift; sourceTree = "<group>"; };
 		DE7BD6222A14D4F000A21DE7 /* GetBookmarksInteractionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookmarksInteractionsResponse.swift; sourceTree = "<group>"; };
-		DE7BD6272A151AE000A21DE7 /* DrugsMockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrugsMockManager.swift; sourceTree = "<group>"; };
-		DE7BD62E2A1526A600A21DE7 /* SymptomsMockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsMockManager.swift; sourceTree = "<group>"; };
 		DEA0821D2A03F68100DF7D4B /* Avenir Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Regular.ttf"; sourceTree = "<group>"; };
 		DEA0821E2A03F6A700DF7D4B /* Avenir Next LT Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next LT Pro Bold.otf"; sourceTree = "<group>"; };
 		DEA0821F2A03F6C800DF7D4B /* Avenir Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Black.ttf"; sourceTree = "<group>"; };
@@ -991,7 +987,6 @@
 		DE512BC82A1263F400BBC661 /* Drugs */ = {
 			isa = PBXGroup;
 			children = (
-				DE7BD6262A151AD000A21DE7 /* Mocks */,
 				DE512BE02A126AD600BBC661 /* Request */,
 				DE512BC92A12640600BBC661 /* Model */,
 				DE7BD6172A14CA7000A21DE7 /* DrugsManager.swift */,
@@ -1016,7 +1011,6 @@
 		DE512BD82A12692B00BBC661 /* Symptoms */ = {
 			isa = PBXGroup;
 			children = (
-				DE7BD62D2A15268000A21DE7 /* Mocks */,
 				DE512C032A12728000BBC661 /* Request */,
 				DE512BD92A12693200BBC661 /* Model */,
 				DE7BD61B2A14CC7A00A21DE7 /* SymptomsManager.swift */,
@@ -1170,22 +1164,6 @@
 				DE7BD6222A14D4F000A21DE7 /* GetBookmarksInteractionsResponse.swift */,
 			);
 			path = GetBookmarksInteractions;
-			sourceTree = "<group>";
-		};
-		DE7BD6262A151AD000A21DE7 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				DE7BD6272A151AE000A21DE7 /* DrugsMockManager.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		DE7BD62D2A15268000A21DE7 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				DE7BD62E2A1526A600A21DE7 /* SymptomsMockManager.swift */,
-			);
-			path = Mocks;
 			sourceTree = "<group>";
 		};
 		DEA0821C2A03F67A00DF7D4B /* Avenir */ = {
@@ -1868,7 +1846,6 @@
 				DE3F609F2A03F04D00BCC039 /* ImagePicker.swift in Sources */,
 				DEE101472A1B511A000ED6AE /* SelectUnitTableView.swift in Sources */,
 				DEB2B2F42A28A3B900C26FC5 /* SICDetailsTableView.swift in Sources */,
-				DE7BD62F2A1526A600A21DE7 /* SymptomsMockManager.swift in Sources */,
 				DE3F60AC2A03F04D00BCC039 /* PushNotificationsManager.swift in Sources */,
 				DE3F608D2A03F04D00BCC039 /* String+Extension.swift in Sources */,
 				DE7BD6082A14C2CF00A21DE7 /* GetConditionDetailsResponse.swift in Sources */,
@@ -2062,7 +2039,6 @@
 				DE3F60A92A03F04D00BCC039 /* GradientView.swift in Sources */,
 				DE3F61112A03F04D00BCC039 /* Session.swift in Sources */,
 				DE3F60E72A03F04D00BCC039 /* SetRequest.swift in Sources */,
-				DE7BD6282A151AE000A21DE7 /* DrugsMockManager.swift in Sources */,
 				DE3F60992A03F04D00BCC039 /* Fonts.swift in Sources */,
 				DE512BFB2A126FEA00BBC661 /* DrugsInteractionCheckerResponse.swift in Sources */,
 				DEE1025D2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift in Sources */,

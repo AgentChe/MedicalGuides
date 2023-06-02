@@ -11,15 +11,11 @@ struct GetPaygateRequest: APIRequestBody {
     let userToken: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/v2/payments/paygate"
+        GlobalDefinitions.domain + "/api/payments/paygate"
     }
     
     var method: HTTPMethod {
-        .get
-    }
-    
-    var encoding: ParameterEncoding {
-        URLEncoding.default
+        .post
     }
     
     var parameters: Parameters? {

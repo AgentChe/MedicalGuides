@@ -23,7 +23,7 @@ struct UnsaveConditionRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "conditions_ids": ids
+            "condition_ids": ids
         ]
     }
 }
