@@ -25,6 +25,7 @@ enum GetConditionDetailsResponse {
         
         return SymptomsInteractionConditionDetails(
             id: id,
+            name: "Benign Paroxysmal Positional Vertigo", // TODO: добавить в респонс
             saved: saved,
             details: details,
             treatmentOptions: treatmentOptions

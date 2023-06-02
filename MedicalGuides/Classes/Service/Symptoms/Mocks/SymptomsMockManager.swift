@@ -52,8 +52,12 @@ final class SymptomsManager: SymptomsManagerProtocol {
                 return Disposables.create()
             }
             
-            let details = self.conditionDetails(id: id)
-            event(.success(details))
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.async {
+                    let details = self.conditionDetails(id: id)
+                    event(.success(details))
+                }
+            }
             
             return Disposables.create()
         }
@@ -183,8 +187,29 @@ private extension SymptomsManager {
         
         return SymptomsInteractionConditionDetails(
             id: id,
+            name: "Benign Paroxysmal Positional Vertigo",
             saved: saved.contains(where: { $0.id == id }),
             details: [
+                .init(title: "Symptoms",
+                      text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
+                .init(title: "How Common",
+                      text: "About 17% of people with chronic ear infections develop labyrinthitis. And about one in 10,000 people seek treatment for sudden labyrinthitis, often after a cold or flu."),
+                .init(title: "Symptoms",
+                      text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
+                .init(title: "How Common",
+                      text: "About 17% of people with chronic ear infections develop labyrinthitis. And about one in 10,000 people seek treatment for sudden labyrinthitis, often after a cold or flu."),
+                .init(title: "Symptoms",
+                      text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
+                .init(title: "How Common",
+                      text: "About 17% of people with chronic ear infections develop labyrinthitis. And about one in 10,000 people seek treatment for sudden labyrinthitis, often after a cold or flu."),
+                .init(title: "Symptoms",
+                      text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
+                .init(title: "How Common",
+                      text: "About 17% of people with chronic ear infections develop labyrinthitis. And about one in 10,000 people seek treatment for sudden labyrinthitis, often after a cold or flu."),
+                .init(title: "Symptoms",
+                      text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
+                .init(title: "How Common",
+                      text: "About 17% of people with chronic ear infections develop labyrinthitis. And about one in 10,000 people seek treatment for sudden labyrinthitis, often after a cold or flu."),
                 .init(title: "Symptoms",
                       text: "Dizziness, loss of balance, a sensation of spinning or moving when you are still, nausea, vomiting, headache, hearing loss, difficulty concentrating, and ringing in the ears (tinnitus)"),
                 .init(title: "How Common",

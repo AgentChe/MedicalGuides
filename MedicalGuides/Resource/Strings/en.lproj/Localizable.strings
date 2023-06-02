@@ -103,7 +103,7 @@
 
 // MARK: SymptomChecker
 "SymptomChecker.Title" = "Symptom Checker";
-"SymptomChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+"SymptomChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more";
 "SymptomChecker.Personal.Age" = "Age";
 "SymptomChecker.Personal.Sex" = "Sex";
 "SymptomChecker.Personal.Male" = "Male";
@@ -124,3 +124,8 @@
 "SymptomChecker.Result.Title" = "Conditions that match your symptoms";
 "SymptomChecker.Result.FairMatch" = "Fair match";
 "SymptomChecker.Result.ReadMore" = "Read more";
+
+// MARK: SICDetails
+"SICDetails.ConditionDetails" = "CONDITION DETAILS";
+"SICDetails.TreatmentOptions" = "TREATMENT OPTIONS";
+"SICDetails.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more";

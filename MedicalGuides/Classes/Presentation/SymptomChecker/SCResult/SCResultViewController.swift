@@ -58,6 +58,12 @@ final class SCResultViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        output.route
+            .drive(Binder(self) { base, route in
+                base.route(route)
+            })
+            .disposed(by: disposeBag)
+        
         closeButton.rx.tap
             .bind(to: Binder(self) { base, void in
                 base.navigationController?.dismiss(animated: true)
@@ -113,5 +119,13 @@ private extension SCResultViewController {
         closeButton.setImage(UIImage(named: "SymptomChecker.Close"), for: .normal)
         
         navigationItem.rightBarButtonItem = item
+    }
+    
+    func route(_ route: SCResultViewModel.Route) {
+        switch route {
+        case .details(let symptomsInteractionCondition):
+            let vc = SICDetailsViewController.make(id: symptomsInteractionCondition.id)
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }

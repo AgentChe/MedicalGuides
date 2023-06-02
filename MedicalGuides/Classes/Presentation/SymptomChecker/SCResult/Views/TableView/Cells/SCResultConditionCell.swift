@@ -8,6 +8,8 @@
 import UIKit
 
 final class SCResultConditionCell: UITableViewCell {
+    var didTapReadMore: (() -> Void)?
+    
     lazy var container = makeContainer()
     lazy var nameLabel = makeLabel()
     lazy var fairMatchLabel = makeFairMatchLabel()
@@ -59,6 +61,11 @@ private extension SCResultConditionCell {
         contentView.backgroundColor = UIColor.clear
         
         selectionStyle = .none
+    }
+    
+    @objc
+    func readMoreTapped() {
+        didTapReadMore?()
     }
     
     func color(for fairMatch: Int) -> UIColor {
@@ -179,6 +186,7 @@ private extension SCResultConditionCell {
         view.setAttributedTitle("SymptomChecker.Result.ReadMore".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = Appearance.primary
         view.layer.cornerRadius = 8.scale
+        view.addTarget(self, action: #selector(readMoreTapped), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

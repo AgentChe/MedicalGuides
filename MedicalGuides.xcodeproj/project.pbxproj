@@ -179,6 +179,16 @@
 		DEB2B2DF2A27817F00C26FC5 /* SCResultTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2DE2A27817F00C26FC5 /* SCResultTableElement.swift */; };
 		DEB2B2E22A27818E00C26FC5 /* SCResultTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2E12A27818E00C26FC5 /* SCResultTitleCell.swift */; };
 		DEB2B2E42A27819B00C26FC5 /* SCResultConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2E32A27819B00C26FC5 /* SCResultConditionCell.swift */; };
+		DEB2B2E72A2791E500C26FC5 /* SICDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2E62A2791E500C26FC5 /* SICDetailsViewController.swift */; };
+		DEB2B2E92A2791EB00C26FC5 /* SICDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2E82A2791EB00C26FC5 /* SICDetailsViewModel.swift */; };
+		DEB2B2EB2A2791EF00C26FC5 /* SICDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2EA2A2791EF00C26FC5 /* SICDetailsView.swift */; };
+		DEB2B2EE2A27D0BD00C26FC5 /* SICDetailsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2ED2A27D0BD00C26FC5 /* SICDetailsFilterView.swift */; };
+		DEB2B2F12A27D1FC00C26FC5 /* SICDetailsFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2F02A27D1FC00C26FC5 /* SICDetailsFilterButton.swift */; };
+		DEB2B2F42A28A3B900C26FC5 /* SICDetailsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2F32A28A3B900C26FC5 /* SICDetailsTableView.swift */; };
+		DEB2B2F62A28A3C300C26FC5 /* SICDetailsTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2F52A28A3C300C26FC5 /* SICDetailsTableElement.swift */; };
+		DEB2B2F92A28A3F300C26FC5 /* SICDetailsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2F82A28A3F300C26FC5 /* SICDetailsSectionCell.swift */; };
+		DEB2B2FB2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2FA2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift */; };
+		DEB2B2FD2A28A41C00C26FC5 /* SICDetailsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2FC2A28A41C00C26FC5 /* SICDetailsTextCell.swift */; };
 		DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */; };
 		DEE101302A177C09000ED6AE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */; };
 		DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101312A177C0E000ED6AE /* SettingsView.swift */; };
@@ -418,6 +428,16 @@
 		DEB2B2DE2A27817F00C26FC5 /* SCResultTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultTableElement.swift; sourceTree = "<group>"; };
 		DEB2B2E12A27818E00C26FC5 /* SCResultTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultTitleCell.swift; sourceTree = "<group>"; };
 		DEB2B2E32A27819B00C26FC5 /* SCResultConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCResultConditionCell.swift; sourceTree = "<group>"; };
+		DEB2B2E62A2791E500C26FC5 /* SICDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsViewController.swift; sourceTree = "<group>"; };
+		DEB2B2E82A2791EB00C26FC5 /* SICDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsViewModel.swift; sourceTree = "<group>"; };
+		DEB2B2EA2A2791EF00C26FC5 /* SICDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsView.swift; sourceTree = "<group>"; };
+		DEB2B2ED2A27D0BD00C26FC5 /* SICDetailsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsFilterView.swift; sourceTree = "<group>"; };
+		DEB2B2F02A27D1FC00C26FC5 /* SICDetailsFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsFilterButton.swift; sourceTree = "<group>"; };
+		DEB2B2F32A28A3B900C26FC5 /* SICDetailsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsTableView.swift; sourceTree = "<group>"; };
+		DEB2B2F52A28A3C300C26FC5 /* SICDetailsTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsTableElement.swift; sourceTree = "<group>"; };
+		DEB2B2F82A28A3F300C26FC5 /* SICDetailsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsSectionCell.swift; sourceTree = "<group>"; };
+		DEB2B2FA2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsSeparatorCell.swift; sourceTree = "<group>"; };
+		DEB2B2FC2A28A41C00C26FC5 /* SICDetailsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsTextCell.swift; sourceTree = "<group>"; };
 		DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DEE101312A177C0E000ED6AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -1354,6 +1374,55 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DEB2B2E52A2791D100C26FC5 /* SICDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B2EC2A27D02A00C26FC5 /* Views */,
+				DEB2B2E62A2791E500C26FC5 /* SICDetailsViewController.swift */,
+				DEB2B2E82A2791EB00C26FC5 /* SICDetailsViewModel.swift */,
+				DEB2B2EA2A2791EF00C26FC5 /* SICDetailsView.swift */,
+			);
+			path = SICDetails;
+			sourceTree = "<group>";
+		};
+		DEB2B2EC2A27D02A00C26FC5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B2F22A28A3A600C26FC5 /* TableView */,
+				DEB2B2EF2A27D1ED00C26FC5 /* Filter */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DEB2B2EF2A27D1ED00C26FC5 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B2ED2A27D0BD00C26FC5 /* SICDetailsFilterView.swift */,
+				DEB2B2F02A27D1FC00C26FC5 /* SICDetailsFilterButton.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		DEB2B2F22A28A3A600C26FC5 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B2F72A28A3C800C26FC5 /* Cells */,
+				DEB2B2F32A28A3B900C26FC5 /* SICDetailsTableView.swift */,
+				DEB2B2F52A28A3C300C26FC5 /* SICDetailsTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DEB2B2F72A28A3C800C26FC5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DEB2B2F82A28A3F300C26FC5 /* SICDetailsSectionCell.swift */,
+				DEB2B2FA2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift */,
+				DEB2B2FC2A28A41C00C26FC5 /* SICDetailsTextCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		DEE1012B2A177BE5000ED6AE /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1548,6 +1617,7 @@
 		DEE102302A1E088A000ED6AE /* SymptomChecker */ = {
 			isa = PBXGroup;
 			children = (
+				DEB2B2E52A2791D100C26FC5 /* SICDetails */,
 				DEE102462A1E0C37000ED6AE /* SCResult */,
 				DEE1023F2A1E0BD3000ED6AE /* SCConfirm */,
 				DEE102382A1E0A33000ED6AE /* SCSymptoms */,
@@ -1782,6 +1852,8 @@
 				DE7BD60D2A14C5E000A21DE7 /* SaveConditionRequest.swift in Sources */,
 				DE3F609E2A03F04D00BCC039 /* RequestReview.swift in Sources */,
 				DE512BF42A126F5900BBC661 /* GetBookmarksDrugsRequest.swift in Sources */,
+				DEB2B2F62A28A3C300C26FC5 /* SICDetailsTableElement.swift in Sources */,
+				DEB2B2FB2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift in Sources */,
 				DE7BD61C2A14CC7A00A21DE7 /* SymptomsManager.swift in Sources */,
 				DE3F61102A03F04D00BCC039 /* IAPErrorHelper.swift in Sources */,
 				DEE1024F2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift in Sources */,
@@ -1795,6 +1867,7 @@
 				DE512BDF2A126A4E00BBC661 /* SymptomsInteractionConditionDetails.swift in Sources */,
 				DE3F609F2A03F04D00BCC039 /* ImagePicker.swift in Sources */,
 				DEE101472A1B511A000ED6AE /* SelectUnitTableView.swift in Sources */,
+				DEB2B2F42A28A3B900C26FC5 /* SICDetailsTableView.swift in Sources */,
 				DE7BD62F2A1526A600A21DE7 /* SymptomsMockManager.swift in Sources */,
 				DE3F60AC2A03F04D00BCC039 /* PushNotificationsManager.swift in Sources */,
 				DE3F608D2A03F04D00BCC039 /* String+Extension.swift in Sources */,
@@ -1804,8 +1877,11 @@
 				DE7BD6162A14C68A00A21DE7 /* GetBookmarksConditionsResponse.swift in Sources */,
 				DE3F610A2A03F04D00BCC039 /* IAPManager.swift in Sources */,
 				DEE1023C2A1E0A47000ED6AE /* SCSymptomsViewModel.swift in Sources */,
+				DEB2B2EB2A2791EF00C26FC5 /* SICDetailsView.swift in Sources */,
+				DEB2B2E92A2791EB00C26FC5 /* SICDetailsViewModel.swift in Sources */,
 				DE3F60A02A03F04D00BCC039 /* RxActivityIndicator.swift in Sources */,
 				DEB2B2D92A27374100C26FC5 /* SCConfirmDrugsCell.swift in Sources */,
+				DEB2B2EE2A27D0BD00C26FC5 /* SICDetailsFilterView.swift in Sources */,
 				DE3F608E2A03F04D00BCC039 /* UIViewRxExtension.swift in Sources */,
 				DEB2B2E42A27819B00C26FC5 /* SCResultConditionCell.swift in Sources */,
 				DEE1021E2A1D182B000ED6AE /* DrugView.swift in Sources */,
@@ -1892,7 +1968,9 @@
 				DE3F61C72A03F14A00BCC039 /* GetPaygateResponse.swift in Sources */,
 				DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */,
 				DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */,
+				DEB2B2F12A27D1FC00C26FC5 /* SICDetailsFilterButton.swift in Sources */,
 				DE3F610C2A03F04D00BCC039 /* ProductPrice.swift in Sources */,
+				DEB2B2FD2A28A41C00C26FC5 /* SICDetailsTextCell.swift in Sources */,
 				DEE102292A1D1C5E000ED6AE /* DrugTableTitleCell.swift in Sources */,
 				DEA082412A0D49AB00DF7D4B /* OSymptomCheckerView.swift in Sources */,
 				DEE101492A1B5121000ED6AE /* SelectUnitTableCell.swift in Sources */,
@@ -1909,6 +1987,7 @@
 				DE5C624E2A137DB300ECAB17 /* GetSymptomsResponse.swift in Sources */,
 				DE3F60A32A03F04D00BCC039 /* NavigationController.swift in Sources */,
 				DEE101362A177C44000ED6AE /* SettingsTableView.swift in Sources */,
+				DEB2B2F92A28A3F300C26FC5 /* SICDetailsSectionCell.swift in Sources */,
 				DE3F61A02A03F04D00BCC039 /* TryAgainViewController.swift in Sources */,
 				DEE102092A1D0D4D000ED6AE /* DrugsViewController.swift in Sources */,
 				DE3F60E42A03F04D00BCC039 /* GetProfileResponse.swift in Sources */,
@@ -1987,6 +2066,7 @@
 				DE3F60992A03F04D00BCC039 /* Fonts.swift in Sources */,
 				DE512BFB2A126FEA00BBC661 /* DrugsInteractionCheckerResponse.swift in Sources */,
 				DEE1025D2A1F7F6B000ED6AE /* SCSymptomsSelectCell.swift in Sources */,
+				DEB2B2E72A2791E500C26FC5 /* SICDetailsViewController.swift in Sources */,
 				DE3F608B2A03F04D00BCC039 /* Collection+Extension.swift in Sources */,
 				DE3F61A12A03F04D00BCC039 /* OCombineData.swift in Sources */,
 			);

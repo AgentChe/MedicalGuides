@@ -76,7 +76,8 @@ extension SplashViewController: PaygateViewControllerDelegate {
 // MARK: Private
 private extension SplashViewController {
     func goNext(at step: SplashViewModel.Step) {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+        // TODO: 0.5
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) { [weak self] in
             self?.openScreen(at: step)
         }
     }

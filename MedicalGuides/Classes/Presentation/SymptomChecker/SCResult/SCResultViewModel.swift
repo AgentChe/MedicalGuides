@@ -9,6 +9,10 @@ import RxSwift
 import RxCocoa
 
 final class SCResultViewModel {
+    enum Route {
+        case details(SymptomsInteractionCondition)
+    }
+    
     var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var symptomsManager = SymptomsManager()
@@ -34,12 +38,14 @@ extension SCResultViewModel {
     struct Output {
         let elements: Driver<[SCResultTableElement]>
         let activity: Driver<Bool>
+        let route: Driver<Route>
     }
     
     func configure(input: Input) -> Output {
         Output(
             elements: makeElements(),
-            activity: activity.asDriver()
+            activity: activity.asDriver(),
+            route: makeRoute(didTapCondition: input.didTapCondition)
         )
     }
 }
@@ -103,5 +109,11 @@ private extension SCResultViewModel {
                     .trackActivity(self.activity)
                     .asDriver(onErrorJustReturn: [])
             }
+    }
+    
+    func makeRoute(didTapCondition: Signal<SymptomsInteractionCondition>) -> Driver<Route> {
+        didTapCondition
+            .map { Route.details($0) }
+            .asDriver(onErrorDriveWith: .never())
     }
 }

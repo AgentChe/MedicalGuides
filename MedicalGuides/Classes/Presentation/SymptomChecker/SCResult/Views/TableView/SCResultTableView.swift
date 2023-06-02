@@ -53,6 +53,9 @@ extension SCResultTableView: UITableViewDataSource {
         case .condition(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: SCResultConditionCell.self), for: indexPath) as! SCResultConditionCell
             cell.setup(element: element)
+            cell.didTapReadMore = { [weak self] in
+                self?.didTapConditionTrigger.accept(element)
+            }
             return cell
         }
     }
