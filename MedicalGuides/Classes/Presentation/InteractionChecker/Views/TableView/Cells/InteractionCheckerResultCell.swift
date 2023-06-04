@@ -64,7 +64,7 @@ private extension InteractionCheckerResultCell {
     // TODO: цвет в зависимости от side effect
     func titleAttrs(at sideEffect: DrugsSideEffect) -> TextAttributes {
         switch sideEffect {
-        case .minor:
+        case .minor, .monitorClosely, .serious, .dontUseTogether:
             return TextAttributes()
                 .textColor(Appearance.secondary1)
                 .font(Fonts.Avenir.bold(size: 21.scale))

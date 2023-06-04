@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9F310CAB3A4A976270815AE9 /* Pods_MedicalGuides.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77484276E87ACDB948C1BEA3 /* Pods_MedicalGuides.framework */; };
+		DE102D692A2B1B4000149ECA /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D682A2B1B4000149ECA /* BookmarkViewController.swift */; };
+		DE102D6B2A2B1B4600149ECA /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D6A2A2B1B4600149ECA /* BookmarkViewModel.swift */; };
+		DE102D6D2A2B1B4A00149ECA /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D6C2A2B1B4A00149ECA /* BookmarkView.swift */; };
+		DE102D712A2B1F4600149ECA /* BookmarkFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D702A2B1F4600149ECA /* BookmarkFilterButton.swift */; };
+		DE102D732A2B1F4D00149ECA /* BookmarkFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D722A2B1F4D00149ECA /* BookmarkFilterView.swift */; };
+		DE102D752A2B241200149ECA /* BookmarkEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D742A2B241200149ECA /* BookmarkEmptyView.swift */; };
+		DE102D782A2B39F300149ECA /* BookmarkTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D772A2B39F300149ECA /* BookmarkTableView.swift */; };
+		DE102D7A2A2B39FF00149ECA /* BookmarkTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D792A2B39FF00149ECA /* BookmarkTableElement.swift */; };
+		DE102D7D2A2B3A0B00149ECA /* BookmarkDrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D7C2A2B3A0B00149ECA /* BookmarkDrugCell.swift */; };
+		DE102D7F2A2B3A6700149ECA /* BookmarkInteractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */; };
+		DE102D812A2B3A8000149ECA /* BookmarkConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */; };
 		DE3F5E952A03EE1A00BCC039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E932A03EE1A00BCC039 /* LaunchScreen.storyboard */; };
 		DE3F5E9F2A03F00800BCC039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E9E2A03F00800BCC039 /* Assets.xcassets */; };
 		DE3F5EA12A03F00F00BCC039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5EA02A03F00F00BCC039 /* GoogleService-Info.plist */; };
@@ -253,6 +264,17 @@
 		3A3B9183AF0C43E334F59D22 /* Pods-MedicalGuides.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalGuides.release.xcconfig"; path = "Target Support Files/Pods-MedicalGuides/Pods-MedicalGuides.release.xcconfig"; sourceTree = "<group>"; };
 		7535C9604CCFEC2391093037 /* Pods-MedicalGuides.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MedicalGuides.debug.xcconfig"; path = "Target Support Files/Pods-MedicalGuides/Pods-MedicalGuides.debug.xcconfig"; sourceTree = "<group>"; };
 		77484276E87ACDB948C1BEA3 /* Pods_MedicalGuides.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MedicalGuides.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE102D682A2B1B4000149ECA /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		DE102D6A2A2B1B4600149ECA /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
+		DE102D6C2A2B1B4A00149ECA /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		DE102D702A2B1F4600149ECA /* BookmarkFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkFilterButton.swift; sourceTree = "<group>"; };
+		DE102D722A2B1F4D00149ECA /* BookmarkFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkFilterView.swift; sourceTree = "<group>"; };
+		DE102D742A2B241200149ECA /* BookmarkEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkEmptyView.swift; sourceTree = "<group>"; };
+		DE102D772A2B39F300149ECA /* BookmarkTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableView.swift; sourceTree = "<group>"; };
+		DE102D792A2B39FF00149ECA /* BookmarkTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableElement.swift; sourceTree = "<group>"; };
+		DE102D7C2A2B3A0B00149ECA /* BookmarkDrugCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDrugCell.swift; sourceTree = "<group>"; };
+		DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInteractionCell.swift; sourceTree = "<group>"; };
+		DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkConditionCell.swift; sourceTree = "<group>"; };
 		DE3F5E852A03EE1800BCC039 /* MedicalGuides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalGuides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3F5E942A03EE1A00BCC039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE3F5E962A03EE1A00BCC039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -523,6 +545,56 @@
 				77484276E87ACDB948C1BEA3 /* Pods_MedicalGuides.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE102D672A2B1B3300149ECA /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				DE102D6E2A2B1F2F00149ECA /* Views */,
+				DE102D682A2B1B4000149ECA /* BookmarkViewController.swift */,
+				DE102D6A2A2B1B4600149ECA /* BookmarkViewModel.swift */,
+				DE102D6C2A2B1B4A00149ECA /* BookmarkView.swift */,
+			);
+			path = Bookmark;
+			sourceTree = "<group>";
+		};
+		DE102D6E2A2B1F2F00149ECA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE102D762A2B39DE00149ECA /* TableView */,
+				DE102D6F2A2B1F3A00149ECA /* Filter */,
+				DE102D742A2B241200149ECA /* BookmarkEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DE102D6F2A2B1F3A00149ECA /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DE102D702A2B1F4600149ECA /* BookmarkFilterButton.swift */,
+				DE102D722A2B1F4D00149ECA /* BookmarkFilterView.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		DE102D762A2B39DE00149ECA /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				DE102D7B2A2B3A0100149ECA /* Cells */,
+				DE102D772A2B39F300149ECA /* BookmarkTableView.swift */,
+				DE102D792A2B39FF00149ECA /* BookmarkTableElement.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		DE102D7B2A2B3A0100149ECA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DE102D7C2A2B3A0B00149ECA /* BookmarkDrugCell.swift */,
+				DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */,
+				DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DE3F5E7C2A03EE1800BCC039 = {
@@ -836,6 +908,7 @@
 		DE3F5F8D2A03F04D00BCC039 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DE102D672A2B1B3300149ECA /* Bookmark */,
 				DEE102302A1E088A000ED6AE /* SymptomChecker */,
 				DEE102062A1D0D36000ED6AE /* Guides */,
 				DEE1014E2A1B937D000ED6AE /* InteractionChecker */,
@@ -1843,10 +1916,13 @@
 				DE3F61DB2A03F15800BCC039 /* PaygateView.swift in Sources */,
 				DE512BF62A126F5F00BBC661 /* GetBookmarksDrugsResponse.swift in Sources */,
 				DE512BDF2A126A4E00BBC661 /* SymptomsInteractionConditionDetails.swift in Sources */,
+				DE102D782A2B39F300149ECA /* BookmarkTableView.swift in Sources */,
 				DE3F609F2A03F04D00BCC039 /* ImagePicker.swift in Sources */,
 				DEE101472A1B511A000ED6AE /* SelectUnitTableView.swift in Sources */,
 				DEB2B2F42A28A3B900C26FC5 /* SICDetailsTableView.swift in Sources */,
+				DE102D7D2A2B3A0B00149ECA /* BookmarkDrugCell.swift in Sources */,
 				DE3F60AC2A03F04D00BCC039 /* PushNotificationsManager.swift in Sources */,
+				DE102D812A2B3A8000149ECA /* BookmarkConditionCell.swift in Sources */,
 				DE3F608D2A03F04D00BCC039 /* String+Extension.swift in Sources */,
 				DE7BD6082A14C2CF00A21DE7 /* GetConditionDetailsResponse.swift in Sources */,
 				DEE1013D2A1B41E9000ED6AE /* SelectUnitViewController.swift in Sources */,
@@ -1862,6 +1938,7 @@
 				DE3F608E2A03F04D00BCC039 /* UIViewRxExtension.swift in Sources */,
 				DEB2B2E42A27819B00C26FC5 /* SCResultConditionCell.swift in Sources */,
 				DEE1021E2A1D182B000ED6AE /* DrugView.swift in Sources */,
+				DE102D712A2B1F4600149ECA /* BookmarkFilterButton.swift in Sources */,
 				DEE1013F2A1B41F0000ED6AE /* SelectUnitViewModel.swift in Sources */,
 				DE7BD6062A14C2CA00A21DE7 /* GetConditionDetailsRequest.swift in Sources */,
 				DE3F61DD2A03F15800BCC039 /* PaygateProductButton.swift in Sources */,
@@ -1884,6 +1961,7 @@
 				DE3F61C62A03F14A00BCC039 /* Paygate.swift in Sources */,
 				DE3F60B22A03F04D00BCC039 /* BranchManager.swift in Sources */,
 				DE3F60912A03F04D00BCC039 /* APIRequestBody.swift in Sources */,
+				DE102D752A2B241200149ECA /* BookmarkEmptyView.swift in Sources */,
 				DE512BE52A126B3700BBC661 /* GetDrugsResponse.swift in Sources */,
 				DEE102332A1E08F7000ED6AE /* SCPersonalView.swift in Sources */,
 				DEE102482A1E0C46000ED6AE /* SCResultViewController.swift in Sources */,
@@ -1963,6 +2041,7 @@
 				DE5C62532A137F3A00ECAB17 /* SymptomsCheckerResponse.swift in Sources */,
 				DE5C624E2A137DB300ECAB17 /* GetSymptomsResponse.swift in Sources */,
 				DE3F60A32A03F04D00BCC039 /* NavigationController.swift in Sources */,
+				DE102D6B2A2B1B4600149ECA /* BookmarkViewModel.swift in Sources */,
 				DEE101362A177C44000ED6AE /* SettingsTableView.swift in Sources */,
 				DEB2B2F92A28A3F300C26FC5 /* SICDetailsSectionCell.swift in Sources */,
 				DE3F61A02A03F04D00BCC039 /* TryAgainViewController.swift in Sources */,
@@ -1996,6 +2075,7 @@
 				DEE1021A2A1D1821000ED6AE /* DrugViewController.swift in Sources */,
 				DEE102582A1F7F20000ED6AE /* SCSymptomsTableView.swift in Sources */,
 				DE3F60942A03F04D00BCC039 /* NumberLaunches.swift in Sources */,
+				DE102D7A2A2B39FF00149ECA /* BookmarkTableElement.swift in Sources */,
 				DE512BFE2A1271BE00BBC661 /* SaveInteractionDrugsRequest.swift in Sources */,
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE3F61C42A03F14A00BCC039 /* PaygateOptionLineComponent.swift in Sources */,
@@ -2005,6 +2085,7 @@
 				DEE102172A1D12E1000ED6AE /* DrugsTableCell.swift in Sources */,
 				DEE101612A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift in Sources */,
 				DEE1022D2A1D1CD2000ED6AE /* DrugTableNameCell.swift in Sources */,
+				DE102D732A2B1F4D00149ECA /* BookmarkFilterView.swift in Sources */,
 				DEE101522A1B9391000ED6AE /* InteractionCheckerViewController.swift in Sources */,
 				DEB2B2792A2103B100C26FC5 /* SCConfirmMostSymptomCell.swift in Sources */,
 				DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */,
@@ -2012,7 +2093,9 @@
 				DE512BE32A126B2E00BBC661 /* GetDrugsRequest.swift in Sources */,
 				DE3F60E52A03F04D00BCC039 /* LoginRequest.swift in Sources */,
 				DEB2B2862A24D31300C26FC5 /* PregnantView.swift in Sources */,
+				DE102D6D2A2B1B4A00149ECA /* BookmarkView.swift in Sources */,
 				DE512BEA2A126CDF00BBC661 /* GetDrugDetailsResponse.swift in Sources */,
+				DE102D7F2A2B3A6700149ECA /* BookmarkInteractionCell.swift in Sources */,
 				DEA0822A2A05107C00DF7D4B /* DisclaimerView.swift in Sources */,
 				DE3F61B92A03F04D00BCC039 /* OnboardingViewModel.swift in Sources */,
 				DEE102542A1E1C31000ED6AE /* SelectAgeAlert.swift in Sources */,
@@ -2035,6 +2118,7 @@
 				DEA082442A0E7F5600DF7D4B /* HomeViewController.swift in Sources */,
 				DE3F60AD2A03F04D00BCC039 /* PushNotificationsAuthorizationStatus.swift in Sources */,
 				DE3F60B52A03F04D00BCC039 /* FacebookManager.swift in Sources */,
+				DE102D692A2B1B4000149ECA /* BookmarkViewController.swift in Sources */,
 				DE7BD6232A14D4F000A21DE7 /* GetBookmarksInteractionsResponse.swift in Sources */,
 				DE3F60A92A03F04D00BCC039 /* GradientView.swift in Sources */,
 				DE3F61112A03F04D00BCC039 /* Session.swift in Sources */,

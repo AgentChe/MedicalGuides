@@ -129,3 +129,15 @@
 "SICDetails.ConditionDetails" = "CONDITION DETAILS";
 "SICDetails.TreatmentOptions" = "TREATMENT OPTIONS";
 "SICDetails.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more";
+
+// MARK: Bookmark
+"Bookmark.Title" = "Bookmark";
+"Bookmark.Done" = "Done";
+"Bookmark.Drugs" = "Drugs";
+"Bookmark.Interactions" = "Interactions";
+"Bookmark.SideEffect.Minor" = "Minor";
+"Bookmark.SideEffect.MonitorClosely" = "Monitor Closely";
+"Bookmark.SideEffect.Serious" = "Serious";
+"Bookmark.SideEffect.DontUseTogether" = "Don't use together";
+"Bookmark.Conditions" = "Conditions";
+"Bookmark.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";

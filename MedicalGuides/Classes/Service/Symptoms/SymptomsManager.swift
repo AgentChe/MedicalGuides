@@ -21,7 +21,7 @@ protocol SymptomsManagerProtocol {
     func obtainConditionDetails(id: Int) -> Single<SymptomsInteractionConditionDetails?>
     func save(conditionId: Int) -> Single<Bool>
     func unsave(conditionsIds: [Int]) -> Single<Bool>
-    func obtainBookmarksConditions() -> Single<[SymptomsInteractionCondition]>
+    func obtainBookmarksConditions() -> Single<[SymptomsInteractionConditionDetails]>
 }
 
 final class SymptomsManager {
@@ -119,7 +119,7 @@ extension SymptomsManager: SymptomsManagerProtocol {
             })
     }
 
-    func obtainBookmarksConditions() -> Single<[SymptomsInteractionCondition]> {
+    func obtainBookmarksConditions() -> Single<[SymptomsInteractionConditionDetails]> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
