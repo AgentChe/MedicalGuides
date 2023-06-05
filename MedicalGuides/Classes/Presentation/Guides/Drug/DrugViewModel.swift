@@ -102,7 +102,7 @@ private extension DrugViewModel {
                     return .never()
                 }
                 
-                func source() -> Single<Bool> {
+                func source() -> Single<Void> {
                     saved ? self.drugsManager.unsave(drugsIds: [drug.id]) : self.drugsManager.save(drugId: drug.id)
                 }
                 
@@ -118,7 +118,7 @@ private extension DrugViewModel {
                     .retry(source: { source() },
                            trigger: { trigger(error: $0) })
                     .asDriver(onErrorDriveWith: .never())
-                    .map { _ in !saved }
+                    .map { !saved }
             }
         
         return Driver

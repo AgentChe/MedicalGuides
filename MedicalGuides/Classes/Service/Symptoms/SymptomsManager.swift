@@ -19,8 +19,8 @@ protocol SymptomsManagerProtocol {
         conditionsIds: [Int]
     ) -> Single<[SymptomsInteractionCondition]>
     func obtainConditionDetails(id: Int) -> Single<SymptomsInteractionConditionDetails?>
-    func save(conditionId: Int) -> Single<Bool>
-    func unsave(conditionsIds: [Int]) -> Single<Bool>
+    func save(conditionId: Int) -> Single<Void>
+    func unsave(conditionsIds: [Int]) -> Single<Void>
     func obtainBookmarksConditions() -> Single<[SymptomsInteractionConditionDetails]>
 }
 
@@ -81,7 +81,7 @@ extension SymptomsManager: SymptomsManagerProtocol {
             .map { GetConditionDetailsResponse.map(from: $0) }
     }
 
-    func save(conditionId: Int) -> Single<Bool> {
+    func save(conditionId: Int) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -90,17 +90,13 @@ extension SymptomsManager: SymptomsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveConditionResponse.map(from: $0) }
-            .do(onSuccess: { success in
-                guard success else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: {
                 SymptomsMediator.shared.saveCondition(id: conditionId)
             })
     }
 
-    func unsave(conditionsIds: [Int]) -> Single<Bool> {
+    func unsave(conditionsIds: [Int]) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -109,12 +105,8 @@ extension SymptomsManager: SymptomsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveConditionResponse.map(from: $0) }
-            .do(onSuccess: { success in
-                guard success else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: { 
                 SymptomsMediator.shared.unsaveConditions(ids: conditionsIds)
             })
     }

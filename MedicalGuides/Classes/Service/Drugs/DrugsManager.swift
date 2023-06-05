@@ -10,12 +10,12 @@ import RxSwift
 protocol DrugsManagerProtocol {
     func obtainDrugs(forceUpdate: Bool) -> Single<[Drug]>
     func obtainDrugDetails(id: Int) -> Single<DrugDetails?>
-    func save(drugId: Int) -> Single<Bool>
-    func unsave(drugsIds: [Int]) -> Single<Bool>
+    func save(drugId: Int) -> Single<Void>
+    func unsave(drugsIds: [Int]) -> Single<Void>
     func obtainBookmarksDrugs() -> Single<[Drug]>
     func interactionCheck(drugsIds: [Int]) -> Single<DrugsInteraction?>
-    func save(interactionId: Int) -> Single<Bool>
-    func unsave(interactionsIds: [Int]) -> Single<Bool>
+    func save(interactionId: Int) -> Single<Void>
+    func unsave(interactionsIds: [Int]) -> Single<Void>
     func obtainBookmarksInteractions() -> Single<[DrugsInteraction]>
 }
 
@@ -46,7 +46,7 @@ extension DrugsManager: DrugsManagerProtocol {
             .map { GetDrugDetailsResponse.map(from: $0) }
     }
 
-    func save(drugId: Int) -> Single<Bool> {
+    func save(drugId: Int) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -55,17 +55,13 @@ extension DrugsManager: DrugsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveDrugResponse.map(from: $0) }
-            .do(onSuccess: { succes in
-                guard succes else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: {
                 DrugsMediator.shared.saveDrug(id: drugId)
             })
     }
 
-    func unsave(drugsIds: [Int]) -> Single<Bool> {
+    func unsave(drugsIds: [Int]) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -74,12 +70,8 @@ extension DrugsManager: DrugsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveDrugResponse.map(from: $0) }
-            .do(onSuccess: { succes in
-                guard succes else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: {
                 DrugsMediator.shared.unsaveDrugs(ids: drugsIds)
             })
     }
@@ -108,7 +100,7 @@ extension DrugsManager: DrugsManagerProtocol {
             .map { DrugsInteractionCheckerResponse.map(from: $0) }
     }
 
-    func save(interactionId: Int) -> Single<Bool> {
+    func save(interactionId: Int) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -117,17 +109,13 @@ extension DrugsManager: DrugsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveInteractionDrugsResponse.map(from: $0) }
-            .do(onSuccess: { success in
-                guard success else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: {
                 DrugsMediator.shared.saveInteraction(id: interactionId)
             })
     }
 
-    func unsave(interactionsIds: [Int]) -> Single<Bool> {
+    func unsave(interactionsIds: [Int]) -> Single<Void> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
@@ -136,12 +124,8 @@ extension DrugsManager: DrugsManagerProtocol {
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
-            .map { SaveUnsaveInteractionDrugsResponse.map(from: $0) }
-            .do(onSuccess: { success in
-                guard success else {
-                    return
-                }
-
+            .mapToVoid()
+            .do(onSuccess: {
                 DrugsMediator.shared.unsaveInteractions(ids: interactionsIds)
             })
     }

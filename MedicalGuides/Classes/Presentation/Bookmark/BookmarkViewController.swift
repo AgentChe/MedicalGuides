@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class BookmarkViewController: UIViewController {
     enum NavigationMode {
@@ -28,6 +29,8 @@ final class BookmarkViewController: UIViewController {
     private lazy var doneItem = UIBarButtonItem(customView: doneButton)
     private lazy var deleteItem = UIBarButtonItem(customView: deleteButton)
     private lazy var closeItem = UIBarButtonItem(customView: closeButton)
+    
+    private lazy var didTapDeleteTrigger = PublishRelay<Void>()
     
     override func loadView() {
         view = mainView
@@ -77,11 +80,17 @@ final class BookmarkViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        deleteButton.rx.tap
+            .bind(to: Binder(self) { base, void in
+                base.confirmDelete()
+            })
+            .disposed(by: disposeBag)
+        
         let output = viewModel.configure(input: BookmarkViewModel.Input(
-            didTapFilter: didTapFilter.asSignal(onErrorSignalWith: .never()).startWith(.drugs),
+            didTapFilter: didTapFilter.asSignal(onErrorSignalWith: .never()),
             didTapDone: doneButton.rx.tap.asSignal(),
             didTapEdit: editButton.rx.tap.asSignal(),
-            didTapDelete: deleteButton.rx.tap.asSignal(),
+            didTapDelete: didTapDeleteTrigger.asSignal(),
             didTapDrug: mainView.tableView.didTapDrug,
             didTapInteraction: mainView.tableView.didTapInteraction,
             didTapCondition: mainView.tableView.didTapCondition
@@ -103,6 +112,22 @@ final class BookmarkViewController: UIViewController {
             .drive(Binder(mainView.preloader) { base, activity in
                 activity ? base.startAnimating() : base.stopAnimating()
             })
+            .disposed(by: disposeBag)
+        
+        output.hasSelectedOnCurrentFilter
+            .drive(Binder(deleteButton) { base, enable in
+                base.isEnabled = enable
+                base.alpha = enable ? 1 : 0.5
+            })
+            .disposed(by: disposeBag)
+        
+        output.route
+            .drive(Binder(self) { base, route in
+                base.route(route)
+            })
+            .disposed(by: disposeBag)
+        
+        output.disposable
             .disposed(by: disposeBag)
         
         prepareNavigationItems()
@@ -174,6 +199,35 @@ private extension BookmarkViewController {
         case .editable:
             navigationItem.rightBarButtonItem = deleteItem
             navigationItem.leftBarButtonItem = doneItem
+        }
+    }
+    
+    func confirmDelete() {
+        let alert = UIAlertController(
+            title: "Bookmark.ConfirmDelete.Title".localized,
+            message: "Bookmark.ConfirmDelete.Text".localized,
+            preferredStyle: .alert
+        )
+        
+        let yesAction = UIAlertAction(title: "Yes".localized, style: .default) { [weak self] action in
+            self?.didTapDeleteTrigger.accept(Void())
+        }
+        alert.addAction(yesAction)
+        
+        let noAction = UIAlertAction(title: "No".localized, style: .cancel)
+        alert.addAction(noAction)
+        
+        present(alert, animated: true)
+    }
+    
+    func route(_ route: BookmarkViewModel.Route) {
+        switch route {
+        case .drug(let drug):
+            let vc = DrugViewController.make(drug: drug)
+            navigationController?.pushViewController(vc, animated: true)
+        case .condition(let condition):
+            let vc = SICDetailsViewController.make(id: condition.id)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

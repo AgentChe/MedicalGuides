@@ -66,7 +66,7 @@ private extension BookmarkDrugCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             checkedView.widthAnchor.constraint(equalToConstant: 18.scale),
-            checkedView.heightAnchor.constraint(equalToConstant: 18.scale),
+            checkedView.heightAnchor.constraint(equalToConstant: 19.scale),
             checkedView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20.scale),
             checkedView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])

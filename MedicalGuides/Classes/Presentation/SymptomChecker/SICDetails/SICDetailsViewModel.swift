@@ -63,7 +63,7 @@ private extension SICDetailsViewModel {
                     return .never()
                 }
                 
-                func source() -> Single<Bool> {
+                func source() -> Single<Void> {
                     saved ? self.symptomsManager.unsave(conditionsIds: [details.id]) : self.symptomsManager.save(conditionId: details.id)
                 }
                 
@@ -79,7 +79,7 @@ private extension SICDetailsViewModel {
                     .retry(source: { source() },
                            trigger: { trigger(error: $0) })
                     .asDriver(onErrorDriveWith: .never())
-                    .map { _ in !saved }
+                    .map { !saved }
             }
         
         return Driver

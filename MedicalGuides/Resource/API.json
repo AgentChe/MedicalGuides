@@ -78,7 +78,7 @@
         "title": "Minor",
         "subtitle": "Interaction is unlikely, minor, or nonsignificant.",
         "text": "Ibuprofen will increase the level or effect of Acyclovir by acidic drugs competing for the same pathway through the kidney.",
-        "side_effect": 0, // TODO: создать перечисление, когда станут известны все возможные побочные эффекты
+        "side_effect": 1, // 1 - minor, 2 - monitor closely, 3 - serious, 4 - don't use together
         "saved": false
     }
 }
@@ -113,7 +113,7 @@
             "title": "Minor",
             "subtitle": "Interaction is unlikely, minor, or nonsignificant.",
             "text": "Ibuprofen will increase the level or effect of Acyclovir by acidic drugs competing for the same pathway through the kidney.",
-            "side_effect": 0, // TODO: создать перечисление, когда станут известны все возможные побочные эффекты
+            "side_effect": 1, // 1 - minor, 2 - monitor closely, 3 - serious, 4 - don't use together
             "saved": true
         }
     }

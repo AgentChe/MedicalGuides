@@ -282,7 +282,7 @@ private extension InteractionCheckerViewModel {
                     return .never()
                 }
                 
-                func source() -> Single<Bool> {
+                func source() -> Single<Void> {
                     saved ? self.drugsManager.unsave(interactionsIds: [id]) : self.drugsManager.save(interactionId: id)
                 }
                 
@@ -298,7 +298,7 @@ private extension InteractionCheckerViewModel {
                     .retry(source: { source() },
                            trigger: { trigger(error: $0) })
                     .asDriver(onErrorDriveWith: .never())
-                    .map { _ in !saved }
+                    .map { !saved }
             }
         
         return Driver
