@@ -18,6 +18,7 @@ enum GetBookmarksConditionsResponse {
             guard
                 let id = json["id"] as? Int,
                 let saved = json["saved"] as? Bool,
+                let name = json["name"] as? String,
                 let detailsJSON = json["details"] as? [String: Any],
                 let detailsSectionsArray = detailsJSON["sections"] as? [[String: Any]],
                 let treatmentOptionsJSON = json["treatment_options"] as? [String: Any],
@@ -31,7 +32,7 @@ enum GetBookmarksConditionsResponse {
             
             return SymptomsInteractionConditionDetails(
                 id: id,
-                name: "Benign Paroxysmal Positional Vertigo", // TODO: добавить в респонс
+                name: name,
                 saved: saved,
                 details: details,
                 treatmentOptions: treatmentOptions

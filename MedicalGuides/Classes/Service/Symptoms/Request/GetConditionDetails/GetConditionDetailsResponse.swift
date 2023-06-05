@@ -12,6 +12,7 @@ enum GetConditionDetailsResponse {
             let data = json["_data"] as? [String: Any],
             let id = data["id"] as? Int,
             let saved = data["saved"] as? Bool,
+            let name = data["name"] as? String,
             let detailsJSON = data["details"] as? [String: Any],
             let detailsSectionsArray = detailsJSON["sections"] as? [[String: Any]],
             let treatmentOptionsJSON = data["treatment_options"] as? [String: Any],
@@ -25,7 +26,7 @@ enum GetConditionDetailsResponse {
         
         return SymptomsInteractionConditionDetails(
             id: id,
-            name: "Benign Paroxysmal Positional Vertigo", // TODO: добавить в респонс
+            name: name,
             saved: saved,
             details: details,
             treatmentOptions: treatmentOptions
