@@ -14,5 +14,5 @@ enum SettingsTableElement {
 }
 
 enum SettingsRoute {
-    case references, disclaimer, contactUs, termsOfUse, privacyPolicy
+    case disclaimer, contactUs, termsOfUse, privacyPolicy
 }

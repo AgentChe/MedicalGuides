@@ -59,8 +59,6 @@ extension SettingsViewController {
 private extension SettingsViewController {
     func route(_ route: SettingsViewModel.Route) {
         switch route {
-        case .references:
-            break // TODO: убрать
         case .disclaimer:
             let vc = DisclaimerViewController.make()
             present(vc, animated: true)

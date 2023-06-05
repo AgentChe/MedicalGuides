@@ -10,7 +10,7 @@ import RxCocoa
 
 final class SettingsViewModel {
     enum Route {
-        case references, disclaimer, contactUs, termsOfUse, privacyPolicy
+        case disclaimer, contactUs, termsOfUse, privacyPolicy
     }
 }
 
@@ -40,9 +40,6 @@ private extension SettingsViewModel {
             .create { event in
                 let sections: [SettingsTableSection] = [
                     .init(elements: [
-                        .route(.references)
-                    ]),
-                    .init(elements: [
                         .route(.disclaimer),
                         .route(.contactUs),
                         .route(.termsOfUse),
@@ -60,8 +57,6 @@ private extension SettingsViewModel {
         didTapRouteElement
             .map { route -> Route in
                 switch route {
-                case .references:
-                    return .references
                 case .disclaimer:
                     return .disclaimer
                 case .contactUs:

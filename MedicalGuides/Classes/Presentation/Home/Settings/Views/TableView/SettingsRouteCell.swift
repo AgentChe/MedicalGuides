@@ -47,8 +47,6 @@ private extension SettingsRouteCell {
     
     func title(for route: SettingsRoute) -> String {
         switch route {
-        case .references:
-            return "Settings.References".localized
         case .disclaimer:
             return "Settings.Disclaimer".localized
         case .contactUs:
