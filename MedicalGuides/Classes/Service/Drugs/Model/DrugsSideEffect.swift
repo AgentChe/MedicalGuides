@@ -5,7 +5,6 @@
 //  Created by Андрей Чернышев on 15.05.2023.
 //
 
-// TODO: сообщить соответствие кодов Сергею
 enum DrugsSideEffect: Codable, Hashable {
     case minor
     case monitorClosely

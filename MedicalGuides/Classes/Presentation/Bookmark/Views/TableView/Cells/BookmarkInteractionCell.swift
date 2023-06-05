@@ -71,9 +71,17 @@ private extension BookmarkInteractionCell {
         selectionStyle = .none
     }
     
-    // TODO: актуализировать цвет сайд эффекта
     func color(at sideEffect: DrugsSideEffect) -> UIColor {
-        Appearance.secondary1
+        switch sideEffect {
+        case .minor:
+            return Appearance.secondary1
+        case .monitorClosely:
+            return Appearance.primary
+        case .serious:
+            return Appearance.secondary2
+        case .dontUseTogether:
+            return UIColor(integralRed: 198, green: 42, blue: 80)
+        }
     }
     
     func name(at sideEffect: DrugsSideEffect) -> String {

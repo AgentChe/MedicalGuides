@@ -61,14 +61,24 @@ private extension InteractionCheckerResultCell {
         selectionStyle = .none
     }
     
-    // TODO: цвет в зависимости от side effect
     func titleAttrs(at sideEffect: DrugsSideEffect) -> TextAttributes {
+        let attrs = TextAttributes()
+            .font(Fonts.Avenir.bold(size: 21.scale))
+            .textAlignment(.left)
+        
         switch sideEffect {
-        case .minor, .monitorClosely, .serious, .dontUseTogether:
-            return TextAttributes()
+        case .minor:
+            return attrs
                 .textColor(Appearance.secondary1)
-                .font(Fonts.Avenir.bold(size: 21.scale))
-                .textAlignment(.left)
+        case .monitorClosely:
+            return attrs
+                .textColor(Appearance.primary)
+        case .serious:
+            return attrs
+                .textColor(Appearance.secondary2)
+        case .dontUseTogether:
+            return attrs
+                .textColor(UIColor(integralRed: 198, green: 42, blue: 80))
         }
     }
     
