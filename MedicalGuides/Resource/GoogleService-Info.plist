@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>963224891107-1j4cvla3i8s1qk0c3kdc86m50lr8vk3k.apps.googleusercontent.com</string>
+	<string>383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.963224891107-1j4cvla3i8s1qk0c3kdc86m50lr8vk3k</string>
+	<string>com.googleusercontent.apps.383900223161-vloe7q17ftvl0vcc2t499mfjh6ct4jf5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCKo4u0YvmFzgG7qROeeOx_C-Q7J2fDt9k</string>
+	<string>AIzaSyA4oaGWRS2cQmQC2tB3HSJjSHaHdvlw11c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>963224891107</string>
+	<string>383900223161</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.bigideaapps.Wikka</string>
+	<string>mobile.guides</string>
 	<key>PROJECT_ID</key>
-	<string>wicca-2</string>
+	<string>medical-guides</string>
 	<key>STORAGE_BUCKET</key>
-	<string>wicca-2.appspot.com</string>
+	<string>medical-guides.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:963224891107:ios:f642b78a8be0b5e4581fd6</string>
+	<string>1:383900223161:ios:7d8886294007e496643d68</string>
 </dict>
 </plist>

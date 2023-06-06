@@ -19,9 +19,9 @@
 		DE102D7D2A2B3A0B00149ECA /* BookmarkDrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D7C2A2B3A0B00149ECA /* BookmarkDrugCell.swift */; };
 		DE102D7F2A2B3A6700149ECA /* BookmarkInteractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */; };
 		DE102D812A2B3A8000149ECA /* BookmarkConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */; };
+		DE102DAF2A2F5ADF00149ECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE102DAE2A2F5ADF00149ECA /* GoogleService-Info.plist */; };
 		DE3F5E952A03EE1A00BCC039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E932A03EE1A00BCC039 /* LaunchScreen.storyboard */; };
 		DE3F5E9F2A03F00800BCC039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E9E2A03F00800BCC039 /* Assets.xcassets */; };
-		DE3F5EA12A03F00F00BCC039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5EA02A03F00F00BCC039 /* GoogleService-Info.plist */; };
 		DE3F5EB22A03F01600BCC039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5EA32A03F01600BCC039 /* Localizable.strings */; };
 		DE3F60872A03F04D00BCC039 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EC02A03F04D00BCC039 /* UIApplication+Extension.swift */; };
 		DE3F60882A03F04D00BCC039 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EC12A03F04D00BCC039 /* UIDevice+Extension.swift */; };
@@ -272,11 +272,11 @@
 		DE102D7C2A2B3A0B00149ECA /* BookmarkDrugCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDrugCell.swift; sourceTree = "<group>"; };
 		DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInteractionCell.swift; sourceTree = "<group>"; };
 		DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkConditionCell.swift; sourceTree = "<group>"; };
+		DE102DAE2A2F5ADF00149ECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE3F5E852A03EE1800BCC039 /* MedicalGuides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalGuides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3F5E942A03EE1A00BCC039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE3F5E962A03EE1A00BCC039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE3F5E9E2A03F00800BCC039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DE3F5EA02A03F00F00BCC039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE3F5EA42A03F01600BCC039 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE3F5EC02A03F04D00BCC039 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		DE3F5EC12A03F04D00BCC039 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
@@ -625,7 +625,7 @@
 				DE3F5EA22A03F01600BCC039 /* Strings */,
 				DE3F5E9E2A03F00800BCC039 /* Assets.xcassets */,
 				DE3F5E962A03EE1A00BCC039 /* Info.plist */,
-				DE3F5EA02A03F00F00BCC039 /* GoogleService-Info.plist */,
+				DE102DAE2A2F5ADF00149ECA /* GoogleService-Info.plist */,
 				DE3F5E932A03EE1A00BCC039 /* LaunchScreen.storyboard */,
 				DEA082252A03FB7900DF7D4B /* API.json */,
 			);
@@ -1820,13 +1820,13 @@
 			files = (
 				DEA082262A03FB7900DF7D4B /* API.json in Resources */,
 				DEA082212A03F87400DF7D4B /* Avenir Medium.ttf in Resources */,
+				DE102DAF2A2F5ADF00149ECA /* GoogleService-Info.plist in Resources */,
 				DEA082222A03F87400DF7D4B /* Avenir Black.ttf in Resources */,
 				DEA082232A03F87400DF7D4B /* Avenir Next LT Pro Bold.otf in Resources */,
 				DEA082242A03F87400DF7D4B /* Avenir Regular.ttf in Resources */,
 				DE3F5E9F2A03F00800BCC039 /* Assets.xcassets in Resources */,
 				DE3F5EB22A03F01600BCC039 /* Localizable.strings in Resources */,
 				DE3F5E952A03EE1A00BCC039 /* LaunchScreen.storyboard in Resources */,
-				DE3F5EA12A03F00F00BCC039 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
