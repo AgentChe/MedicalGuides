@@ -144,3 +144,9 @@
 "Bookmark.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
 "Bookmark.ConfirmDelete.Title" = "Are you sure?";
 "Bookmark.ConfirmDelete.Text" = "Here’s some alert text. It can span multiple lines if needed!";
+"Bookmark.Empty.Drugs.Title" = "Nothing here yet";
+"Bookmark.Empty.Drugs.Text" = "Saved drags will appear here";
+"Bookmark.Empty.Interactions.Title" = "Nothing here yet";
+"Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
+"Bookmark.Empty.Conditions.Title" = "Nothing here yet";
+"Bookmark.Empty.Conditions.Text" = "Saved conditions will appear here";

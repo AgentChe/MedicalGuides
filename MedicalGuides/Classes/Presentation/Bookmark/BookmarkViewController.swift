@@ -96,6 +96,12 @@ final class BookmarkViewController: UIViewController {
             didTapCondition: mainView.tableView.didTapCondition
         ))
         
+        output.isEmpty
+            .drive(Binder(self) { base, unit in
+                base.isEmpty(unit: unit)
+            })
+            .disposed(by: disposeBag)
+        
         output.navigationMode
             .drive(Binder(self) { base, mode in
                 base.navigationMode(mode)
@@ -160,6 +166,15 @@ private extension BookmarkViewController {
                 
                 return Disposables.create()
             }
+    }
+    
+    func isEmpty(unit: BookmarkEmptyView.Unit?) {
+        mainView.emptyView.isHidden = unit == nil
+        mainView.tableView.isHidden = unit != nil
+        
+        if let unit = unit {
+            mainView.emptyView.setup(unit: unit)
+        }
     }
     
     func prepareNavigationItems() {

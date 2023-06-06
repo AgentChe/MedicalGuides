@@ -7,7 +7,6 @@
 
 import UIKit
 
-// TODO: актуализировать в соответствии с дизайном
 final class BookmarkEmptyView: UIView {
     enum Unit {
         case drugs, interactions, conditions
@@ -15,8 +14,18 @@ final class BookmarkEmptyView: UIView {
     
     lazy var imageView = makeImageView()
     lazy var titleLabel = makeLabel()
-    lazy var subTitleLabel = makeLabel()
-    lazy var button = makeButton()
+    lazy var textLabel = makeLabel()
+    
+    private lazy var titleAttrs = TextAttributes()
+        .textColor(Appearance.black)
+        .font(Fonts.Avenir.bold(size: 15.scale))
+        .lineHeight(21.scale)
+        .textAlignment(.center)
+    private lazy var textAttrs = TextAttributes()
+        .textColor(UIColor(integralRed: 84, green: 84, blue: 84))
+        .font(Fonts.Avenir.regular(size: 15.scale))
+        .lineHeight(21.scale)
+        .textAlignment(.center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,35 +43,18 @@ extension BookmarkEmptyView {
     func setup(unit: Unit) {
         switch unit {
         case .drugs:
-            titleLabel.text = "Drugs"
+            imageView.image = UIImage(named: "Bookmark.Empty.Drugs")
+            titleLabel.attributedText = "Bookmark.Empty.Drugs.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Drugs.Text".localized.attributed(with: textAttrs)
         case .interactions:
-            titleLabel.text = "Interactions"
+            imageView.image = UIImage(named: "Bookmark.Empty.Interactions")
+            titleLabel.attributedText = "Bookmark.Empty.Interactions.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Interactions.Text".localized.attributed(with: textAttrs)
         case .conditions:
-            titleLabel.text = "Conditions"
+            imageView.image = UIImage(named: "Bookmark.Empty.Conditions")
+            titleLabel.attributedText = "Bookmark.Empty.Conditions.Title".localized.attributed(with: titleAttrs)
+            textLabel.attributedText = "Bookmark.Empty.Conditions.Text".localized.attributed(with: textAttrs)
         }
-        
-//        switch unit {
-//        case .spells:
-//            imageView.image = UIImage(named: "Bookmarks.Empty.Spells")
-//            titleLabel.attributedText = "Bookmarks.Empty.Spells.Title".localized.attributed(with: titleAttrs)
-//            subTitleLabel.attributedText = "Bookmarks.Empty.Spells.SubTitle".localized.attributed(with: subTitleAttrs)
-//            button.setAttributedTitle("Bookmarks.Empty.Spells.Button".localized.attributed(with: buttonAttrs), for: .normal)
-//        case .candles:
-//            imageView.image = UIImage(named: "Bookmarks.Empty.Candles")
-//            titleLabel.attributedText = "Bookmarks.Empty.Candles.Title".localized.attributed(with: titleAttrs)
-//            subTitleLabel.attributedText = "Bookmarks.Empty.Candles.SubTitle".localized.attributed(with: subTitleAttrs)
-//            button.setAttributedTitle("Bookmarks.Empty.Candles.Button".localized.attributed(with: buttonAttrs), for: .normal)
-//        case .herbs:
-//            imageView.image = UIImage(named: "Bookmarks.Empty.Herbs")
-//            titleLabel.attributedText = "Bookmarks.Empty.Herbs.Title".localized.attributed(with: titleAttrs)
-//            subTitleLabel.attributedText = "Bookmarks.Empty.Herbs.SubTitle".localized.attributed(with: subTitleAttrs)
-//            button.setAttributedTitle("Bookmarks.Empty.Herbs.Button".localized.attributed(with: buttonAttrs), for: .normal)
-//        case .crystals:
-//            imageView.image = UIImage(named: "Bookmarks.Empty.Crystals")
-//            titleLabel.attributedText = "Bookmarks.Empty.Crystals.Title".localized.attributed(with: titleAttrs)
-//            subTitleLabel.attributedText = "Bookmarks.Empty.Crystals.SubTitle".localized.attributed(with: subTitleAttrs)
-//            button.setAttributedTitle("Bookmarks.Empty.Crystals.Button".localized.attributed(with: buttonAttrs), for: .normal)
-//        }
     }
 }
 
@@ -70,29 +62,23 @@ extension BookmarkEmptyView {
 private extension BookmarkEmptyView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 146.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 122.scale),
+            imageView.widthAnchor.constraint(equalToConstant: 80.scale),
+            imageView.heightAnchor.constraint(equalToConstant: 80.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 149.scale : 100.scale)
+            imageView.topAnchor.constraint(equalTo: topAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16.scale)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 104.scale)
         ])
         
         NSLayoutConstraint.activate([
-            subTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            subTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 13.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 226.scale),
-            button.heightAnchor.constraint(equalToConstant: 47.scale),
-            button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            button.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 16.scale)
+            textLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            textLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4.scale),
+            textLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
@@ -110,15 +96,6 @@ private extension BookmarkEmptyView {
     func makeLabel() -> UILabel {
         let view = UILabel()
         view.numberOfLines = 0
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeButton() -> UIButton {
-        let view = UIButton()
-        view.backgroundColor = Appearance.primary
-        view.layer.cornerRadius = 23.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

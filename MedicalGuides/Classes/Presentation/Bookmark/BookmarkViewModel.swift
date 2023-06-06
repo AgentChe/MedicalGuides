@@ -44,6 +44,7 @@ extension BookmarkViewModel {
     }
     
     struct Output {
+        let isEmpty: Driver<BookmarkEmptyView.Unit?>
         let navigationMode: Driver<BookmarkViewController.NavigationMode>
         let elements: Driver<[BookmarkTableElement]>
         let activity: Driver<Bool>
@@ -103,6 +104,12 @@ extension BookmarkViewModel {
             .emit(to: didDeleteTrigger)
         
         return Output(
+            isEmpty: makeIsEmpty(
+                didTapFilter: didTapFilter,
+                drugsElements: drugsElements,
+                interactionsElements: interactionsElements,
+                conditionsElements: conditionsElements
+            ),
             navigationMode: navigationMode,
             elements: makeElements(
                 didTapFilter: didTapFilter,
@@ -129,6 +136,30 @@ private extension BookmarkViewModel {
         case drugs([Int])
         case interactions([Int])
         case conditions([Int])
+    }
+    
+    func makeIsEmpty(
+        didTapFilter: Driver<BookmarkFilterView.Filter>,
+        drugsElements: Driver<[BookmarkTableElement]>,
+        interactionsElements: Driver<[BookmarkTableElement]>,
+        conditionsElements: Driver<[BookmarkTableElement]>
+    ) -> Driver<BookmarkEmptyView.Unit?> {
+        Driver
+            .combineLatest(
+                didTapFilter,
+                drugsElements,
+                interactionsElements,
+                conditionsElements
+            ).map { filter, drugs, interactions, conditions -> BookmarkEmptyView.Unit? in
+                switch filter {
+                case .drugs:
+                    return drugs.isEmpty ? .drugs : nil
+                case .interactions:
+                    return interactions.isEmpty ? .interactions : nil
+                case .conditions:
+                    return conditions.isEmpty ? .conditions : nil
+                }
+            }
     }
     
     func makeNavigationMode(

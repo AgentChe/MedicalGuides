@@ -51,10 +51,9 @@ private extension BookmarkView {
         ])
         
         NSLayoutConstraint.activate([
-            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            emptyView.topAnchor.constraint(equalTo: filterView.bottomAnchor),
-            emptyView.bottomAnchor.constraint(equalTo: disclaimerButton.topAnchor)
+            emptyView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.scale),
+            emptyView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.scale),
+            emptyView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -112,7 +111,6 @@ private extension BookmarkView {
     
     func makeEmptyView() -> BookmarkEmptyView {
         let view = BookmarkEmptyView()
-        view.isHidden = true // TODO
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
