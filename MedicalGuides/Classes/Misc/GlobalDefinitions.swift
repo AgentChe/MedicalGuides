@@ -15,7 +15,7 @@ final class GlobalDefinitions {
     static let appleAppID = "6449972006"
     
     static let applicationTag = "MEDICAL_GUIDES"
-    static let amplitudeApiKey = "1336d08d429ceb343970fd360e3253f6"
+    static let amplitudeApiKey = "11f36fb9021dbfca4a1349a3b2284224"
     static let appsFlyerApiKey = "DCciCfYXjMQ8QnkdCg8qzk"
     
     static let termsOfServiceUrl = "https://awesum-apps.com/terms"
