@@ -11,7 +11,7 @@ struct GetSymptomsRequest: APIRequestBody {
     let userToken: String
     
     var url: String {
-        GlobalDefinitions.domain + "/api/symptoms"
+        GlobalDefinitions.domain + "/api/symptom_checker/symptoms"
     }
     
     var method: HTTPMethod {

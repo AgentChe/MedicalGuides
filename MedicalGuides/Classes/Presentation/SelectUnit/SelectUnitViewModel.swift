@@ -10,7 +10,7 @@ import RxCocoa
 
 final class SelectUnitViewModel {
     enum Unit {
-        case drugs, symptoms, interactionCheckerMed
+        case drugs, symptoms, interactionCheckerMed, medicalStates, symptomMeds
     }
     
     enum Route {
@@ -21,12 +21,16 @@ final class SelectUnitViewModel {
         case drug(Drug)
         case symptom(Symptom)
         case interactionCheckerMed(InteractionCheckerMed)
+        case medicalState(MedicalState)
+        case symptomMed(SymptomMed)
     }
     
     private lazy var currentElements = makeCurrentElements()
     private lazy var drugsElements = makeDrugsElements()
     private lazy var symptomsElements = makeSymptomsElements()
+    private lazy var medicalStatesElements = makeMedicalStatesElements()
     private lazy var interationCheckerMedsElements = makeInteractionCheckerMedsElements()
+    private lazy var symptomsMeds = makeSymptomsMedsElements()
     private let unit: Driver<Unit>
     private let selectedIds: Driver<[Int]>
     
@@ -84,6 +88,10 @@ private extension SelectUnitViewModel {
                     result = .symptom(symptom)
                 case .interactionCheckerMed(let med):
                     result = .interactionCheckerMed(med)
+                case .medicalState(let medicalState):
+                    result = .medicalState(medicalState)
+                case .symptomMed(let symptomMed):
+                    result = .symptomMed(symptomMed)
                 }
                 
                 return .just(.result(result))
@@ -125,8 +133,10 @@ private extension SelectUnitViewModel {
                 unit,
                 drugsElements,
                 symptomsElements,
-                interationCheckerMedsElements
-            ) { unit, drugs, symptoms, interationCheckerMeds -> [SelectUnitTableElement] in
+                interationCheckerMedsElements,
+                medicalStatesElements,
+                symptomsMeds
+            ) { unit, drugs, symptoms, interationCheckerMeds, medicalStates, symptomsMeds -> [SelectUnitTableElement] in
                 switch unit {
                 case .drugs:
                     return drugs
@@ -134,6 +144,10 @@ private extension SelectUnitViewModel {
                     return symptoms
                 case .interactionCheckerMed:
                     return interationCheckerMeds
+                case .medicalStates:
+                    return medicalStates
+                case .symptomMeds:
+                    return symptomsMeds
                 }
             }
     }
@@ -174,6 +188,24 @@ private extension SelectUnitViewModel {
             }
     }
     
+    func makeMedicalStatesElements() -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                symptomsManager
+                    .obtainMedicalStates(forceUpdate: false)
+                    .asDriver(onErrorJustReturn: []),
+                selectedIds
+            )
+            .map { medicalStates, selectedIds -> [SelectUnitTableElement] in
+                medicalStates.map { medicalState -> SelectUnitTableElement in
+                    SelectUnitTableElement(
+                        medicalState: medicalState,
+                        isSelected: selectedIds.contains(where: { $0 == medicalState.id })
+                    )
+                }
+            }
+    }
+    
     func makeInteractionCheckerMedsElements() -> Driver<[SelectUnitTableElement]> {
         Driver
             .combineLatest(
@@ -187,6 +219,24 @@ private extension SelectUnitViewModel {
                     SelectUnitTableElement(
                         interactionCheckerMed: med,
                         isSelected: selectedIds.contains(where: { $0 == med.id })
+                    )
+                }
+            }
+    }
+    
+    func makeSymptomsMedsElements() -> Driver<[SelectUnitTableElement]> {
+        Driver
+            .combineLatest(
+                symptomsManager
+                    .obtainSymptomMeds(forceUpdate: false)
+                    .asDriver(onErrorJustReturn: []),
+                selectedIds
+            )
+            .map { symptomMeds, selectedIds -> [SelectUnitTableElement] in
+                symptomMeds.map { symptomMed -> SelectUnitTableElement in
+                    SelectUnitTableElement(
+                        symptomMed: symptomMed,
+                        isSelected: selectedIds.contains(where: { $0 == symptomMed.id })
                     )
                 }
             }

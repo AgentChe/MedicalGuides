@@ -5,16 +5,19 @@
 //  Created by Андрей Чернышев on 17.05.2023.
 //
 
+import Foundation
+
 enum GetBookmarksConditionsResponse {
     static func map(from response: Any) -> [SymptomsInteractionConditionDetails] {
         guard
             let json = response as? [String: Any],
-            let data = json["_data"] as? [[String: Any]]
+            let data = json["_data"] as? [String: Any],
+            let conditionsArray = data["conditions"] as? [[String: Any]]
         else {
             return []
         }
         
-        return data.compactMap { json -> SymptomsInteractionConditionDetails? in
+        return conditionsArray.compactMap { json -> SymptomsInteractionConditionDetails? in
             guard
                 let id = json["id"] as? Int,
                 let saved = json["saved"] as? Bool,
@@ -43,15 +46,40 @@ enum GetBookmarksConditionsResponse {
 
 // MARK: Private
 private extension GetBookmarksConditionsResponse {
-    static func blocks(from array: [[String: Any]]) -> [DrugBlock] {
-        array.compactMap { json -> DrugBlock? in
-            guard let text = json["text"] as? String else {
+    static func blocks(from array: [[String: Any]]) -> [SymptomsCheckerSection] {
+        array.compactMap { json -> SymptomsCheckerSection? in
+            guard
+                let name = json["name"] as? String,
+                let blocksArray = json["blocks"] as? [[String: Any]]
+            else {
                 return nil
             }
             
-            return DrugBlock(
-                title: json["title"] as? String,
-                text: text
+            let blocks = blocksArray.compactMap { blockJSON -> SymptomsCheckerBlock? in
+                guard
+                    let type = blockJSON["type"] as? Int,
+                    let value = blockJSON["content"] as? String
+                else {
+                    return nil
+                }
+                
+                switch type {
+                case 1:
+                    return .text(value)
+                case 2:
+                    guard let url = URL(string: value) else {
+                        return nil
+                    }
+                    
+                    return .image(url)
+                default:
+                    return nil
+                }
+            }
+            
+            return SymptomsCheckerSection(
+                name: name,
+                blocks: blocks
             )
         }
     }

@@ -12,7 +12,7 @@ struct UnsaveConditionRequest: APIRequestBody {
     let ids: [Int]
 
     var url: String {
-        GlobalDefinitions.domain + "/api/conditions/unsave"
+        GlobalDefinitions.domain + "/api/symptom_checker/conditions/unsave"
     }
     
     var method: HTTPMethod {

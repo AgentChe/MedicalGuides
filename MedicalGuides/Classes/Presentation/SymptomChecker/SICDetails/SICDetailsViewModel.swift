@@ -170,22 +170,52 @@ private extension SICDetailsViewModel {
 
 // MARK: Private (Additional)
 private extension SICDetailsViewModel {
-    func buildSections(from blocks: [DrugBlock]) -> [SICDetailsTableSection] {
-        blocks
+//    func buildSections(from blocks: [DrugBlock]) -> [SICDetailsTableSection] {
+//        blocks
+//            .enumerated()
+//            .compactMap { index, block -> SICDetailsTableSection? in
+//                let isLast = (blocks.count - 1) == index
+//
+//                guard let title = block.title else {
+//                    return nil
+//                }
+//
+//                let sectionElement = SICDetailsSectionElement(name: title, opened: false)
+//
+//                var openedElements: [SICDetailsTableElement] = [
+//                    .section(sectionElement),
+//                    .text(block.text)
+//                ]
+//                if !isLast {
+//                    openedElements.append(.separator)
+//                }
+//
+//                return SICDetailsTableSection(
+//                    opened: false,
+//                    openedElements: openedElements,
+//                    closedElements: [.section(sectionElement), isLast ? nil : .separator].compactMap { $0 }
+//                )
+//            }
+//    }
+    
+    func buildSections(from sections: [SymptomsCheckerSection]) -> [SICDetailsTableSection] {
+        sections
             .enumerated()
-            .compactMap { index, block -> SICDetailsTableSection? in
-                let isLast = (blocks.count - 1) == index
+            .compactMap { index, section -> SICDetailsTableSection? in
+                let isLast = (sections.count - 1) == index
                 
-                guard let title = block.title else {
-                    return nil
-                }
-                
-                let sectionElement = SICDetailsSectionElement(name: title, opened: false)
+                let sectionElement = SICDetailsSectionElement(name: section.name, opened: false)
                 
                 var openedElements: [SICDetailsTableElement] = [
-                    .section(sectionElement),
-                    .text(block.text)
+                    .section(sectionElement)
                 ]
+                section.blocks.forEach { block in
+                    guard case let .text(text) = block else {
+                        return
+                    }
+                    
+                    openedElements.append(.text(text))
+                }
                 if !isLast {
                     openedElements.append(.separator)
                 }

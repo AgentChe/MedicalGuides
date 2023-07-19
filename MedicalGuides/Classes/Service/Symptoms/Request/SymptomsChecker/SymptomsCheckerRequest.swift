@@ -15,10 +15,10 @@ struct SymptomsCheckerRequest: APIRequestBody {
     let mainSymptomId: Int
     let pregnant: Bool
     let currentMedicationsIds: [Int]
-    let conditionsIds: [Int]
+    let medicalStatesIds: [Int]
     
     var url: String {
-        GlobalDefinitions.domain + "/api/symptom_checker"
+        GlobalDefinitions.domain + "/api/symptom_checker/analyze"
     }
     
     var method: HTTPMethod {
@@ -35,7 +35,7 @@ struct SymptomsCheckerRequest: APIRequestBody {
             "main_symptom_id": mainSymptomId,
             "pregnant": pregnant,
             "current_medications_ids": currentMedicationsIds,
-            "conditions_ids": conditionsIds
+            "medical_states_ids": medicalStatesIds
         ]
     }
 }

@@ -12,7 +12,7 @@ struct GetConditionDetailsRequest: APIRequestBody {
     let id: Int
     
     var url: String {
-        GlobalDefinitions.domain + "/api/conditions/details"
+        GlobalDefinitions.domain + "/api/symptom_checker/conditions/details"
     }
     
     var method: HTTPMethod {
@@ -23,7 +23,7 @@ struct GetConditionDetailsRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "id": id
+            "condition_id": id
         ]
     }
 }

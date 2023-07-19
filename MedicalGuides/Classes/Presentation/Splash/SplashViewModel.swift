@@ -100,7 +100,6 @@ private extension SplashViewModel {
         }
     }
     
-    // TODO
     func library() -> Observable<Void> {
         func source() -> Single<Void> {
             let paygate = paygateManager
@@ -118,14 +117,22 @@ private extension SplashViewModel {
             let symptoms = symptomsManager
                 .obtainSymptoms(forceUpdate: true)
                 .mapToVoid()
+            let medicalStates = symptomsManager
+                .obtainMedicalStates(forceUpdate: true)
+                .mapToVoid()
+            let symptomMeds = symptomsManager
+                .obtainSymptomMeds(forceUpdate: true)
+                .mapToVoid()
             
             return Single
                 .zip([
                     paygate,
                     profile,
                     drugs,
-                    interactionCheckerMeds
-//                    symptoms
+                    interactionCheckerMeds,
+                    symptoms,
+                    medicalStates,
+                    symptomMeds
                 ])
                 .mapToVoid()
         }

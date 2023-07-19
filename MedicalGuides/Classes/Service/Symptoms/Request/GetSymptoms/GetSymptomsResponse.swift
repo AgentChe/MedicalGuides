@@ -9,12 +9,13 @@ enum GetSymptomsResponse {
     static func map(from response: Any) -> [Symptom] {
         guard
             let json = response as? [String: Any],
-            let data = json["_data"] as? [[String: Any]]
+            let data = json["_data"] as? [String: Any],
+            let symptomsArray = data["symptoms"] as? [[String: Any]]
         else {
             return []
         }
         
-        return data.compactMap { json -> Symptom? in
+        return symptomsArray.compactMap { json -> Symptom? in
             guard
                 let id = json["id"] as? Int,
                 let name = json["name"] as? String

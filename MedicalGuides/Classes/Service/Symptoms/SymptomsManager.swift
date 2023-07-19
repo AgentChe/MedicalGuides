@@ -16,17 +16,21 @@ protocol SymptomsManagerProtocol {
         mainSymptomId: Int,
         pregnant: Bool,
         currentMedicationsIds: [Int],
-        conditionsIds: [Int]
+        medicalStatesIds: [Int]
     ) -> Single<[SymptomsInteractionCondition]>
     func obtainConditionDetails(id: Int) -> Single<SymptomsInteractionConditionDetails?>
     func save(conditionId: Int) -> Single<Void>
     func unsave(conditionsIds: [Int]) -> Single<Void>
     func obtainBookmarksConditions() -> Single<[SymptomsInteractionConditionDetails]>
+    func obtainMedicalStates(forceUpdate: Bool) -> Single<[MedicalState]>
+    func obtainSymptomMeds(forceUpdate: Bool) -> Single<[SymptomMed]>
 }
 
 final class SymptomsManager {
     enum Constants {
         static let symptoms = "symptoms_manager_symptoms_key"
+        static let medicalStates = "symptoms_manager_medical_states_key"
+        static let symptomMeds = "symptoms_manager_symptom_meds_key"
     }
 
     private lazy var sessionManager = SessionManager()
@@ -47,7 +51,7 @@ extension SymptomsManager: SymptomsManagerProtocol {
         mainSymptomId: Int,
         pregnant: Bool,
         currentMedicationsIds: [Int],
-        conditionsIds: [Int]
+        medicalStatesIds: [Int]
     ) -> Single<[SymptomsInteractionCondition]> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
@@ -61,7 +65,7 @@ extension SymptomsManager: SymptomsManagerProtocol {
             mainSymptomId: mainSymptomId,
             pregnant: pregnant,
             currentMedicationsIds: currentMedicationsIds,
-            conditionsIds: conditionsIds
+            medicalStatesIds: medicalStatesIds
         )
 
         return defaultRequestWrapper
@@ -122,6 +126,14 @@ extension SymptomsManager: SymptomsManagerProtocol {
             .callServerApi(requestBody: request)
             .map { GetBookmarksConditionsResponse.map(from: $0) }
     }
+    
+    func obtainMedicalStates(forceUpdate: Bool) -> Single<[MedicalState]> {
+        forceUpdate ? loadMedicalStates() : cachedMedicalStates()
+    }
+    
+    func obtainSymptomMeds(forceUpdate: Bool) -> Single<[SymptomMed]> {
+        forceUpdate ? loadSymptomMeds() : cachedSymptomMeds()
+    }
 }
 
 // MARK: Private
@@ -156,6 +168,76 @@ private extension SymptomsManager {
             }
 
             event(.success(symptoms))
+
+            return Disposables.create()
+        }
+    }
+    
+    func loadMedicalStates() -> Single<[MedicalState]> {
+        guard let userToken = sessionManager.getSession()?.userToken else {
+            return .error(SignError.tokenNotFound)
+        }
+
+        let request = GetMedicalStatesRequest(userToken: userToken)
+
+        return defaultRequestWrapper
+            .callServerApi(requestBody: request)
+            .map { GetMedicalStatesResponse.map(from: $0) }
+            .do(onSuccess: { medicalStates in
+                guard let data = try? JSONEncoder().encode(medicalStates) else {
+                    return
+                }
+
+                UserDefaults.standard.set(data, forKey: Constants.medicalStates)
+            })
+    }
+
+    func cachedMedicalStates() -> Single<[MedicalState]> {
+        Single<[MedicalState]>.create { event in
+            guard
+                let data = UserDefaults.standard.data(forKey: Constants.medicalStates),
+                let medicalStates = try? JSONDecoder().decode([MedicalState].self, from: data)
+            else {
+                event(.success([]))
+                return Disposables.create()
+            }
+
+            event(.success(medicalStates))
+
+            return Disposables.create()
+        }
+    }
+    
+    func loadSymptomMeds() -> Single<[SymptomMed]> {
+        guard let userToken = sessionManager.getSession()?.userToken else {
+            return .error(SignError.tokenNotFound)
+        }
+
+        let request = GetSymptomMedsRequest(userToken: userToken)
+
+        return defaultRequestWrapper
+            .callServerApi(requestBody: request)
+            .map { GetSymptomMedsResponse.map(from: $0) }
+            .do(onSuccess: { meds in
+                guard let data = try? JSONEncoder().encode(meds) else {
+                    return
+                }
+
+                UserDefaults.standard.set(data, forKey: Constants.symptomMeds)
+            })
+    }
+    
+    func cachedSymptomMeds() -> Single<[SymptomMed]> {
+        Single<[SymptomMed]>.create { event in
+            guard
+                let data = UserDefaults.standard.data(forKey: Constants.symptomMeds),
+                let meds = try? JSONDecoder().decode([SymptomMed].self, from: data)
+            else {
+                event(.success([]))
+                return Disposables.create()
+            }
+
+            event(.success(meds))
 
             return Disposables.create()
         }

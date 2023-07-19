@@ -10,7 +10,7 @@ import UIKit
 final class DrugTagsView: UIView {
     let width = 343.scale
     
-    var didTap: ((Drug) -> Void)?
+    var didTap: ((DrugTagView.Unit) -> Void)?
     
     private var tagViews: [DrugTagView] = []
     private var rowViews: [UIView] = []
@@ -37,8 +37,8 @@ final class DrugTagsView: UIView {
 
 // MARK: Public
 extension DrugTagsView {
-    func addTags(_ drugs: [Drug]) {
-        let views = drugs.map { createNewTagView($0) }
+    func addTags(_ units: [DrugTagView.Unit]) {
+        let views = units.map { createNewTagView($0) }
         
         views.forEach {
             tagViews.append($0)
@@ -47,10 +47,10 @@ extension DrugTagsView {
         rearrangeViews()
     }
     
-    func removeTag(_ drug: Drug) {
+    func removeTag(_ unit: DrugTagView.Unit) {
         tagViews
             .reversed()
-            .filter { $0.drug.id == drug.id }
+            .filter { $0.unit.id == unit.id }
             .forEach { removeTagView($0) }
     }
     
@@ -72,11 +72,11 @@ private extension DrugTagsView {
             return
         }
         
-        didTap?(button.drug)
+        didTap?(button.unit)
     }
     
-    func createNewTagView(_ drug: Drug) -> DrugTagView {
-        let view = DrugTagView(drug: drug)
+    func createNewTagView(_ unit: DrugTagView.Unit) -> DrugTagView {
+        let view = DrugTagView(unit: unit)
         view.layer.cornerRadius = 8.scale
         view.layer.masksToBounds = true
         view.titleEdgeInsets = UIEdgeInsets(top: 12.scale, left: 16.scale, bottom: 12.scale, right: 50.scale)

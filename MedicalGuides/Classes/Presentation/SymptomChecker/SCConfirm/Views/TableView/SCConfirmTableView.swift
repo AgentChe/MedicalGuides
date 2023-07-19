@@ -15,8 +15,8 @@ final class SCConfirmTableView: UITableView {
     private lazy var didSelectMostSymptomTrigger = PublishRelay<Symptom>()
     private lazy var didSelectPregnantTrigger = PublishRelay<Bool>()
     private lazy var didTapChooseTrigger = PublishRelay<SCConfirmChooseElement>()
-    private lazy var didRemoveMedicationTrigger = PublishRelay<Drug>()
-    private lazy var didRemoveConditionTrigger = PublishRelay<Drug>()
+    private lazy var didRemoveMedicationTrigger = PublishRelay<SymptomMed>()
+    private lazy var didRemoveConditionTrigger = PublishRelay<MedicalState>()
     private lazy var didTapContinueTrigger = PublishRelay<Void>()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -50,11 +50,11 @@ extension SCConfirmTableView {
         didTapChooseTrigger.asSignal()
     }
     
-    var didRemoveMedication: Signal<Drug> {
+    var didRemoveMedication: Signal<SymptomMed> {
         didRemoveMedicationTrigger.asSignal()
     }
     
-    var didRemoveCondition: Signal<Drug> {
+    var didRemoveCondition: Signal<MedicalState> {
         didRemoveConditionTrigger.asSignal()
     }
     
@@ -102,15 +102,23 @@ extension SCConfirmTableView: UITableViewDataSource {
         case .medications(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: SCConfirmDrugsCell.self), for: indexPath) as! SCConfirmDrugsCell
             cell.setup(element: element)
-            cell.tagsView.didTap = { [weak self] drug in
-                self?.didRemoveMedicationTrigger.accept(drug)
+            cell.tagsView.didTap = { [weak self] unit in
+                guard case let .symptomMed(med) = unit else {
+                    return
+                }
+                
+                self?.didRemoveMedicationTrigger.accept(med)
             }
             return cell
         case .conditions(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: SCConfirmDrugsCell.self), for: indexPath) as! SCConfirmDrugsCell
             cell.setup(element: element)
-            cell.tagsView.didTap = { [weak self] drug in
-                self?.didRemoveConditionTrigger.accept(drug)
+            cell.tagsView.didTap = { [weak self] unit in
+                guard case let .medicalState(state) = unit else {
+                    return
+                }
+                
+                self?.didRemoveConditionTrigger.accept(state)
             }
             return cell
         }

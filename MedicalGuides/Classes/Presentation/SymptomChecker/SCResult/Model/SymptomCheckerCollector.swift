@@ -12,5 +12,5 @@ final class SymptomCheckerCollector {
     var mainSymptomId: Int?
     var pregnant: Bool?
     var currentMedicationsIds: [Int]?
-    var conditionsIds: [Int]?
+    var medicalStatesIds: [Int]?
 }

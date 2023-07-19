@@ -10,6 +10,8 @@ final class SelectUnitTableElement {
         case drug(Drug)
         case symptom(Symptom)
         case interactionCheckerMed(InteractionCheckerMed)
+        case medicalState(MedicalState)
+        case symptomMed(SymptomMed)
     }
     
     let name: String
@@ -32,5 +34,17 @@ final class SelectUnitTableElement {
         self.name = interactionCheckerMed.name
         self.isSelected = isSelected
         self.unit = .interactionCheckerMed(interactionCheckerMed)
+    }
+    
+    init(medicalState: MedicalState, isSelected: Bool) {
+        self.name = medicalState.name
+        self.isSelected = isSelected
+        self.unit = .medicalState(medicalState)
+    }
+    
+    init(symptomMed: SymptomMed, isSelected: Bool) {
+        self.name = symptomMed.name
+        self.isSelected = isSelected
+        self.unit = .symptomMed(symptomMed)
     }
 }

@@ -11,8 +11,8 @@ enum SCConfirmTableElement {
     case choose(SCConfirmChooseElement)
     case description(String)
     case `continue`(Bool)
-    case medications([Drug])
-    case conditions([Drug])
+    case medications([SymptomMed])
+    case conditions([MedicalState])
 }
 
 final class SCConfirmMostSymptomElement {

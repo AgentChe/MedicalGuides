@@ -78,7 +78,7 @@ private extension SCResultViewModel {
                         let mainSymptomId = collector.mainSymptomId,
                         let pregnant = collector.pregnant,
                         let currentMedicationsIds = collector.currentMedicationsIds,
-                        let conditionsIds = collector.conditionsIds
+                        let medicalStatesIds = collector.medicalStatesIds
                     else {
                         return .error(ContentError(.notContent))
                     }
@@ -91,7 +91,7 @@ private extension SCResultViewModel {
                             mainSymptomId: mainSymptomId,
                             pregnant: pregnant,
                             currentMedicationsIds: currentMedicationsIds,
-                            conditionsIds: conditionsIds
+                            medicalStatesIds: medicalStatesIds
                         )
                 }
                 

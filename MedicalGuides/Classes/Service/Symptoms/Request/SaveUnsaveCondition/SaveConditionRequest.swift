@@ -12,7 +12,7 @@ struct SaveConditionRequest: APIRequestBody {
     let id: Int
 
     var url: String {
-        GlobalDefinitions.domain + "/api/conditions/save"
+        GlobalDefinitions.domain + "/api/symptom_checker/conditions/save"
     }
     
     var method: HTTPMethod {

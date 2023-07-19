@@ -86,6 +86,7 @@
 // MARK: SelectUnit
 "SelectUnit.Title.Drugs" = "Drugs";
 "SelectUnit.Title.Symptoms" = "Symptoms";
+"SelectUnit.Title.MedicalStates" = "Medical States";
 "SelectUnit.Search.Placeholder" = "Enter to start";
 "SelectUnit.Empty" = "We can’t find\nanything";
 

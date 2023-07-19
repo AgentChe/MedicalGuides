@@ -34,10 +34,10 @@ extension SCConfirmViewModel {
         let didSelectMostSymptom: Signal<Symptom>
         let didSelectPregnant: Signal<Bool>
         let didTapChoose: Signal<SCConfirmChooseElement>
-        let didAddMedication: Signal<Drug>
-        let didRemoveMedication: Signal<Drug>
-        let didAddCondition: Signal<Drug>
-        let didRemoveCondition: Signal<Drug>
+        let didAddMedication: Signal<SymptomMed>
+        let didRemoveMedication: Signal<SymptomMed>
+        let didAddCondition: Signal<MedicalState>
+        let didRemoveCondition: Signal<MedicalState>
         let didTapContinue: Signal<Void>
     }
     
@@ -51,12 +51,12 @@ extension SCConfirmViewModel {
             didAddMedication: input.didAddMedication,
             didRemoveMedication: input.didRemoveMedication
         )
-        let selectedMedications = makeSelectedDrugs(action: medicationActions)
+        let selectedMedications = makeSelectedMedications(action: medicationActions)
         let conditionActions = makeConditionActions(
             didAddCondition: input.didAddCondition,
             didRemoveCondition: input.didRemoveCondition
         )
-        let selectedConditions = makeSelectedDrugs(action: conditionActions)
+        let selectedConditions = makeSelectedMedicalStates(action: conditionActions)
         let continueEnable = makeContinueEnable(
             didSelectMostSymptom: input.didSelectMostSymptom,
             selectedMedications: selectedMedications,
@@ -85,14 +85,19 @@ extension SCConfirmViewModel {
 
 // MARK: Private
 private extension SCConfirmViewModel {
-    enum Action {
-        case add(Drug)
-        case remove(Drug)
+    enum SymptomMedAction {
+        case add(SymptomMed)
+        case remove(SymptomMed)
+    }
+    
+    enum MedicalStateAction {
+        case add(MedicalState)
+        case remove(MedicalState)
     }
     
     func makeElements(
-        selectedMedications: Driver<[Drug]>,
-        selectedConditions: Driver<[Drug]>,
+        selectedMedications: Driver<[SymptomMed]>,
+        selectedConditions: Driver<[MedicalState]>,
         continueEnable: Driver<Bool>
     ) -> Driver<[SCConfirmTableElement]> {
         Driver
@@ -133,8 +138,8 @@ private extension SCConfirmViewModel {
     
     func makeContinueEnable(
         didSelectMostSymptom: Signal<Symptom>,
-        selectedMedications: Driver<[Drug]>,
-        selectedConditions: Driver<[Drug]>
+        selectedMedications: Driver<[SymptomMed]>,
+        selectedConditions: Driver<[MedicalState]>
     ) -> Driver<Bool> {
         Driver
             .combineLatest(
@@ -148,16 +153,33 @@ private extension SCConfirmViewModel {
             .startWith(false)
     }
     
-    func makeSelectedDrugs(action: Driver<Action>) -> Driver<[Drug]> {
+    func makeSelectedMedications(action: Driver<SymptomMedAction>) -> Driver<[SymptomMed]> {
         action
-            .scan([]) { array, action -> [Drug] in
+            .scan([]) { array, action -> [SymptomMed] in
                 var result = array
                 
                 switch action {
-                case .add(let drug):
-                    result.append(drug)
-                case .remove(let drug):
-                    result.removeAll(where: { $0.id == drug.id })
+                case .add(let med):
+                    result.append(med)
+                case .remove(let med):
+                    result.removeAll(where: { $0.id == med.id })
+                }
+                
+                return result
+            }
+            .startWith([])
+    }
+    
+    func makeSelectedMedicalStates(action: Driver<MedicalStateAction>) -> Driver<[MedicalState]> {
+        action
+            .scan([]) { array, action -> [MedicalState] in
+                var result = array
+                
+                switch action {
+                case .add(let state):
+                    result.append(state)
+                case .remove(let state):
+                    result.removeAll(where: { $0.id == state.id })
                 }
                 
                 return result
@@ -166,25 +188,25 @@ private extension SCConfirmViewModel {
     }
     
     func makeMedicationActions(
-        didAddMedication: Signal<Drug>,
-        didRemoveMedication: Signal<Drug>
-    ) -> Driver<Action> {
+        didAddMedication: Signal<SymptomMed>,
+        didRemoveMedication: Signal<SymptomMed>
+    ) -> Driver<SymptomMedAction> {
         Signal
             .merge(
-                didAddMedication.map { Action.add($0) },
-                didRemoveMedication.map { Action.remove($0) }
+                didAddMedication.map { SymptomMedAction.add($0) },
+                didRemoveMedication.map { SymptomMedAction.remove($0) }
             )
             .asDriver(onErrorDriveWith: .never())
     }
     
     func makeConditionActions(
-        didAddCondition: Signal<Drug>,
-        didRemoveCondition: Signal<Drug>
-    ) -> Driver<Action> {
+        didAddCondition: Signal<MedicalState>,
+        didRemoveCondition: Signal<MedicalState>
+    ) -> Driver<MedicalStateAction> {
         Signal
             .merge(
-                didAddCondition.map { Action.add($0) },
-                didRemoveCondition.map { Action.remove($0) }
+                didAddCondition.map { MedicalStateAction.add($0) },
+                didRemoveCondition.map { MedicalStateAction.remove($0) }
             )
             .asDriver(onErrorDriveWith: .never())
     }
@@ -194,8 +216,8 @@ private extension SCConfirmViewModel {
         didTapContinue: Signal<Void>,
         didSelectMostSymptom: Signal<Symptom>,
         didSelectPregnant: Signal<Bool>,
-        selectedMedications: Driver<[Drug]>,
-        selectedConditions: Driver<[Drug]>
+        selectedMedications: Driver<[SymptomMed]>,
+        selectedConditions: Driver<[MedicalState]>
     ) -> Driver<Route> {
         Driver
             .merge(
@@ -216,8 +238,8 @@ private extension SCConfirmViewModel {
     
     func makeSelectRoute(
         didTapChoose: Signal<SCConfirmChooseElement>,
-        selectedMedications: Driver<[Drug]>,
-        selectedConditions: Driver<[Drug]>
+        selectedMedications: Driver<[SymptomMed]>,
+        selectedConditions: Driver<[MedicalState]>
     ) -> Driver<Route> {
         let selectMedications = didTapChoose
             .filter { $0 == .currentMedications }
@@ -237,8 +259,8 @@ private extension SCConfirmViewModel {
         didTapContinue: Signal<Void>,
         didSelectMostSymptom: Signal<Symptom>,
         didSelectPregnant: Signal<Bool>,
-        selectedMedications: Driver<[Drug]>,
-        selectedConditions: Driver<[Drug]>
+        selectedMedications: Driver<[SymptomMed]>,
+        selectedConditions: Driver<[MedicalState]>
     ) -> Driver<Route> {
         let args = Driver
             .combineLatest(
@@ -256,7 +278,7 @@ private extension SCConfirmViewModel {
                 $0.mainSymptomId = $1.0.id
                 $0.pregnant = $1.1
                 $0.currentMedicationsIds = $1.2.map { $0.id }
-                $0.conditionsIds = $1.3.map { $0.id }
+                $0.medicalStatesIds = $1.3.map { $0.id }
                 return $0
             }
             .map { Route.continue($0) }

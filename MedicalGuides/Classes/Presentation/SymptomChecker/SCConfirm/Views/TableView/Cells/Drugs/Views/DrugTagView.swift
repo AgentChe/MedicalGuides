@@ -8,7 +8,30 @@
 import UIKit
 
 final class DrugTagView: UIButton {
-    let drug: Drug
+    enum Unit {
+        case symptomMed(SymptomMed)
+        case medicalState(MedicalState)
+        
+        var id: Int {
+            switch self {
+            case .symptomMed(let med):
+                return med.id
+            case .medicalState(let state):
+                return state.id
+            }
+        }
+        
+        var name: String {
+            switch self {
+            case .symptomMed(let med):
+                return med.name
+            case .medicalState(let state):
+                return state.name
+            }
+        }
+    }
+    
+    let unit: Unit
     
     lazy var clearView = makeClearView()
     
@@ -18,8 +41,8 @@ final class DrugTagView: UIButton {
         .font(font)
         .lineBreakMode(.byTruncatingMiddle)
     
-    init(drug: Drug) {
-        self.drug = drug
+    init(unit: Unit) {
+        self.unit = unit
         
         super.init(frame: .zero)
         
@@ -32,7 +55,7 @@ final class DrugTagView: UIButton {
     }
 
     override var intrinsicContentSize: CGSize {
-        var size = NSString(string: drug.name).size(withAttributes: attrs.dictionary)
+        var size = NSString(string: unit.name).size(withAttributes: attrs.dictionary)
         size.height = font.pointSize + titleEdgeInsets.top + titleEdgeInsets.bottom
         size.width += titleEdgeInsets.left + titleEdgeInsets.right
         if size.width < size.height {
@@ -45,7 +68,7 @@ final class DrugTagView: UIButton {
 // MARK: Private
 private extension DrugTagView {
     func initialize() {
-        setAttributedTitle(drug.name.attributed(with: attrs), for: .normal)
+        setAttributedTitle(unit.name.attributed(with: attrs), for: .normal)
     }
 }
 

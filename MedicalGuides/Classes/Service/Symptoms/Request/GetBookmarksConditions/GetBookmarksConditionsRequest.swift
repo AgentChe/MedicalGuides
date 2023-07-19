@@ -11,7 +11,7 @@ struct GetBookmarksConditionsRequest: APIRequestBody {
     let userToken: String
 
     var url: String {
-        GlobalDefinitions.domain + "/api/conditions/bookmarks"
+        GlobalDefinitions.domain + "/api/symptom_checker/conditions/bookmarks"
     }
     
     var method: HTTPMethod {

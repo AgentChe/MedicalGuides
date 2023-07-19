@@ -24,9 +24,14 @@ final class SCConfirmDrugsCell: UITableViewCell {
 
 // MARK: Public
 extension SCConfirmDrugsCell {
-    func setup(element: [Drug]) {
+    func setup(element: [SymptomMed]) {
         tagsView.removeAllTags()
-        tagsView.addTags(element.map { $0 })
+        tagsView.addTags(element.map { .symptomMed($0) })
+    }
+    
+    func setup(element: [MedicalState]) {
+        tagsView.removeAllTags()
+        tagsView.addTags(element.map { .medicalState($0) })
     }
 }
 

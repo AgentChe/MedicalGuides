@@ -18,8 +18,8 @@ final class SCConfirmViewController: UIViewController {
     
     private lazy var closeButton = UIButton()
     
-    private lazy var didAddMedicationTrigger = PublishRelay<Drug>()
-    private lazy var didAddConditionTrigger = PublishRelay<Drug>()
+    private lazy var didAddMedicationTrigger = PublishRelay<SymptomMed>()
+    private lazy var didAddConditionTrigger = PublishRelay<MedicalState>()
     
     private init(collector: SymptomCheckerCollector) {
         viewModel = SCConfirmViewModel(collector: collector)
@@ -105,21 +105,21 @@ private extension SCConfirmViewController {
     func route(_ route: SCConfirmViewModel.Route) {
         switch route {
         case .selectMedications(let selectedIds):
-            let vc = SelectUnitViewController.make(unit: .drugs, selectedIds: selectedIds) { [weak self] result in
-                guard case let .drug(drug) = result else {
+            let vc = SelectUnitViewController.make(unit: .symptomMeds, selectedIds: selectedIds) { [weak self] result in
+                guard case let .symptomMed(med) = result else {
                     return
                 }
                 
-                self?.didAddMedicationTrigger.accept(drug)
+                self?.didAddMedicationTrigger.accept(med)
             }
             present(vc, animated: true)
         case .selectConditions(let selectedIds):
-            let vc = SelectUnitViewController.make(unit: .drugs, selectedIds: selectedIds) { [weak self] result in
-                guard case let .drug(drug) = result else {
+            let vc = SelectUnitViewController.make(unit: .medicalStates, selectedIds: selectedIds) { [weak self] result in
+                guard case let .medicalState(state) = result else {
                     return
                 }
                 
-                self?.didAddConditionTrigger.accept(drug)
+                self?.didAddConditionTrigger.accept(state)
             }
             present(vc, animated: true)
         case .continue(let collector):

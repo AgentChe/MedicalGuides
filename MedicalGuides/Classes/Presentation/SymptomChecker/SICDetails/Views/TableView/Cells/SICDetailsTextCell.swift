@@ -31,7 +31,7 @@ final class SICDetailsTextCell: UITableViewCell {
 // MARK: Public
 extension SICDetailsTextCell {
     func setup(element: String) {
-        label.attributedText = element.attributed(with: attrs)
+        label.attributedText = element.htmlToAttributedString ?? element.attributed(with: attrs)
     }
 }
 
@@ -61,9 +61,34 @@ private extension SICDetailsTextCell {
 private extension SICDetailsTextCell {
     func makeLabel() -> UILabel {
         let view = UILabel()
+        view.textColor = UIColor(integralRed: 84, green: 84, blue: 84)
+        view.font = Fonts.Avenir.regular(size: 16.scale)
+        view.textAlignment = .left
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view
+    }
+}
+
+// MARK: Private (Additional)
+private extension String {
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else {
+            return nil
+        }
+        
+        do {
+            return try NSAttributedString(
+                data: data,
+                options: [
+                    .documentType: NSAttributedString.DocumentType.html,
+                    .characterEncoding:String.Encoding.utf8.rawValue
+                ],
+                documentAttributes: nil
+            )
+        } catch {
+            return nil
+        }
     }
 }

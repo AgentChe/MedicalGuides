@@ -9,6 +9,6 @@ struct SymptomsInteractionConditionDetails: Codable, Hashable {
     let id: Int
     let name: String
     let saved: Bool
-    let details: [DrugBlock]
-    let treatmentOptions: [DrugBlock]
+    let details: [SymptomsCheckerSection]
+    let treatmentOptions: [SymptomsCheckerSection]
 }
