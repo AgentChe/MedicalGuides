@@ -16,7 +16,7 @@ final class InteractionCheckerViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private lazy var didSelectDrugTrigger = PublishRelay<(Drug, String)>()
+    private lazy var didSelectDrugTrigger = PublishRelay<(InteractionCheckerMed, String)>()
     
     override func loadView() {
         view = mainView
@@ -36,7 +36,6 @@ final class InteractionCheckerViewController: UIViewController {
         let output = viewModel.configure(input: InteractionCheckerViewModel.Input(
             didTapElement: mainView.tableView.didTapElement,
             didTapDelete: mainView.tableView.didTapDelete,
-            didTapAddMore: mainView.tableView.didTapAddMore,
             didTapCheck: mainView.tableView.didTapCheck,
             didSelectDrug: didSelectDrugTrigger.asSignal(),
             didTapBookmark: mainView.tableView.didTapBookmark
@@ -83,12 +82,12 @@ private extension InteractionCheckerViewController {
     func route(_ route: InteractionCheckerViewModel.Route) {
         switch route {
         case .selectDrug(let forElementId, let selectedIds):
-            let vc = SelectUnitViewController.make(unit: .drugs, selectedIds: selectedIds) { [weak self] result in
-                guard case let .drug(drug) = result else {
+            let vc = SelectUnitViewController.make(unit: .interactionCheckerMed, selectedIds: selectedIds) { [weak self] result in
+                guard case let .interactionCheckerMed(med) = result else {
                     return
                 }
                 
-                self?.didSelectDrugTrigger.accept((drug, forElementId))
+                self?.didSelectDrugTrigger.accept((med, forElementId))
             }
             present(vc, animated: true)
         }

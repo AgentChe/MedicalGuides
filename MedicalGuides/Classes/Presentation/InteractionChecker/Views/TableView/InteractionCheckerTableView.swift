@@ -14,7 +14,6 @@ final class InteractionCheckerTableView: UITableView {
     
     private lazy var didTapElementTrigger = PublishRelay<InteractionCheckerDrugElement>()
     private lazy var didTapDeleteTrigger = PublishRelay<InteractionCheckerDrugElement>()
-    private lazy var didTapAddMoreTrigger = PublishRelay<Void>()
     private lazy var didTapCheckTrigger = PublishRelay<Void>()
     private lazy var didTapBookmarkTrigger = PublishRelay<Bool>()
     
@@ -45,10 +44,6 @@ extension InteractionCheckerTableView {
         didTapDeleteTrigger.asSignal()
     }
     
-    var didTapAddMore: Signal<Void> {
-        didTapAddMoreTrigger.asSignal()
-    }
-    
     var didTapCheck: Signal<Void> {
         didTapCheckTrigger.asSignal()
     }
@@ -73,8 +68,6 @@ extension InteractionCheckerTableView: UITableViewDataSource {
                 self?.didTapDeleteTrigger.accept(element)
             }
             return cell
-        case .addMore:
-            return dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerAddCell.self), for: indexPath)
         case .check:
             return dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerCheckCell.self), for: indexPath)
         case .preloader:
@@ -102,8 +95,6 @@ extension InteractionCheckerTableView: UITableViewDelegate {
         switch elements[indexPath.row] {
         case .drug(let element):
             didTapElementTrigger.accept(element)
-        case .addMore:
-            didTapAddMoreTrigger.accept(Void())
         case .check:
             didTapCheckTrigger.accept(Void())
         default:
@@ -116,7 +107,6 @@ extension InteractionCheckerTableView: UITableViewDelegate {
 private extension InteractionCheckerTableView {
     func initialize() {
         register(InteractionCheckerDrugCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerDrugCell.self))
-        register(InteractionCheckerAddCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerAddCell.self))
         register(InteractionCheckerCheckCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerCheckCell.self))
         register(InteractionCheckerPreloaderCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerPreloaderCell.self))
         register(InteractionCheckerResultCell.self, forCellReuseIdentifier: String(describing: InteractionCheckerResultCell.self))

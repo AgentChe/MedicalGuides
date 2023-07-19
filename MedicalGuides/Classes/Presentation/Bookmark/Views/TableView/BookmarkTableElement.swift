@@ -26,5 +26,5 @@ final class BookmarkTableElement {
 
 struct BookmarkInteractionElement {
     let interaction: DrugsInteraction
-    let drugs: [Drug]
+    let meds: [InteractionCheckerMed]
 }

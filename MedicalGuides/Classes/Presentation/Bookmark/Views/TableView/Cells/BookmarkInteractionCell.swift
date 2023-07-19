@@ -37,7 +37,7 @@ final class BookmarkInteractionCell: UITableViewCell {
 // MARK: Public
 extension BookmarkInteractionCell {
     func setup(interaction: BookmarkInteractionElement, selected: Bool?) {
-        let names = interaction.drugs
+        let names = interaction.meds
             .map { $0.name }
             .joined(separator: " + ")
         namesLabel.attributedText = names.attributed(with: attrs)

@@ -9,6 +9,7 @@ final class SelectUnitTableElement {
     enum Unit {
         case drug(Drug)
         case symptom(Symptom)
+        case interactionCheckerMed(InteractionCheckerMed)
     }
     
     let name: String
@@ -25,5 +26,11 @@ final class SelectUnitTableElement {
         self.name = symptom.name
         self.isSelected = isSelected
         self.unit = .symptom(symptom)
+    }
+    
+    init(interactionCheckerMed: InteractionCheckerMed, isSelected: Bool) {
+        self.name = interactionCheckerMed.name
+        self.isSelected = isSelected
+        self.unit = .interactionCheckerMed(interactionCheckerMed)
     }
 }

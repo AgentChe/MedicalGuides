@@ -9,10 +9,10 @@ import Alamofire
 
 struct DrugsInteractionCheckerRequest: APIRequestBody {
     let userToken: String
-    let drugsIds: [Int]
+    let interactionMedIds: [Int]
 
     var url: String {
-        GlobalDefinitions.domain + "/api/interaction_checker"
+        GlobalDefinitions.domain + "/api/interaction_checker/analyze"
     }
     
     var method: HTTPMethod {
@@ -23,7 +23,7 @@ struct DrugsInteractionCheckerRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "drug_ids": drugsIds
+            "interaction_med_ids": interactionMedIds
         ]
     }
 }

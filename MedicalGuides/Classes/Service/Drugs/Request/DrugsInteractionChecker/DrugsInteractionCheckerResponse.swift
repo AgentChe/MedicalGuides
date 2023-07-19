@@ -6,13 +6,24 @@
 //
 
 enum DrugsInteractionCheckerResponse {
-    static func map(from response: Any) -> DrugsInteraction? {
+    static func map(from response: Any) -> DrugsInteractionResult? {
         guard
             let json = response as? [String: Any],
             let data = json["_data"] as? [String: Any],
-            let id = data["id"] as? Int,
-            let drugsIds = data["drug_ids"] as? [Int],
-            let resultJSON = data["result"] as? [String: Any],
+            let hasInteraction = data["has_interaction"] as? Bool
+        else {
+            return nil
+        }
+        
+        if !hasInteraction {
+            return DrugsInteractionResult.none
+        }
+        
+        guard
+            let interactionJSON = data["interaction"] as? [String: Any],
+            let id = interactionJSON["id"] as? Int,
+            let medIds = interactionJSON["drug_ids"] as? [Int],
+            let resultJSON = interactionJSON["result"] as? [String: Any],
             let title = resultJSON["title"] as? String,
             let subtitle = resultJSON["subtitle"] as? String,
             let text = resultJSON["text"] as? String,
@@ -23,14 +34,15 @@ enum DrugsInteractionCheckerResponse {
             return nil
         }
         
-        return DrugsInteraction(
+        let interaction = DrugsInteraction(
             id: id,
-            drugsIds: drugsIds,
+            medIds: medIds,
             title: title,
             subtitle: subtitle,
             text: text,
             sideEffect: sideEffect,
             saved: saved
         )
+        return DrugsInteractionResult.interaction(interaction)
     }
 }

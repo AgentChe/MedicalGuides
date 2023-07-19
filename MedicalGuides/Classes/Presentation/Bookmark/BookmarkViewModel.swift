@@ -22,6 +22,7 @@ final class BookmarkViewModel {
     private lazy var interactions = makeInteractions()
     private lazy var conditions = makeConditions()
     private lazy var drugs = makeDrugs()
+    private lazy var interactionCheckerMeds = makeInteractionCheckerMeds()
     
     private lazy var didDeleteTrigger = PublishRelay<Bool>()
     
@@ -258,14 +259,14 @@ private extension BookmarkViewModel {
                 navigationMode,
                 interactions,
                 selectedInteractions,
-                drugs
+                interactionCheckerMeds
             )
-            .map { mode, interactions, selectedInteractions, drugs -> [BookmarkTableElement] in
+            .map { mode, interactions, selectedInteractions, meds -> [BookmarkTableElement] in
                 interactions.map { interaction -> BookmarkTableElement in
                     let element = BookmarkInteractionElement(
                         interaction: interaction,
-                        drugs: drugs.filter { drug -> Bool in
-                            interaction.drugsIds.contains(where: { $0 == drug.id })
+                        meds: meds.filter { med -> Bool in
+                            interaction.medIds.contains(where: { $0 == med.id })
                         }
                     )
                     return BookmarkTableElement(
@@ -415,7 +416,7 @@ private extension BookmarkViewModel {
                 guard let self = self else {
                     return .never()
                 }
-                
+
                 return self.symptomsManager
                     .obtainBookmarksConditions()
             },
@@ -477,6 +478,12 @@ private extension BookmarkViewModel {
     func makeDrugs() -> Driver<[Drug]> {
         drugsManager
             .obtainDrugs(forceUpdate: false)
+            .asDriver(onErrorJustReturn: [])
+    }
+    
+    func makeInteractionCheckerMeds() -> Driver<[InteractionCheckerMed]> {
+        drugsManager
+            .obtainInteractionCheckerMeds(forceUpdate: false)
             .asDriver(onErrorJustReturn: [])
     }
     

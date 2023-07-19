@@ -27,9 +27,8 @@ extension InteractionCheckerViewModel {
     struct Input {
         let didTapElement: Signal<InteractionCheckerDrugElement>
         let didTapDelete: Signal<InteractionCheckerDrugElement>
-        let didTapAddMore: Signal<Void>
         let didTapCheck: Signal<Void>
-        let didSelectDrug: Signal<(Drug, String)>
+        let didSelectDrug: Signal<(InteractionCheckerMed, String)>
         let didTapBookmark: Signal<Bool>
     }
     
@@ -40,7 +39,6 @@ extension InteractionCheckerViewModel {
     
     func configure(input: Input) -> Output {
         let action = makeAction(
-            didTapAddMore: input.didTapAddMore,
             didTapDelete: input.didTapDelete,
             didSelectDrug: input.didSelectDrug
         )
@@ -74,14 +72,13 @@ extension InteractionCheckerViewModel {
 private extension InteractionCheckerViewModel {
     enum Action {
         case initial
-        case addMore
         case deleteDrug(String)
-        case select((Drug, String))
+        case select((InteractionCheckerMed, String))
     }
     
     func makeElements(
         drugsElements: Driver<[InteractionCheckerDrugElement]>,
-        selectedDrugs: Driver<[Drug]>,
+        selectedDrugs: Driver<[InteractionCheckerMed]>,
         result: Driver<DrugsInteraction?>,
         bookmark: Driver<Bool>
     ) -> Driver<[InteractionCheckerTableElement]> {
@@ -96,10 +93,6 @@ private extension InteractionCheckerViewModel {
             .map { drugsElements, selectedDrugs, interaction, activity, bookmark -> [InteractionCheckerTableElement] in
                 var result: [InteractionCheckerTableElement] = drugsElements.map {
                     .drug($0)
-                }
-                
-                if (drugsElements.count - selectedDrugs.count) <= 1 {
-                    result.append(.addMore)
                 }
                 
                 if activity {
@@ -142,14 +135,6 @@ private extension InteractionCheckerViewModel {
                             mode: .choose
                         )
                     ]
-                case .addMore:
-                    let new = InteractionCheckerDrugElement(
-                        id: UUID().uuidString,
-                        number: elements.count + 1,
-                        deleteEnabled: true,
-                        mode: .choose
-                    )
-                    elements.append(new)
                 case .deleteDrug(let id):
                     elements.removeAll(where: { $0.id == id })
                 case let .select((drug, forId)):
@@ -173,13 +158,9 @@ private extension InteractionCheckerViewModel {
     }
     
     func makeAction(
-        didTapAddMore: Signal<Void>,
         didTapDelete: Signal<InteractionCheckerDrugElement>,
-        didSelectDrug: Signal<(Drug, String)>
+        didSelectDrug: Signal<(InteractionCheckerMed, String)>
     ) -> Driver<Action> {
-        let add = didTapAddMore
-            .map { Action.addMore}
-            .asDriver(onErrorDriveWith: .never())
         let delete = didTapDelete
             .map { Action.deleteDrug($0.id) }
             .asDriver(onErrorDriveWith: .never())
@@ -188,12 +169,12 @@ private extension InteractionCheckerViewModel {
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(add, delete, select)
+            .merge(delete, select)
     }
     
     func makeRoute(
         didTapElement: Signal<InteractionCheckerDrugElement>,
-        selectedDrugs: Driver<[Drug]>
+        selectedDrugs: Driver<[InteractionCheckerMed]>
     ) -> Driver<Route> {
         makeSelectDrugRoute(
             didTapElement: didTapElement,
@@ -203,7 +184,7 @@ private extension InteractionCheckerViewModel {
     
     func makeSelectDrugRoute(
         didTapElement: Signal<InteractionCheckerDrugElement>,
-        selectedDrugs: Driver<[Drug]>
+        selectedDrugs: Driver<[InteractionCheckerMed]>
     ) -> Driver<Route> {
         didTapElement
             .asDriver(onErrorDriveWith: .never())
@@ -216,9 +197,9 @@ private extension InteractionCheckerViewModel {
             }
     }
     
-    func makeSelectedDrugs(drugsElements: Driver<[InteractionCheckerDrugElement]>) -> Driver<[Drug]> {
-        drugsElements.map { drugsElements -> [Drug] in
-            drugsElements.compactMap { element -> Drug? in
+    func makeSelectedDrugs(drugsElements: Driver<[InteractionCheckerDrugElement]>) -> Driver<[InteractionCheckerMed]> {
+        drugsElements.map { drugsElements -> [InteractionCheckerMed] in
+            drugsElements.compactMap { element -> InteractionCheckerMed? in
                 switch element.mode {
                 case .drug(let drug):
                     return drug
@@ -231,7 +212,7 @@ private extension InteractionCheckerViewModel {
     
     func makeResult(
         didTapCheck: Signal<Void>,
-        selectedDrugs: Driver<[Drug]>
+        selectedDrugs: Driver<[InteractionCheckerMed]>
     ) -> Driver<DrugsInteraction?> {
         didTapCheck
             .asDriver(onErrorDriveWith: .never())
@@ -243,13 +224,18 @@ private extension InteractionCheckerViewModel {
                 
                 func source() -> Single<DrugsInteraction?> {
                     self.drugsManager
-                        .interactionCheck(drugsIds: drugs.map { $0.id })
+                        .interactionCheck(medIds: drugs.map { $0.id })
                         .flatMap { result -> Single<DrugsInteraction?> in
                             guard let result = result else {
                                 return .error(ContentError(.notContent))
                             }
                             
-                            return .just(result)
+                            switch result {
+                            case .none:
+                                return .just(nil)
+                            case .interaction(let interaction):
+                                return .just(interaction)
+                            }
                         }
                 }
                 

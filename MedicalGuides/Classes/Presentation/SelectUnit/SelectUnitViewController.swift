@@ -91,7 +91,7 @@ private extension SelectUnitViewController {
     func setupTitle() {
         let title: String
         switch unit {
-        case .drugs:
+        case .drugs, .interactionCheckerMed:
             title = "SelectUnit.Title.Drugs".localized
         case .symptoms:
             title = "SelectUnit.Title.Symptoms".localized

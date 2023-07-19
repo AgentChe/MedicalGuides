@@ -94,7 +94,6 @@
 "InteractionChecker.Drug.Number" = "Drug %i";
 "InteractionChecker.ChooseDrug" = "Choose drug";
 "InteractionChecker.Delete" = "Delete";
-"InteractionChecker.AddMore" = "Add more drugs";
 "InteractionChecker.Check" = "Check";
 "InteractionChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
 

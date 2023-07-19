@@ -112,6 +112,9 @@ private extension SplashViewModel {
             let drugs = drugsManager
                 .obtainDrugs(forceUpdate: true)
                 .mapToVoid()
+            let interactionCheckerMeds = drugsManager
+                .obtainInteractionCheckerMeds(forceUpdate: true)
+                .mapToVoid()
             let symptoms = symptomsManager
                 .obtainSymptoms(forceUpdate: true)
                 .mapToVoid()
@@ -121,6 +124,7 @@ private extension SplashViewModel {
                     paygate,
                     profile,
                     drugs,
+                    interactionCheckerMeds
 //                    symptoms
                 ])
                 .mapToVoid()

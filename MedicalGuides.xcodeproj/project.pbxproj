@@ -20,6 +20,9 @@
 		DE102D7F2A2B3A6700149ECA /* BookmarkInteractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */; };
 		DE102D812A2B3A8000149ECA /* BookmarkConditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */; };
 		DE102DAF2A2F5ADF00149ECA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE102DAE2A2F5ADF00149ECA /* GoogleService-Info.plist */; };
+		DE14D6E12A67ED0100DBFE1D /* InteractionCheckerMed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14D6E02A67ED0100DBFE1D /* InteractionCheckerMed.swift */; };
+		DE14D6E42A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14D6E32A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift */; };
+		DE14D6E62A67ED5C00DBFE1D /* GetInteractionCheckerMedsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE14D6E52A67ED5C00DBFE1D /* GetInteractionCheckerMedsResponse.swift */; };
 		DE3F5E952A03EE1A00BCC039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E932A03EE1A00BCC039 /* LaunchScreen.storyboard */; };
 		DE3F5E9F2A03F00800BCC039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5E9E2A03F00800BCC039 /* Assets.xcassets */; };
 		DE3F5EB22A03F01600BCC039 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3F5EA32A03F01600BCC039 /* Localizable.strings */; };
@@ -215,7 +218,6 @@
 		DEE101582A1B9571000ED6AE /* InteractionCheckerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101572A1B9571000ED6AE /* InteractionCheckerTableView.swift */; };
 		DEE1015A2A1B9582000ED6AE /* InteractionCheckerTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101592A1B9582000ED6AE /* InteractionCheckerTableElement.swift */; };
 		DEE1015D2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */; };
-		DEE1015F2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */; };
 		DEE101612A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */; };
 		DEE101632A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */; };
 		DEE101652A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */; };
@@ -273,6 +275,9 @@
 		DE102D7E2A2B3A6700149ECA /* BookmarkInteractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkInteractionCell.swift; sourceTree = "<group>"; };
 		DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkConditionCell.swift; sourceTree = "<group>"; };
 		DE102DAE2A2F5ADF00149ECA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DE14D6E02A67ED0100DBFE1D /* InteractionCheckerMed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerMed.swift; sourceTree = "<group>"; };
+		DE14D6E32A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInteractionCheckerMedsRequest.swift; sourceTree = "<group>"; };
+		DE14D6E52A67ED5C00DBFE1D /* GetInteractionCheckerMedsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInteractionCheckerMedsResponse.swift; sourceTree = "<group>"; };
 		DE3F5E852A03EE1800BCC039 /* MedicalGuides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicalGuides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE3F5E942A03EE1A00BCC039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE3F5E962A03EE1A00BCC039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -470,7 +475,6 @@
 		DEE101572A1B9571000ED6AE /* InteractionCheckerTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerTableView.swift; sourceTree = "<group>"; };
 		DEE101592A1B9582000ED6AE /* InteractionCheckerTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerTableElement.swift; sourceTree = "<group>"; };
 		DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerDrugCell.swift; sourceTree = "<group>"; };
-		DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerAddCell.swift; sourceTree = "<group>"; };
 		DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerCheckCell.swift; sourceTree = "<group>"; };
 		DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerPreloaderCell.swift; sourceTree = "<group>"; };
 		DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionCheckerResultCell.swift; sourceTree = "<group>"; };
@@ -589,6 +593,15 @@
 				DE102D802A2B3A8000149ECA /* BookmarkConditionCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DE14D6E22A67ED4A00DBFE1D /* GetInteractionCheckerMeds */ = {
+			isa = PBXGroup;
+			children = (
+				DE14D6E32A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift */,
+				DE14D6E52A67ED5C00DBFE1D /* GetInteractionCheckerMedsResponse.swift */,
+			);
+			path = GetInteractionCheckerMeds;
 			sourceTree = "<group>";
 		};
 		DE3F5E7C2A03EE1800BCC039 = {
@@ -1071,6 +1084,7 @@
 				DE512BD02A1265DB00BBC661 /* DrugBlock.swift */,
 				DE512BD42A12665400BBC661 /* DrugsInteraction.swift */,
 				DE512BD62A1266AC00BBC661 /* DrugsSideEffect.swift */,
+				DE14D6E02A67ED0100DBFE1D /* InteractionCheckerMed.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1099,6 +1113,7 @@
 		DE512BE02A126AD600BBC661 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				DE14D6E22A67ED4A00DBFE1D /* GetInteractionCheckerMeds */,
 				DE7BD61F2A14D4D800A21DE7 /* GetBookmarksInteractions */,
 				DE512BFC2A1271A300BBC661 /* SaveUnsaveInteractionDrugs */,
 				DE512BF72A126FD600BBC661 /* DrugsInteractionChecker */,
@@ -1569,7 +1584,6 @@
 			isa = PBXGroup;
 			children = (
 				DEE1015C2A1B959D000ED6AE /* InteractionCheckerDrugCell.swift */,
-				DEE1015E2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift */,
 				DEE101602A1BA13B000ED6AE /* InteractionCheckerCheckCell.swift */,
 				DEE101622A1BB9F5000ED6AE /* InteractionCheckerPreloaderCell.swift */,
 				DEE101642A1BBCA8000ED6AE /* InteractionCheckerResultCell.swift */,
@@ -1901,6 +1915,7 @@
 				DEE1024F2A1E0D1C000ED6AE /* SymptomCheckerCollector.swift in Sources */,
 				DE3F613E2A03F04D00BCC039 /* SplashView.swift in Sources */,
 				DE3F60E12A03F04D00BCC039 /* ProfileManager.swift in Sources */,
+				DE14D6E12A67ED0100DBFE1D /* InteractionCheckerMed.swift in Sources */,
 				DEE101442A1B42AA000ED6AE /* SearchView.swift in Sources */,
 				DEE101582A1B9571000ED6AE /* InteractionCheckerTableView.swift in Sources */,
 				DE3F610D2A03F04D00BCC039 /* IAPActionResult.swift in Sources */,
@@ -1918,6 +1933,7 @@
 				DE7BD6082A14C2CF00A21DE7 /* GetConditionDetailsResponse.swift in Sources */,
 				DEE1013D2A1B41E9000ED6AE /* SelectUnitViewController.swift in Sources */,
 				DE5C624C2A137DAC00ECAB17 /* GetSymptomsRequest.swift in Sources */,
+				DE14D6E42A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift in Sources */,
 				DE7BD6162A14C68A00A21DE7 /* GetBookmarksConditionsResponse.swift in Sources */,
 				DE3F610A2A03F04D00BCC039 /* IAPManager.swift in Sources */,
 				DEE1023C2A1E0A47000ED6AE /* SCSymptomsViewModel.swift in Sources */,
@@ -1940,7 +1956,6 @@
 				DEA0824C2A0E807400DF7D4B /* HomeTableView.swift in Sources */,
 				DE3F613A2A03F04D00BCC039 /* SplashViewController.swift in Sources */,
 				DE3F61C52A03F14A00BCC039 /* PaygateOptionConfig.swift in Sources */,
-				DEE1015F2A1B9E94000ED6AE /* InteractionCheckerAddCell.swift in Sources */,
 				DE3F61DC2A03F15800BCC039 /* PaygateViewController.swift in Sources */,
 				DE3F60972A03F04D00BCC039 /* ObservableRetrySingle.swift in Sources */,
 				DE3F61DE2A03F15800BCC039 /* PaygateInfoCell.swift in Sources */,
@@ -2037,6 +2052,7 @@
 				DEE102092A1D0D4D000ED6AE /* DrugsViewController.swift in Sources */,
 				DE3F60E42A03F04D00BCC039 /* GetProfileResponse.swift in Sources */,
 				DE3F609B2A03F04D00BCC039 /* NetworkError.swift in Sources */,
+				DE14D6E62A67ED5C00DBFE1D /* GetInteractionCheckerMedsResponse.swift in Sources */,
 				DE3F60952A03F04D00BCC039 /* TextAttributes.swift in Sources */,
 				DEE1020B2A1D0D53000ED6AE /* DrugsViewModel.swift in Sources */,
 				DEB2B2822A24D1F200C26FC5 /* SCConfirmPregnantCell.swift in Sources */,

@@ -13,15 +13,17 @@ protocol DrugsManagerProtocol {
     func save(drugId: Int) -> Single<Void>
     func unsave(drugsIds: [Int]) -> Single<Void>
     func obtainBookmarksDrugs() -> Single<[Drug]>
-    func interactionCheck(drugsIds: [Int]) -> Single<DrugsInteraction?>
+    func interactionCheck(medIds: [Int]) -> Single<DrugsInteractionResult?>
     func save(interactionId: Int) -> Single<Void>
     func unsave(interactionsIds: [Int]) -> Single<Void>
     func obtainBookmarksInteractions() -> Single<[DrugsInteraction]>
+    func obtainInteractionCheckerMeds(forceUpdate: Bool) -> Single<[InteractionCheckerMed]>
 }
 
 final class DrugsManager {
     enum Constants {
         static let drugs = "drugs_manager_drugs_key"
+        static let interactionCheckerMeds = "drugs_manager_interactions_checker_meds_key"
     }
 
     private lazy var sessionManager = SessionManager()
@@ -88,12 +90,12 @@ extension DrugsManager: DrugsManagerProtocol {
             .map { GetBookmarksDrugsResponse.map(from: $0) }
     }
 
-    func interactionCheck(drugsIds: [Int]) -> Single<DrugsInteraction?> {
+    func interactionCheck(medIds: [Int]) -> Single<DrugsInteractionResult?> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)
         }
 
-        let request = DrugsInteractionCheckerRequest(userToken: userToken, drugsIds: drugsIds)
+        let request = DrugsInteractionCheckerRequest(userToken: userToken, interactionMedIds: medIds)
 
         return defaultRequestWrapper
             .callServerApi(requestBody: request)
@@ -141,6 +143,10 @@ extension DrugsManager: DrugsManagerProtocol {
             .callServerApi(requestBody: request)
             .map { GetBookmarksInteractionsResponse.map(from: $0) }
     }
+    
+    func obtainInteractionCheckerMeds(forceUpdate: Bool) -> Single<[InteractionCheckerMed]> {
+        forceUpdate ? loadInteractionCheckerMeds() : cachedInteractionCheckerMeds()
+    }
 }
 
 // MARK: Private
@@ -175,6 +181,41 @@ private extension DrugsManager {
             }
 
             event(.success(drugs))
+
+            return Disposables.create()
+        }
+    }
+    
+    func loadInteractionCheckerMeds() -> Single<[InteractionCheckerMed]> {
+        guard let userToken = sessionManager.getSession()?.userToken else {
+            return .error(SignError.tokenNotFound)
+        }
+
+        let request = GetInteractionCheckerMedsRequest(userToken: userToken, search: nil)
+
+        return defaultRequestWrapper
+            .callServerApi(requestBody: request)
+            .map { GetInteractionCheckerMedsResponse.map(from: $0) }
+            .do(onSuccess: { meds in
+                guard let data = try? JSONEncoder().encode(meds) else {
+                    return
+                }
+
+                UserDefaults.standard.set(data, forKey: Constants.interactionCheckerMeds)
+            })
+    }
+    
+    func cachedInteractionCheckerMeds() -> Single<[InteractionCheckerMed]> {
+        Single<[InteractionCheckerMed]>.create { event in
+            guard
+                let data = UserDefaults.standard.data(forKey: Constants.interactionCheckerMeds),
+                let meds = try? JSONDecoder().decode([InteractionCheckerMed].self, from: data)
+            else {
+                event(.success([]))
+                return Disposables.create()
+            }
+
+            event(.success(meds))
 
             return Disposables.create()
         }

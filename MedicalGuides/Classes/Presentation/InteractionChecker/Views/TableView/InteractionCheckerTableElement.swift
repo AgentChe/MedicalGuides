@@ -7,7 +7,6 @@
 
 enum InteractionCheckerTableElement {
     case drug(InteractionCheckerDrugElement)
-    case addMore
     case check
     case preloader
     case result(InteractionCheckerResultElement)
@@ -16,7 +15,7 @@ enum InteractionCheckerTableElement {
 struct InteractionCheckerDrugElement {
     enum Mode {
         case choose
-        case drug(Drug)
+        case drug(InteractionCheckerMed)
     }
     
     let id: String
