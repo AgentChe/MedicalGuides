@@ -9,12 +9,13 @@ enum GetBookmarksDrugsResponse {
     static func map(from response: Any) -> [Drug] {
         guard
             let json = response as? [String: Any],
-            let data = json["_data"] as? [[String: Any]]
+            let data = json["_data"] as? [String: Any],
+            let drugsArray = data["drugs"] as? [[String: Any]]
         else {
             return []
         }
         
-        return data.compactMap { json -> Drug? in
+        return drugsArray.compactMap { json -> Drug? in
             guard
                 let id = json["id"] as? Int,
                 let name = json["name"] as? String,

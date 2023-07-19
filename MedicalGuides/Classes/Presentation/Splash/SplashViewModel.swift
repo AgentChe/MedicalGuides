@@ -100,6 +100,7 @@ private extension SplashViewModel {
         }
     }
     
+    // TODO
     func library() -> Observable<Void> {
         func source() -> Single<Void> {
             let paygate = paygateManager
@@ -120,7 +121,7 @@ private extension SplashViewModel {
                     paygate,
                     profile,
                     drugs,
-                    symptoms
+//                    symptoms
                 ])
                 .mapToVoid()
         }

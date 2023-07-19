@@ -23,7 +23,7 @@ struct GetDrugDetailsRequest: APIRequestBody {
         [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
-            "id": id
+            "drug_id": id
         ]
     }
 }
