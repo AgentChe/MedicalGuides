@@ -44,7 +44,7 @@ private extension SCSymptomsView {
             disclaimerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             disclaimerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             disclaimerButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -23.scale),
-            disclaimerButton.heightAnchor.constraint(equalToConstant: 36.scale)
+            disclaimerButton.heightAnchor.constraint(equalToConstant: 54.scale)
         ])
     }
 }

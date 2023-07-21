@@ -59,14 +59,14 @@ private extension OInteractionCheckerView {
             continueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             continueButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             continueButton.heightAnchor.constraint(equalToConstant: 57.scale),
-            continueButton.bottomAnchor.constraint(equalTo: disclaimerButton.topAnchor, constant: ScreenSize.isIphoneXFamily ? -33.scale : -12.scale)
+            continueButton.bottomAnchor.constraint(equalTo: disclaimerButton.topAnchor, constant: -15.scale)
         ])
         
         NSLayoutConstraint.activate([
             disclaimerButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             disclaimerButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             disclaimerButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -23.scale),
-            disclaimerButton.heightAnchor.constraint(equalToConstant: 36.scale)
+            disclaimerButton.heightAnchor.constraint(equalToConstant: 54.scale)
         ])
     }
 }

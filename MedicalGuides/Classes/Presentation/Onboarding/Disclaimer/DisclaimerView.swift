@@ -70,15 +70,15 @@ private extension DisclaimerView {
         NSLayoutConstraint.activate([
             textLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.scale),
             textLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
-            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12.scale)
+            textLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12.scale),
+            textLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16.scale),
-            button.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16.scale),
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             button.heightAnchor.constraint(equalToConstant: 63.scale),
-            button.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 12.scale),
-            button.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -92.scale)
         ])
     }
 }
@@ -124,10 +124,27 @@ private extension DisclaimerView {
             .font(Fonts.Avenir.regular(size: 15.scale))
             .lineHeight(21.scale)
             .textAlignment(.left)
+        let boldAttrs = TextAttributes()
+            .textColor(Appearance.black)
+            .font(Fonts.Avenir.bold(size: 15.scale))
+            .lineHeight(21.scale)
+            .textAlignment(.left)
+        
+        let original = "Disclaimer.Text".localized
+        let string = NSMutableAttributedString(attributedString: original.attributed(with: attrs))
+        
+        let highlighted = [
+            "Disclaimer.Text.Bold1".localized,
+            "Disclaimer.Text.Bold2".localized
+        ]
+        for highlight in highlighted {
+            let range = (original as NSString).range(of: highlight)
+            string.addAttributes(boldAttrs.dictionary, range: range)
+        }
         
         let view = UILabel()
         view.numberOfLines = 0
-        view.attributedText = "Disclaimer.Text".localized.attributed(with: attrs)
+        view.attributedText = string
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
         return view
@@ -151,7 +168,7 @@ private extension DisclaimerView {
         view.backgroundColor = Appearance.primary
         view.layer.cornerRadius = 10.scale
         view.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(view)
+        addSubview(view)
         return view
     }
 }

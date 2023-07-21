@@ -53,7 +53,9 @@
 
 // MARK: Disclaimer
 "Disclaimer.Title" = "Disclaimer";
-"Disclaimer.Text" = "This app is intended exclusively for use by qualified medical professionals. Please note that the information presented here is intended for informational purposes only and is not a replacement for the guidance of a qualified and licensed physician or other healthcare professional. While we strive to provide accurate and current information, we do not guarantee its precision.This app is intended exclusively for use by qualified medical professionals. Please note that the information presented here is intended for informational purposes only and is not a replacement for the guidance of a qualified and licensed physician or other healthcare professional. While we strive to provide accurate and current information, we do not guarantee its precision.";
+"Disclaimer.Text" = "The information provided in this application MUST NOT be regarded as a replacement for a professional medical advice. All of the medical decisions you make SHOULD BE ADVISED BY A QUALIFIED DOCTOR who is able to take all of your conditions into account.";
+"Disclaimer.Text.Bold1" = "MUST NOT";
+"Disclaimer.Text.Bold2" = "SHOULD BE ADVISED BY A QUALIFIED DOCTOR";
 
 // MARK: Onboarding
 "Onboarding.DrugGuide.Title" = "Drug Guide";
@@ -62,7 +64,7 @@
 "Onboarding.InteractionChecker.Text" = "Analyze drug interactions to determine which potentially unsafe drug combinations are best avoided.";
 "Onboarding.SymptomChecker.Title" = "Symptom Checker";
 "Onboarding.SymptomChecker.Text" = "Determine a possible diagnosis and appropriate treatment by selecting symptoms and answering a few simple questions.";
-"Onboarding.Disclaimer.Placeholder" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+"Onboarding.Disclaimer.Placeholder" = "The information provided in the app MUST NOT be regarded as a replacement for a professional medical advice. Read more";
 
 // MARK: Home
 "Home.Title" = "Medical Guides";
@@ -96,7 +98,7 @@
 "InteractionChecker.ChooseDrug" = "Choose drug";
 "InteractionChecker.Delete" = "Delete";
 "InteractionChecker.Check" = "Check";
-"InteractionChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+"InteractionChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
 
 // MARK: Drugs
 "Drugs.Title" = "Drug Guide";
@@ -104,7 +106,7 @@
 
 // MARK: SymptomChecker
 "SymptomChecker.Title" = "Symptom Checker";
-"SymptomChecker.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more";
+"SymptomChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
 "SymptomChecker.Personal.Age" = "Age";
 "SymptomChecker.Personal.Sex" = "Sex";
 "SymptomChecker.Personal.Male" = "Male";
@@ -129,7 +131,7 @@
 // MARK: SICDetails
 "SICDetails.ConditionDetails" = "CONDITION DETAILS";
 "SICDetails.TreatmentOptions" = "TREATMENT OPTIONS";
-"SICDetails.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more";
+"SICDetails.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
 
 // MARK: Bookmark
 "Bookmark.Title" = "Bookmark";
@@ -141,7 +143,7 @@
 "Bookmark.SideEffect.Serious" = "Serious";
 "Bookmark.SideEffect.DontUseTogether" = "Don't use together";
 "Bookmark.Conditions" = "Conditions";
-"Bookmark.Disclaimer" = "The presented information is intended for use by\nqualified medical professionals. Read more ";
+"Bookmark.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
 "Bookmark.ConfirmDelete.Title" = "Are you sure?";
 "Bookmark.ConfirmDelete.Text" = "Here’s some alert text. It can span multiple lines if needed!";
 "Bookmark.Empty.Drugs.Title" = "Nothing here yet";
