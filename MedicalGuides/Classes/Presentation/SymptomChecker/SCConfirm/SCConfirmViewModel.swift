@@ -13,11 +13,14 @@ final class SCConfirmViewModel {
         case selectMedications(selectedIds: [Int])
         case selectConditions(selectedIds: [Int])
         case `continue`(SymptomCheckerCollector)
+        case paygate
     }
     
     private let collector: Driver<SymptomCheckerCollector>
     
     private let mostSymptom: SCConfirmMostSymptomElement
+    
+    private lazy var sessionManager = SessionManager()
     
     init(collector: SymptomCheckerCollector) {
         self.collector = BehaviorRelay(value: collector).asDriver()
@@ -281,7 +284,13 @@ private extension SCConfirmViewModel {
                 $0.medicalStatesIds = $1.3.map { $0.id }
                 return $0
             }
-            .map { Route.continue($0) }
+            .map { [weak self] collector -> Route in
+                if self?.sessionManager.hasActiveSubscriptions() == true {
+                    return Route.continue(collector)
+                } else {
+                    return Route.paygate
+                }
+            }
             .asDriver(onErrorDriveWith: .never())
     }
 }

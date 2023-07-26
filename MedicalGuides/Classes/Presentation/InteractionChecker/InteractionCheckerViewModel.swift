@@ -11,6 +11,7 @@ import RxCocoa
 final class InteractionCheckerViewModel {
     enum Route {
         case selectDrug(forElementId: String, selectedIds: [Int])
+        case paygate
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -18,6 +19,7 @@ final class InteractionCheckerViewModel {
     private lazy var activity = RxActivityIndicator()
     
     private lazy var drugsManager = DrugsManager()
+    private lazy var sessionManager = SessionManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
 }
@@ -62,7 +64,8 @@ extension InteractionCheckerViewModel {
             ),
             route: makeRoute(
                 didTapElement: input.didTapElement,
-                selectedDrugs: selectedDrugs
+                selectedDrugs: selectedDrugs,
+                didTapCheck: input.didTapCheck
             )
         )
     }
@@ -174,12 +177,22 @@ private extension InteractionCheckerViewModel {
     
     func makeRoute(
         didTapElement: Signal<InteractionCheckerDrugElement>,
-        selectedDrugs: Driver<[InteractionCheckerMed]>
+        selectedDrugs: Driver<[InteractionCheckerMed]>,
+        didTapCheck: Signal<Void>
     ) -> Driver<Route> {
-        makeSelectDrugRoute(
+        let selectDrug = makeSelectDrugRoute(
             didTapElement: didTapElement,
             selectedDrugs: selectedDrugs
         )
+        let tapCheck = didTapCheck
+            .filter { [weak self] void -> Bool in
+                self?.sessionManager.hasActiveSubscriptions() == false
+            }
+            .map { Route.paygate }
+            .asDriver(onErrorDriveWith: .never())
+        
+        return Driver
+            .merge(selectDrug, tapCheck)
     }
     
     func makeSelectDrugRoute(
@@ -215,6 +228,9 @@ private extension InteractionCheckerViewModel {
         selectedDrugs: Driver<[InteractionCheckerMed]>
     ) -> Driver<DrugsInteraction?> {
         didTapCheck
+            .filter { [weak self] void -> Bool in
+                self?.sessionManager.hasActiveSubscriptions() == true
+            }
             .asDriver(onErrorDriveWith: .never())
             .withLatestFrom(selectedDrugs)
             .flatMapLatest { [weak self] drugs -> Driver<DrugsInteraction?> in

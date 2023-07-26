@@ -90,6 +90,9 @@ private extension InteractionCheckerViewController {
                 self?.didSelectDrugTrigger.accept((med, forElementId))
             }
             present(vc, animated: true)
+        case .paygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
         }
     }
     

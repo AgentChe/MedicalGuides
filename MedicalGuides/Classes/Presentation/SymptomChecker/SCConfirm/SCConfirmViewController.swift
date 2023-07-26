@@ -125,6 +125,9 @@ private extension SCConfirmViewController {
         case .continue(let collector):
             let vc = SCResultViewController.make(collector: collector)
             navigationController?.pushViewController(vc, animated: true)
+        case .paygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
         }
     }
 }
