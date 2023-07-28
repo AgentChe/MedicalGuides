@@ -74,6 +74,15 @@ final class DrugViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        output.route
+            .drive(Binder(self) { base, route in
+                base.route(route)
+            })
+            .disposed(by: disposeBag)
+        
+        output.disposable
+            .disposed(by: disposeBag)
+        
         addMarkedButton()
     }
 }
@@ -119,5 +128,13 @@ private extension DrugViewController {
     func update(marked: Bool) {
         let image = UIImage(named: marked ? "Drug.Saved" : "Drug.Unsaved")
         markedButton.setImage(image, for: .normal)
+    }
+    
+    func route(_ route: DrugViewModel.Route) {
+        switch route {
+        case .paygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
+        }
     }
 }

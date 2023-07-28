@@ -9,12 +9,17 @@ import RxSwift
 import RxCocoa
 
 final class DrugViewModel {
+    enum Route {
+        case paygate
+    }
+    
     var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var activity = RxActivityIndicator()
     
     private lazy var drug = makeDrug()
     private let id: Driver<Int>
+    private lazy var needPaygateTrigger = PublishRelay<Void>()
     
     private lazy var drugsManager = DrugsManager()
     
@@ -35,13 +40,27 @@ extension DrugViewModel {
         let marked: Driver<Bool>
         let sections: Driver<[DrugTableSection]>
         let activity: Driver<Bool>
+        let route: Driver<Route>
+        let disposable: Disposable
     }
     
     func configure(input: Input) -> Output {
-        Output(
-            marked: makeBookmark(didTapMark: input.didTapMark),
+        let activeSubscription = makeActiveSubscription()
+        let bookmarkDrugs = makeBookmarkDrugs()
+        let canSave = makeCanSave(
+            bookmarkDrugs: bookmarkDrugs,
+            activeSubscription: activeSubscription
+        )
+        
+        return Output(
+            marked: makeBookmark(
+                didTapMark: input.didTapMark,
+                canSave: canSave
+            ),
             sections: makeSections(),
-            activity: activity.asDriver()
+            activity: activity.asDriver(),
+            route: makeRoute(),
+            disposable: canSave.drive()
         )
     }
 }
@@ -90,16 +109,25 @@ private extension DrugViewModel {
             }
     }
     
-    func makeBookmark(didTapMark: Signal<Bool>) -> Driver<Bool> {
+    func makeBookmark(
+        didTapMark: Signal<Bool>,
+        canSave: Driver<Bool>
+    ) -> Driver<Bool> {
         let initial = drug
             .map { $0.saved }
         
         let action = didTapMark
             .asDriver(onErrorDriveWith: .never())
-            .withLatestFrom(drug) {  ($0, $1) }
-            .flatMapLatest { [weak self] saved, drug -> Driver<Bool> in
+            .withLatestFrom(canSave) { ($0, $1) }
+            .withLatestFrom(drug) {  ($0.0, $0.1, $1) }
+            .flatMapLatest { [weak self] saved, canSave, drug -> Driver<Bool> in
                 guard let self = self else {
                     return .never()
+                }
+                
+                if !saved && !canSave {
+                    self.needPaygateTrigger.accept(Void())
+                    return .just(saved)
                 }
                 
                 func source() -> Single<Void> {
@@ -158,5 +186,56 @@ private extension DrugViewModel {
                     .trackActivity(self.activity)
                     .asDriver(onErrorDriveWith: .never())
             }
+    }
+    
+    func makeRoute() -> Driver<Route> {
+        needPaygateTrigger
+            .map { Route.paygate }
+            .asDriver(onErrorDriveWith: .never())
+    }
+    
+    func makeCanSave(
+        bookmarkDrugs: Driver<[Drug]>,
+        activeSubscription: Driver<Bool>
+    ) -> Driver<Bool> {
+        activeSubscription
+            .flatMapLatest { activeSubscription -> Driver<Bool> in
+                guard !activeSubscription else {
+                    return .just(true)
+                }
+                
+                return bookmarkDrugs
+                    .map { $0.count < 1 }
+            }
+    }
+    
+    func makeBookmarkDrugs() -> Driver<[Drug]> {
+        Driver
+            .merge(
+                DrugsMediator.shared.didSaveDrugId
+                    .map { id in Void() }
+                    .asDriver(onErrorDriveWith: .never()),
+                DrugsMediator.shared.didUnsaveDrugsIds
+                    .map { ids in Void() }
+                    .asDriver(onErrorDriveWith: .never())
+            )
+            .startWith(Void())
+            .flatMapLatest { [weak self] void -> Driver<[Drug]> in
+                guard let self = self else {
+                    return .never()
+                }
+                
+                return self.drugsManager
+                    .obtainBookmarksDrugs()
+                    .asDriver(onErrorJustReturn: [])
+            }
+    }
+    
+    func makeActiveSubscription() -> Driver<Bool> {
+        PurchaseValidationObserver.shared
+            .didValidatedWithActiveSubscription
+            .map { SessionManager().hasActiveSubscriptions() }
+            .startWith(SessionManager().hasActiveSubscriptions())
+            .asDriver(onErrorJustReturn: false)
     }
 }
