@@ -12,6 +12,7 @@ final class InteractionCheckerViewModel {
     enum Route {
         case selectDrug(forElementId: String, selectedIds: [Int])
         case paygate
+        case noInteractionsFound
     }
     
     var tryAgain: ((Error) -> (Observable<Void>))?
@@ -65,7 +66,8 @@ extension InteractionCheckerViewModel {
             route: makeRoute(
                 didTapElement: input.didTapElement,
                 selectedDrugs: selectedDrugs,
-                didTapCheck: input.didTapCheck
+                didTapCheck: input.didTapCheck,
+                result: result
             )
         )
     }
@@ -178,7 +180,8 @@ private extension InteractionCheckerViewModel {
     func makeRoute(
         didTapElement: Signal<InteractionCheckerDrugElement>,
         selectedDrugs: Driver<[InteractionCheckerMed]>,
-        didTapCheck: Signal<Void>
+        didTapCheck: Signal<Void>,
+        result: Driver<DrugsInteraction?>
     ) -> Driver<Route> {
         let selectDrug = makeSelectDrugRoute(
             didTapElement: didTapElement,
@@ -190,9 +193,13 @@ private extension InteractionCheckerViewModel {
             }
             .map { Route.paygate }
             .asDriver(onErrorDriveWith: .never())
+        let notInteractionResult = result
+            .compactMap { result -> Route? in
+                result == nil ? .noInteractionsFound : nil
+            }
         
         return Driver
-            .merge(selectDrug, tapCheck)
+            .merge(selectDrug, tapCheck, notInteractionResult)
     }
     
     func makeSelectDrugRoute(

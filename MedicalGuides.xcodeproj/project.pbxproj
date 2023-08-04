@@ -206,6 +206,8 @@
 		DEB2B2F92A28A3F300C26FC5 /* SICDetailsSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2F82A28A3F300C26FC5 /* SICDetailsSectionCell.swift */; };
 		DEB2B2FB2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2FA2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift */; };
 		DEB2B2FD2A28A41C00C26FC5 /* SICDetailsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2B2FC2A28A41C00C26FC5 /* SICDetailsTextCell.swift */; };
+		DEC61E6F2A7CF4FA008F9C97 /* NoInteractionsFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E6E2A7CF4FA008F9C97 /* NoInteractionsFoundViewController.swift */; };
+		DEC61E712A7CF4FF008F9C97 /* NoInteractionsFoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC61E702A7CF4FF008F9C97 /* NoInteractionsFoundView.swift */; };
 		DEE1012E2A177C03000ED6AE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */; };
 		DEE101302A177C09000ED6AE /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */; };
 		DEE101322A177C0E000ED6AE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE101312A177C0E000ED6AE /* SettingsView.swift */; };
@@ -471,6 +473,8 @@
 		DEB2B2F82A28A3F300C26FC5 /* SICDetailsSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsSectionCell.swift; sourceTree = "<group>"; };
 		DEB2B2FA2A28A40A00C26FC5 /* SICDetailsSeparatorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsSeparatorCell.swift; sourceTree = "<group>"; };
 		DEB2B2FC2A28A41C00C26FC5 /* SICDetailsTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICDetailsTextCell.swift; sourceTree = "<group>"; };
+		DEC61E6E2A7CF4FA008F9C97 /* NoInteractionsFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInteractionsFoundViewController.swift; sourceTree = "<group>"; };
+		DEC61E702A7CF4FF008F9C97 /* NoInteractionsFoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInteractionsFoundView.swift; sourceTree = "<group>"; };
 		DEE1012D2A177C03000ED6AE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DEE1012F2A177C09000ED6AE /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DEE101312A177C0E000ED6AE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -1520,6 +1524,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DEC61E6D2A7CF4C2008F9C97 /* NoInteractionsFound */ = {
+			isa = PBXGroup;
+			children = (
+				DEC61E6E2A7CF4FA008F9C97 /* NoInteractionsFoundViewController.swift */,
+				DEC61E702A7CF4FF008F9C97 /* NoInteractionsFoundView.swift */,
+			);
+			path = NoInteractionsFound;
+			sourceTree = "<group>";
+		};
 		DEE1012B2A177BE5000ED6AE /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -1605,6 +1618,7 @@
 		DEE101552A1B939C000ED6AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DEC61E6D2A7CF4C2008F9C97 /* NoInteractionsFound */,
 				DEE101562A1B9564000ED6AE /* TableView */,
 			);
 			path = Views;
@@ -1976,6 +1990,7 @@
 				DE14D6E42A67ED5700DBFE1D /* GetInteractionCheckerMedsRequest.swift in Sources */,
 				DE7BD6162A14C68A00A21DE7 /* GetBookmarksConditionsResponse.swift in Sources */,
 				DE3F610A2A03F04D00BCC039 /* IAPManager.swift in Sources */,
+				DEC61E712A7CF4FF008F9C97 /* NoInteractionsFoundView.swift in Sources */,
 				DEE1023C2A1E0A47000ED6AE /* SCSymptomsViewModel.swift in Sources */,
 				DEB2B2EB2A2791EF00C26FC5 /* SICDetailsView.swift in Sources */,
 				DEB2B2E92A2791EB00C26FC5 /* SICDetailsViewModel.swift in Sources */,
@@ -2127,6 +2142,7 @@
 				DEE102582A1F7F20000ED6AE /* SCSymptomsTableView.swift in Sources */,
 				DE3F60942A03F04D00BCC039 /* NumberLaunches.swift in Sources */,
 				DE102D7A2A2B39FF00149ECA /* BookmarkTableElement.swift in Sources */,
+				DEC61E6F2A7CF4FA008F9C97 /* NoInteractionsFoundViewController.swift in Sources */,
 				DE512BFE2A1271BE00BBC661 /* SaveInteractionDrugsRequest.swift in Sources */,
 				DE3F61D92A03F15800BCC039 /* PaygateViewControllerDelegate.swift in Sources */,
 				DE3F61C42A03F14A00BCC039 /* PaygateOptionLineComponent.swift in Sources */,

@@ -93,6 +93,9 @@ private extension InteractionCheckerViewController {
         case .paygate:
             let vc = PaygateViewController.make()
             present(vc, animated: true)
+        case .noInteractionsFound:
+            let vc = NoInteractionsFoundViewController.make()
+            present(vc, animated: false)
         }
     }
     

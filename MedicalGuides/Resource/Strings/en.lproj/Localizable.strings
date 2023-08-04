@@ -104,6 +104,11 @@
 "InteractionChecker.Serious" = "Serious";
 "InteractionChecker.DontUseTogether" = "Don't use together";
 
+// MARK: NoInteractionsFound
+"NoInteractionsFound.Title" = "No interactions found";
+"NoInteractionsFound.SubTitle" = "There are no potentially unsafe interactions detected for these drugs.";
+"NoInteractionsFound.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+
 // MARK: Drugs
 "Drugs.Title" = "Drug Guide";
 "Drugs.Search" = "Search";
