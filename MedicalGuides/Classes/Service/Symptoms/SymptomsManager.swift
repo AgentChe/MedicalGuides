@@ -15,8 +15,8 @@ protocol SymptomsManagerProtocol {
         symptomsIds: [Int],
         mainSymptomId: Int,
         pregnant: Bool,
-        currentMedicationsIds: [Int],
-        medicalStatesIds: [Int]
+        currentMedicationsIds: [Int]?,
+        medicalStatesIds: [Int]?
     ) -> Single<[SymptomsInteractionCondition]>
     func obtainConditionDetails(id: Int) -> Single<SymptomsInteractionConditionDetails?>
     func save(conditionId: Int) -> Single<Void>
@@ -50,8 +50,8 @@ extension SymptomsManager: SymptomsManagerProtocol {
         symptomsIds: [Int],
         mainSymptomId: Int,
         pregnant: Bool,
-        currentMedicationsIds: [Int],
-        medicalStatesIds: [Int]
+        currentMedicationsIds: [Int]?,
+        medicalStatesIds: [Int]?
     ) -> Single<[SymptomsInteractionCondition]> {
         guard let userToken = sessionManager.getSession()?.userToken else {
             return .error(SignError.tokenNotFound)

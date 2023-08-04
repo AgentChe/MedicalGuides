@@ -23,6 +23,11 @@ final class SCResultConditionCell: UITableViewCell {
         .textColor(Appearance.black)
         .font(Fonts.Avenir.bold(size: 21.scale))
         .textAlignment(.left)
+    private lazy var fairMatchAttrs = TextAttributes()
+        .textColor(Appearance.black.withAlphaComponent(0.5))
+        .font(Fonts.Avenir.regular(size: 15.scale))
+        .lineHeight(21.scale)
+        .textAlignment(.left)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,6 +45,7 @@ final class SCResultConditionCell: UITableViewCell {
 extension SCResultConditionCell {
     func setup(element: SymptomsInteractionCondition) {
         nameLabel.attributedText = element.name.attributed(with: nameAttrs)
+        fairMatchLabel.attributedText = title(for: element.fairMatch).attributed(with: fairMatchAttrs)
         
         let levelViews = [
             level1View,
@@ -66,6 +72,21 @@ private extension SCResultConditionCell {
     @objc
     func readMoreTapped() {
         didTapReadMore?()
+    }
+    
+    func title(for fairMatch: Int) -> String {
+        switch fairMatch {
+        case 1:
+            return "SymptomChecker.Result.Low".localized
+        case 2:
+            return "SymptomChecker.Result.Fair".localized
+        case 3:
+            return "SymptomChecker.Result.Moderate".localized
+        case 4:
+            return "SymptomChecker.Result.StrongMatch".localized
+        default:
+            return "SymptomChecker.Result.StrongMatch".localized
+        }
     }
     
     func color(for fairMatch: Int) -> UIColor {
@@ -163,14 +184,7 @@ private extension SCResultConditionCell {
     }
     
     func makeFairMatchLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.black.withAlphaComponent(0.5))
-            .font(Fonts.Avenir.regular(size: 15.scale))
-            .lineHeight(21.scale)
-            .textAlignment(.left)
-        
         let view = UILabel()
-        view.attributedText = "SymptomChecker.Result.FairMatch".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view

@@ -60,11 +60,7 @@ extension SCConfirmViewModel {
             didRemoveCondition: input.didRemoveCondition
         )
         let selectedConditions = makeSelectedMedicalStates(action: conditionActions)
-        let continueEnable = makeContinueEnable(
-            didSelectMostSymptom: input.didSelectMostSymptom,
-            selectedMedications: selectedMedications,
-            selectedConditions: selectedConditions
-        )
+        let continueEnable = makeContinueEnable(didSelectMostSymptom: input.didSelectMostSymptom)
         let didSelectPregnant = input.didSelectPregnant
             .startWith(false)
         
@@ -140,19 +136,11 @@ private extension SCConfirmViewModel {
     }
     
     func makeContinueEnable(
-        didSelectMostSymptom: Signal<Symptom>,
-        selectedMedications: Driver<[SymptomMed]>,
-        selectedConditions: Driver<[MedicalState]>
+        didSelectMostSymptom: Signal<Symptom>
     ) -> Driver<Bool> {
-        Driver
-            .combineLatest(
-                didSelectMostSymptom.asDriver(onErrorDriveWith: .never()),
-                selectedMedications,
-                selectedConditions
-            )
-            .map { mostSymptom, medications, conditions -> Bool in
-                !medications.isEmpty && !conditions.isEmpty
-            }
+        didSelectMostSymptom
+            .asDriver(onErrorDriveWith: .never())
+            .map { symptom in true }
             .startWith(false)
     }
     

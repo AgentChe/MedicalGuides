@@ -14,8 +14,8 @@ struct SymptomsCheckerRequest: APIRequestBody {
     let symptomsIds: [Int]
     let mainSymptomId: Int
     let pregnant: Bool
-    let currentMedicationsIds: [Int]
-    let medicalStatesIds: [Int]
+    let currentMedicationsIds: [Int]?
+    let medicalStatesIds: [Int]?
     
     var url: String {
         GlobalDefinitions.domain + "/api/symptom_checker/analyze"
@@ -26,16 +26,24 @@ struct SymptomsCheckerRequest: APIRequestBody {
     }
     
     var parameters: Parameters? {
-        [
+        var params: [String: Any] = [
             "_api_key": GlobalDefinitions.apiKey,
             "_user_token": userToken,
             "age": age,
             "sex": sex,
             "symptoms_ids": symptomsIds,
             "main_symptom_id": mainSymptomId,
-            "pregnant": pregnant,
-            "current_medications_ids": currentMedicationsIds,
-            "medical_states_ids": medicalStatesIds
+            "pregnant": pregnant
         ]
+        
+        if let currentMedicationsIds = currentMedicationsIds {
+            params["current_medications_ids"] = currentMedicationsIds
+        }
+        
+        if let medicalStatesIds = medicalStatesIds {
+            params["medical_states_ids"] = medicalStatesIds
+        }
+        
+        return params
     }
 }

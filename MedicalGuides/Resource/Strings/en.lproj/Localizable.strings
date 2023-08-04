@@ -134,7 +134,10 @@
 "SymptomChecker.Confirm.MedicationsDescription" = "Only some medications are factored into results.";
 "SymptomChecker.Confirm.Conditions.Description" = "Only some conditions are factored into results.";
 "SymptomChecker.Result.Title" = "Conditions that match your symptoms";
-"SymptomChecker.Result.FairMatch" = "Fair match";
+"SymptomChecker.Result.Low" = "Low";
+"SymptomChecker.Result.Fair" = "Fair";
+"SymptomChecker.Result.Moderate" = "Moderate";
+"SymptomChecker.Result.StrongMatch" = "Strong Match";
 "SymptomChecker.Result.ReadMore" = "Read more";
 
 // MARK: SICDetails
