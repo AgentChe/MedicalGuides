@@ -8,10 +8,7 @@
 import UIKit
 
 final class InteractionCheckerDrugCell: UITableViewCell {
-    var didTapDelete: (() -> Void)?
-    
     lazy var numberLabel = makeLabel()
-    lazy var deleteButton = makeDeleteButton()
     lazy var modeContainer = makeModeContainer()
     lazy var modeLabel = makeLabel()
     
@@ -49,8 +46,6 @@ extension InteractionCheckerDrugCell {
         let number = String(format: "InteractionChecker.Drug.Number".localized, element.number)
         numberLabel.attributedText = number.attributed(with: numberAttrs)
         
-        deleteButton.isHidden = !element.deleteEnabled
-        
         switch element.mode {
         case .choose:
             modeLabel.attributedText = "InteractionChecker.ChooseDrug".localized.attributed(with: chooseAttrs)
@@ -68,11 +63,6 @@ private extension InteractionCheckerDrugCell {
         
         selectionStyle = .none
     }
-    
-    @objc
-    func didTapDeleteButton() {
-        didTapDelete?()
-    }
 }
 
 // MARK: Make constraints
@@ -81,11 +71,6 @@ private extension InteractionCheckerDrugCell {
         NSLayoutConstraint.activate([
             numberLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
             numberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            deleteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
-            deleteButton.centerYAnchor.constraint(equalTo: numberLabel.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -109,19 +94,6 @@ private extension InteractionCheckerDrugCell {
     func makeLabel() -> UILabel {
         let view = UILabel()
         view.numberOfLines = 0
-        view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(view)
-        return view
-    }
-    
-    func makeDeleteButton() -> TapAreaButton {
-        let attrs = TextAttributes()
-            .textColor(Appearance.primary)
-            .font(Fonts.Avenir.regular(size: 15.scale))
-        
-        let view = TapAreaButton()
-        view.setAttributedTitle("InteractionChecker.Delete".localized.attributed(with: attrs), for: .normal)
-        view.addTarget(self, action: #selector(didTapDeleteButton), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

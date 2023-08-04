@@ -18,18 +18,22 @@ final class InteractionCheckerViewModel {
     var tryAgain: ((Error) -> (Observable<Void>))?
     
     private lazy var activity = RxActivityIndicator()
+    private let initialInteraction: Driver<DrugsInteraction?>
     
     private lazy var drugsManager = DrugsManager()
     private lazy var sessionManager = SessionManager()
     
     private lazy var observableRetrySingle = ObservableRetrySingle()
+    
+    init(drugsInteraction: DrugsInteraction?) {
+        self.initialInteraction = BehaviorRelay(value: drugsInteraction).asDriver()
+    }
 }
 
 // MARK: Public
 extension InteractionCheckerViewModel {
     struct Input {
         let didTapElement: Signal<InteractionCheckerDrugElement>
-        let didTapDelete: Signal<InteractionCheckerDrugElement>
         let didTapCheck: Signal<Void>
         let didSelectDrug: Signal<(InteractionCheckerMed, String)>
         let didTapBookmark: Signal<Bool>
@@ -41,8 +45,9 @@ extension InteractionCheckerViewModel {
     }
     
     func configure(input: Input) -> Output {
+        let meds = makeMeds()
         let action = makeAction(
-            didTapDelete: input.didTapDelete,
+            meds: meds,
             didSelectDrug: input.didSelectDrug
         )
         let drugsElements = makeDrugsElements(action: action)
@@ -76,8 +81,7 @@ extension InteractionCheckerViewModel {
 // MARK: Private
 private extension InteractionCheckerViewModel {
     enum Action {
-        case initial
-        case deleteDrug(String)
+        case initial((DrugsInteraction, [InteractionCheckerMed])?)
         case select((InteractionCheckerMed, String))
     }
     
@@ -120,28 +124,58 @@ private extension InteractionCheckerViewModel {
     
     func makeDrugsElements(action: Driver<Action>) -> Driver<[InteractionCheckerDrugElement]> {
         action
-            .startWith(.initial)
             .scan([]) { array, action -> [InteractionCheckerDrugElement] in
                 var elements = array
                 
                 switch action {
-                case .initial:
-                    elements = [
-                        InteractionCheckerDrugElement(
-                            id: UUID().uuidString,
-                            number: 1,
-                            deleteEnabled: false,
-                            mode: .choose
-                        ),
-                        InteractionCheckerDrugElement(
-                            id: UUID().uuidString,
-                            number: 2,
-                            deleteEnabled: false,
-                            mode: .choose
-                        )
-                    ]
-                case .deleteDrug(let id):
-                    elements.removeAll(where: { $0.id == id })
+                case .initial(let args):
+                    if let args = args {
+                        let interaction = args.0
+                        let meds = args.1
+                        
+                        let filtered = meds.filter { med in interaction.medIds.contains(where: { $0 == med.id }) }
+                        
+                        var firstMed: InteractionCheckerDrugElement.Mode {
+                            guard let first = filtered[safe: 0] else {
+                                return .choose
+                            }
+                            
+                            return .drug(first)
+                        }
+                        var secondMed: InteractionCheckerDrugElement.Mode {
+                            guard let second = filtered[safe: 1] else {
+                                return .choose
+                            }
+                            
+                            return .drug(second)
+                        }
+                        
+                        elements = [
+                            InteractionCheckerDrugElement(
+                                id: UUID().uuidString,
+                                number: 1,
+                                mode: firstMed
+                            ),
+                            InteractionCheckerDrugElement(
+                                id: UUID().uuidString,
+                                number: 2,
+                                mode: secondMed
+                            )
+                        ]
+                    } else {
+                        elements = [
+                            InteractionCheckerDrugElement(
+                                id: UUID().uuidString,
+                                number: 1,
+                                mode: .choose
+                            ),
+                            InteractionCheckerDrugElement(
+                                id: UUID().uuidString,
+                                number: 2,
+                                mode: .choose
+                            )
+                        ]
+                    }
                 case let .select((drug, forId)):
                     guard let index = elements.firstIndex(where: { $0.id == forId }) else {
                         break
@@ -152,7 +186,6 @@ private extension InteractionCheckerViewModel {
                     let new = InteractionCheckerDrugElement(
                         id: old.id,
                         number: old.number,
-                        deleteEnabled: old.deleteEnabled,
                         mode: .drug(drug)
                     )
                     elements[index] = new
@@ -163,18 +196,30 @@ private extension InteractionCheckerViewModel {
     }
     
     func makeAction(
-        didTapDelete: Signal<InteractionCheckerDrugElement>,
+        meds: Driver<[InteractionCheckerMed]>,
         didSelectDrug: Signal<(InteractionCheckerMed, String)>
     ) -> Driver<Action> {
-        let delete = didTapDelete
-            .map { Action.deleteDrug($0.id) }
-            .asDriver(onErrorDriveWith: .never())
+        let initial = Driver
+            .zip(initialInteraction, meds)
+            .map { interaction, meds -> Action in
+                guard let interaction = interaction else {
+                    return Action.initial(nil)
+                }
+                
+                return Action.initial((interaction, meds))
+            }
         let select = didSelectDrug
             .map { Action.select($0) }
             .asDriver(onErrorDriveWith: .never())
         
         return Driver
-            .merge(delete, select)
+            .merge(initial, select)
+    }
+    
+    func makeMeds() -> Driver<[InteractionCheckerMed]> {
+        drugsManager
+            .obtainInteractionCheckerMeds(forceUpdate: false)
+            .asDriver(onErrorJustReturn: [])
     }
     
     func makeRoute(
@@ -234,7 +279,7 @@ private extension InteractionCheckerViewModel {
         didTapCheck: Signal<Void>,
         selectedDrugs: Driver<[InteractionCheckerMed]>
     ) -> Driver<DrugsInteraction?> {
-        didTapCheck
+        let check = didTapCheck
             .filter { [weak self] void -> Bool in
                 self?.sessionManager.hasActiveSubscriptions() == true
             }
@@ -276,6 +321,12 @@ private extension InteractionCheckerViewModel {
                     .trackActivity(self.activity)
                     .asDriver(onErrorDriveWith: .never())
             }
+        
+        let initial = initialInteraction
+            .filter { $0 != nil }
+        
+        return Driver
+            .merge(check, initial)
     }
     
     func makeBookmark(didTapBookmark: Signal<Bool>, interaction: Driver<DrugsInteraction?>) -> Driver<Bool> {

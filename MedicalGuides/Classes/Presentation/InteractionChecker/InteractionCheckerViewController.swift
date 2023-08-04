@@ -12,11 +12,21 @@ import RxCocoa
 final class InteractionCheckerViewController: UIViewController {
     lazy var mainView = InteractionCheckerView()
     
-    private lazy var viewModel = InteractionCheckerViewModel()
+    private let viewModel: InteractionCheckerViewModel
     
     private lazy var disposeBag = DisposeBag()
     
     private lazy var didSelectDrugTrigger = PublishRelay<(InteractionCheckerMed, String)>()
+    
+    private init(drugsInteraction: DrugsInteraction?) {
+        viewModel = InteractionCheckerViewModel(drugsInteraction: drugsInteraction)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         view = mainView
@@ -35,7 +45,6 @@ final class InteractionCheckerViewController: UIViewController {
         
         let output = viewModel.configure(input: InteractionCheckerViewModel.Input(
             didTapElement: mainView.tableView.didTapElement,
-            didTapDelete: mainView.tableView.didTapDelete,
             didTapCheck: mainView.tableView.didTapCheck,
             didSelectDrug: didSelectDrugTrigger.asSignal(),
             didTapBookmark: mainView.tableView.didTapBookmark
@@ -70,8 +79,8 @@ final class InteractionCheckerViewController: UIViewController {
 
 // MARK: Make
 extension InteractionCheckerViewController {
-    static func make() -> InteractionCheckerViewController {
-        let vc = InteractionCheckerViewController()
+    static func make(drugsInteraction: DrugsInteraction? = nil) -> InteractionCheckerViewController {
+        let vc = InteractionCheckerViewController(drugsInteraction: drugsInteraction)
         vc.modalPresentationStyle = .fullScreen
         return vc
     }

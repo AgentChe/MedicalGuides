@@ -11,6 +11,7 @@ import RxCocoa
 final class BookmarkViewModel {
     enum Route {
         case drug(Drug)
+        case interaction(DrugsInteraction)
         case condition(SymptomsInteractionConditionDetails)
     }
     
@@ -91,6 +92,7 @@ extension BookmarkViewModel {
         let route = makeRoute(
             navigationMode: navigationMode,
             didTapDrug: input.didTapDrug,
+            didTapInteraction: input.didTapInteraction,
             didTapCondition: input.didTapCondition
         )
         let didDelete = makeDelete(
@@ -490,11 +492,13 @@ private extension BookmarkViewModel {
     func makeRoute(
         navigationMode: Driver<BookmarkViewController.NavigationMode>,
         didTapDrug: Signal<Drug>,
+        didTapInteraction: Signal<DrugsInteraction>,
         didTapCondition: Signal<SymptomsInteractionConditionDetails>
     ) -> Driver<Route> {
         Signal<Route>
             .merge(
                 didTapDrug.map { Route.drug($0) },
+                didTapInteraction.map { Route.interaction($0) },
                 didTapCondition.map { Route.condition($0) }
             )
             .asDriver(onErrorDriveWith: .never())

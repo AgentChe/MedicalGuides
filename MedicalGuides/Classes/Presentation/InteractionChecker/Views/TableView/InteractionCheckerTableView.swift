@@ -13,7 +13,6 @@ final class InteractionCheckerTableView: UITableView {
     lazy var elements = [InteractionCheckerTableElement]()
     
     private lazy var didTapElementTrigger = PublishRelay<InteractionCheckerDrugElement>()
-    private lazy var didTapDeleteTrigger = PublishRelay<InteractionCheckerDrugElement>()
     private lazy var didTapCheckTrigger = PublishRelay<Void>()
     private lazy var didTapBookmarkTrigger = PublishRelay<Bool>()
     
@@ -40,10 +39,6 @@ extension InteractionCheckerTableView {
         didTapElementTrigger.asSignal()
     }
     
-    var didTapDelete: Signal<InteractionCheckerDrugElement> {
-        didTapDeleteTrigger.asSignal()
-    }
-    
     var didTapCheck: Signal<Void> {
         didTapCheckTrigger.asSignal()
     }
@@ -64,9 +59,6 @@ extension InteractionCheckerTableView: UITableViewDataSource {
         case .drug(let element):
             let cell = dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerDrugCell.self)) as! InteractionCheckerDrugCell
             cell.setup(element: element)
-            cell.didTapDelete = { [weak self] in
-                self?.didTapDeleteTrigger.accept(element)
-            }
             return cell
         case .check:
             return dequeueReusableCell(withIdentifier: String(describing: InteractionCheckerCheckCell.self), for: indexPath)

@@ -240,6 +240,9 @@ private extension BookmarkViewController {
         case .drug(let drug):
             let vc = DrugViewController.make(drug: drug)
             navigationController?.pushViewController(vc, animated: true)
+        case .interaction(let interaction):
+            let vc = InteractionCheckerViewController.make(drugsInteraction: interaction)
+            present(vc, animated: true)
         case .condition(let condition):
             let vc = SICDetailsViewController.make(id: condition.id)
             navigationController?.pushViewController(vc, animated: true)

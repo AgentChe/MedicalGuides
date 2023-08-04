@@ -20,7 +20,6 @@ struct InteractionCheckerDrugElement {
     
     let id: String
     let number: Int
-    let deleteEnabled: Bool
     let mode: Mode
 }
 

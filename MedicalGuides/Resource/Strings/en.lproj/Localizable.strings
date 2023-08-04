@@ -96,7 +96,6 @@
 "InteractionChecker.Title" = "Interaction checker";
 "InteractionChecker.Drug.Number" = "Drug %i";
 "InteractionChecker.ChooseDrug" = "Choose drug";
-"InteractionChecker.Delete" = "Delete";
 "InteractionChecker.Check" = "Check";
 "InteractionChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
 "InteractionChecker.Minor" = "Minor";
