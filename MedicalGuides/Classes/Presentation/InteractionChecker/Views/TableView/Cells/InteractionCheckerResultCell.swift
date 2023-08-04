@@ -42,8 +42,10 @@ final class InteractionCheckerResultCell: UITableViewCell {
 // MARK: Public
 extension InteractionCheckerResultCell {
     func setup(element: InteractionCheckerResultElement) {
+        let title = title(at: element.result.sideEffect)
         let titleAttrs = titleAttrs(at: element.result.sideEffect)
-        titleLabel.attributedText = element.result.title.attributed(with: titleAttrs)
+        titleLabel.attributedText = title.attributed(with: titleAttrs)
+        
         subtitleLabel.attributedText = element.result.subtitle.attributed(with: subtitleAttrs)
         label.attributedText = element.result.text.attributed(with: textAttrs)
         
@@ -59,6 +61,19 @@ private extension InteractionCheckerResultCell {
         contentView.backgroundColor = UIColor.clear
         
         selectionStyle = .none
+    }
+    
+    func title(at sideEffect: DrugsSideEffect) -> String {
+        switch sideEffect {
+        case .minor:
+            return "InteractionChecker.Minor".localized
+        case .monitorClosely:
+            return "InteractionChecker.MonitorClosely".localized
+        case .serious:
+            return "InteractionChecker.Serious".localized
+        case .dontUseTogether:
+            return "InteractionChecker.DontUseTogether".localized
+        }
     }
     
     func titleAttrs(at sideEffect: DrugsSideEffect) -> TextAttributes {

@@ -27,7 +27,7 @@
 
 // MARK: Splash
 "Splash.Preloader1" = "Checking your account...";
-"Splash.Preloader2" = "Syncing the soccer library";
+"Splash.Preloader2" = "Syncing the drug library";
 "Splash.Preloader3" = "Setting up your account...";
 
 // MARK: Paygate
@@ -99,6 +99,10 @@
 "InteractionChecker.Delete" = "Delete";
 "InteractionChecker.Check" = "Check";
 "InteractionChecker.Disclaimer" = "The information provided in the app MUST NOT be\nregarded as a replacement for a professional medical\nadvice. Read more";
+"InteractionChecker.Minor" = "Minor";
+"InteractionChecker.MonitorClosely" = "Monitor Closely";
+"InteractionChecker.Serious" = "Serious";
+"InteractionChecker.DontUseTogether" = "Don't use together";
 
 // MARK: Drugs
 "Drugs.Title" = "Drug Guide";
