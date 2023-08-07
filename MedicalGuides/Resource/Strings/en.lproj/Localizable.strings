@@ -127,6 +127,7 @@
 "SymptomChecker.Confirm.No" = "No";
 "SymptomChecker.Confirm.CurrentMedications" = "Current medications";
 "SymptomChecker.Confirm.ChooseDrug" = "Choose drug";
+"SymptomChecker.Confirm.ChooseCondition" = "Choose condition";
 "SymptomChecker.Confirm.MedicationsPlaceholder" = "Only some medications are factored into results.";
 "SymptomChecker.Confirm.Conditions" = "Past or current conditions";
 "SymptomChecker.Confirm.ConditionsPlaceholder" = "Only some conditions are factored into results.";

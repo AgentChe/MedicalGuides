@@ -18,6 +18,11 @@ final class SCConfirmChooseCell: UITableViewCell {
         .textColor(Appearance.black)
         .font(Fonts.Avenir.bold(size: 21.scale))
         .textAlignment(.left)
+    private lazy var placeholderAttrs = TextAttributes()
+        .textColor(Appearance.black.withAlphaComponent(0.3))
+        .font(Fonts.Avenir.regular(size: 15.scale))
+        .lineHeight(21.scale)
+        .textAlignment(.left)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,8 +42,10 @@ extension SCConfirmChooseCell {
         switch element {
         case .currentMedications:
             titleLabel.attributedText = "SymptomChecker.Confirm.CurrentMedications".localized.attributed(with: titleAttrs)
+            placeholderLabel.attributedText = "SymptomChecker.Confirm.ChooseDrug".localized.attributed(with: placeholderAttrs)
         case .conditions:
             titleLabel.attributedText = "SymptomChecker.Confirm.Conditions".localized.attributed(with: titleAttrs)
+            placeholderLabel.attributedText = "SymptomChecker.Confirm.ChooseCondition".localized.attributed(with: placeholderAttrs)
         }
     }
 }
@@ -106,14 +113,7 @@ private extension SCConfirmChooseCell {
     }
     
     func makePlaceholerLabel() -> UILabel {
-        let attrs = TextAttributes()
-            .textColor(Appearance.black.withAlphaComponent(0.3))
-            .font(Fonts.Avenir.regular(size: 15.scale))
-            .lineHeight(21.scale)
-            .textAlignment(.left)
-        
         let view = UILabel()
-        view.attributedText = "SymptomChecker.Confirm.ChooseDrug".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(view)
         return view
