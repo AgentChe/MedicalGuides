@@ -134,9 +134,9 @@
 "SymptomChecker.Confirm.MedicationsDescription" = "Only some medications are factored into results.";
 "SymptomChecker.Confirm.Conditions.Description" = "Only some conditions are factored into results.";
 "SymptomChecker.Result.Title" = "Conditions that match your symptoms";
-"SymptomChecker.Result.Low" = "Low";
-"SymptomChecker.Result.Fair" = "Fair";
-"SymptomChecker.Result.Moderate" = "Moderate";
+"SymptomChecker.Result.Low" = "Low Match";
+"SymptomChecker.Result.Fair" = "Fair Match";
+"SymptomChecker.Result.Moderate" = "Moderate Match";
 "SymptomChecker.Result.StrongMatch" = "Strong Match";
 "SymptomChecker.Result.ReadMore" = "Read more";
 
@@ -159,7 +159,7 @@
 "Bookmark.ConfirmDelete.Title" = "Are you sure?";
 "Bookmark.ConfirmDelete.Text" = "Here’s some alert text. It can span multiple lines if needed!";
 "Bookmark.Empty.Drugs.Title" = "Nothing here yet";
-"Bookmark.Empty.Drugs.Text" = "Saved drags will appear here";
+"Bookmark.Empty.Drugs.Text" = "Saved drugs will appear here";
 "Bookmark.Empty.Interactions.Title" = "Nothing here yet";
 "Bookmark.Empty.Interactions.Text" = "Saved interactions will appear here";
 "Bookmark.Empty.Conditions.Title" = "Nothing here yet";
