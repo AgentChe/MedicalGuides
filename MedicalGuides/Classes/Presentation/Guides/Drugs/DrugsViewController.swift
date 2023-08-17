@@ -22,6 +22,9 @@ final class DrugsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared
+            .logEvent(name: "Drug Guide Screen")
+        
         let output = viewModel.configure(input: DrugsViewModel.Input(
             didSearch: mainView.searchView.changedText,
             didSelect: mainView.tableView.didSelect

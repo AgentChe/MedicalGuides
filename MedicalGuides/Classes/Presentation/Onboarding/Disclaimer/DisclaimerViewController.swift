@@ -20,6 +20,9 @@ final class DisclaimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared
+            .logEvent(name: "Disclaimer Screen")
+        
         mainView.button.rx.tap
             .bind(to: Binder(self) { base, void in
                 base.dismiss(animated: true)

@@ -22,6 +22,9 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared
+            .logEvent(name: "Main Screen")
+        
         let output = viewModel.configure(input: .init(
             didTapSettings: mainView.settingsButton.rx.tap.asSignal(),
             didTapDrugGuide: mainView.tableView.didTapDrugGuide,

@@ -30,6 +30,9 @@ final class SCPersonalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        AmplitudeManager.shared
+            .logEvent(name: "Symptom Check Screen")
+        
         let output = viewModel.configure(input: SCPersonalViewModel.Input(
             didSelectAge: didSelectAgeTrigger.asSignal(),
             didSelectGender: didSelectGenderTrigger.asSignal(),
