@@ -76,7 +76,6 @@
 		DE3F60AE2A03F04D00BCC039 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF02A03F04D00BCC039 /* PushNotificationsModel.swift */; };
 		DE3F60AF2A03F04D00BCC039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF12A03F04D00BCC039 /* SceneDelegate.swift */; };
 		DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF22A03F04D00BCC039 /* Appearance.swift */; };
-		DE3F60B12A03F04D00BCC039 /* AppsFlyerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF42A03F04D00BCC039 /* AppsFlyerManager.swift */; };
 		DE3F60B22A03F04D00BCC039 /* BranchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */; };
 		DE3F60B32A03F04D00BCC039 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */; };
 		DE3F60B42A03F04D00BCC039 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */; };
@@ -343,7 +342,6 @@
 		DE3F5EF02A03F04D00BCC039 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
 		DE3F5EF12A03F04D00BCC039 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DE3F5EF22A03F04D00BCC039 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		DE3F5EF42A03F04D00BCC039 /* AppsFlyerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsFlyerManager.swift; sourceTree = "<group>"; };
 		DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -842,7 +840,6 @@
 		DE3F5EF32A03F04D00BCC039 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE3F5EF42A03F04D00BCC039 /* AppsFlyerManager.swift */,
 				DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */,
 				DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */,
 				DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */,
@@ -2098,7 +2095,6 @@
 				DE14D6FA2A6813C700DBFE1D /* GetSymptomMedsRequest.swift in Sources */,
 				DE14D6F52A68114F00DBFE1D /* GetMedicalStatesResponse.swift in Sources */,
 				DE3F60932A03F04D00BCC039 /* Scalable.swift in Sources */,
-				DE3F60B12A03F04D00BCC039 /* AppsFlyerManager.swift in Sources */,
 				DEE102352A1E08FD000ED6AE /* SCPersonalViewController.swift in Sources */,
 				DE14D7002A6831C000DBFE1D /* SymtomsCheckerBlock.swift in Sources */,
 				DE3F61DA2A03F15800BCC039 /* PaygateInteractor.swift in Sources */,
