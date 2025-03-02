@@ -78,7 +78,7 @@ private extension OnboardingViewController {
     func goToNext(at step: OnboardingViewModel.Step) {
         switch step {
         case .main:
-            UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController = NavigationController(rootViewController: HomeViewController.make())
+            UIApplication.shared.windows.filter { $0.isKeyWindow }.first?.rootViewController = NavigationController(rootViewController: HomeViewController.make(requestReview: true))
         case .paygate:
             let vc = PaygateViewController.make()
             vc.delegate = self

@@ -15,6 +15,18 @@ final class HomeViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private let requestReview: Bool
+    
+    private init(requestReview: Bool) {
+        self.requestReview = requestReview
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -45,6 +57,10 @@ final class HomeViewController: UIViewController {
                 base.route(route)
             })
             .disposed(by: disposeBag)
+        
+        if requestReview {
+            RequestReview.request()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,8 +78,8 @@ final class HomeViewController: UIViewController {
 
 // MARK: Make
 extension HomeViewController {
-    static func make() -> HomeViewController {
-        let vc = HomeViewController()
+    static func make(requestReview: Bool) -> HomeViewController {
+        let vc = HomeViewController(requestReview: requestReview)
         vc.navigationItem.backButtonTitle = " "
         return vc
     }

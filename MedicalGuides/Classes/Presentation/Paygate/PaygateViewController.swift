@@ -29,8 +29,6 @@ final class PaygateViewController: UIViewController {
         FirebaseManager.shared
             .logEvent(name: "client_paygate_screen")
         
-        RequestReview.requestIfNeeded()
-        
         viewModel.questionsCount
             .drive(Binder(mainView) { base, questionsCount in
                 base.setup(questionsCount: questionsCount)

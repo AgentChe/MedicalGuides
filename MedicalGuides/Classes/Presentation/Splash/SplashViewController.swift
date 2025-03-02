@@ -83,7 +83,7 @@ private extension SplashViewController {
         case .onboarding:
             UIApplication.shared.keyWindow?.rootViewController = OnboardingViewController.make()
         case .main:
-            UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: HomeViewController.make())
+            UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: HomeViewController.make(requestReview: false))
         case .paygate:
             let vc = PaygateViewController.make()
             vc.delegate = self
