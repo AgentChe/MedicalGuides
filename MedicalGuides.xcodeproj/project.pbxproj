@@ -76,7 +76,6 @@
 		DE3F60AE2A03F04D00BCC039 /* PushNotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF02A03F04D00BCC039 /* PushNotificationsModel.swift */; };
 		DE3F60AF2A03F04D00BCC039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF12A03F04D00BCC039 /* SceneDelegate.swift */; };
 		DE3F60B02A03F04D00BCC039 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF22A03F04D00BCC039 /* Appearance.swift */; };
-		DE3F60B22A03F04D00BCC039 /* BranchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */; };
 		DE3F60B32A03F04D00BCC039 /* AmplitudeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */; };
 		DE3F60B42A03F04D00BCC039 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */; };
 		DE3F60B52A03F04D00BCC039 /* FacebookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F5EF82A03F04D00BCC039 /* FacebookManager.swift */; };
@@ -342,7 +341,6 @@
 		DE3F5EF02A03F04D00BCC039 /* PushNotificationsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationsModel.swift; sourceTree = "<group>"; };
 		DE3F5EF12A03F04D00BCC039 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DE3F5EF22A03F04D00BCC039 /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BranchManager.swift; sourceTree = "<group>"; };
 		DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmplitudeManager.swift; sourceTree = "<group>"; };
 		DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		DE3F5EF82A03F04D00BCC039 /* FacebookManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookManager.swift; sourceTree = "<group>"; };
@@ -840,7 +838,6 @@
 		DE3F5EF32A03F04D00BCC039 /* Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				DE3F5EF52A03F04D00BCC039 /* BranchManager.swift */,
 				DE3F5EF62A03F04D00BCC039 /* AmplitudeManager.swift */,
 				DE3F5EF72A03F04D00BCC039 /* FirebaseManager.swift */,
 				DE3F5EF82A03F04D00BCC039 /* FacebookManager.swift */,
@@ -2018,7 +2015,6 @@
 				DE3F609A2A03F04D00BCC039 /* SignError.swift in Sources */,
 				DEE102522A1E13BB000ED6AE /* SelectGenderView.swift in Sources */,
 				DE3F61C62A03F14A00BCC039 /* Paygate.swift in Sources */,
-				DE3F60B22A03F04D00BCC039 /* BranchManager.swift in Sources */,
 				DE3F60912A03F04D00BCC039 /* APIRequestBody.swift in Sources */,
 				DE102D752A2B241200149ECA /* BookmarkEmptyView.swift in Sources */,
 				DE512BE52A126B3700BBC661 /* GetDrugsResponse.swift in Sources */,
@@ -2340,7 +2336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2354,7 +2350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.9;
+				MARKETING_VERSION = 1.3.10;
 				PRODUCT_BUNDLE_IDENTIFIER = mobile.guides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2376,7 +2372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = AY43JM5PH6;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2390,7 +2386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.9;
+				MARKETING_VERSION = 1.3.10;
 				PRODUCT_BUNDLE_IDENTIFIER = mobile.guides;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
