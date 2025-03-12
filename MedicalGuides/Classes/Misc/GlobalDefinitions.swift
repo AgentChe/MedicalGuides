@@ -6,7 +6,7 @@
 //
 
 final class GlobalDefinitions {
-    static let domain = "https://medical.awesum-apps.com"
+    static let domain = "https://medical.thinkaboutapps.com"
     static let apiKey = "ovAw1yMyhtwjKjHTweXI"
     
     static let otterScaleHost = "https://api.korrekted.com"
@@ -15,9 +15,9 @@ final class GlobalDefinitions {
     static let applicationTag = "MEDICAL_GUIDES"
     static let amplitudeApiKey = "ad1acf62a1718340f0958c15b7b9dcfc"
     
-    static let termsOfServiceUrl = "https://awesum-apps.com/terms"
-    static let privacyPolicyUrl = "https://awesum-apps.com/policy"
-    static let contactUsUrl = "https://awesum-apps.com/contact"
+    static let termsOfServiceUrl = "https://thinkaboutapps.com/terms"
+    static let privacyPolicyUrl = "https://thinkaboutapps.com/policy"
+    static let contactUsUrl = "https://thinkaboutapps.com/contact"
     
     enum Paygate {
         static let defaultLifetime = "medical.lifetime"

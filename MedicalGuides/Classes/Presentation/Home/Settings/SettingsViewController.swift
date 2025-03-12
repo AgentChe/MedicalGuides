@@ -76,6 +76,6 @@ private extension SettingsViewController {
             return
         }
         
-        UIApplication.shared.open(url)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
